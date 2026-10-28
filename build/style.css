@@ -1,0 +1,72 @@
+@page { size: A4; margin: 16mm 15mm 16mm 15mm; }
+* { box-sizing: border-box; }
+:root { --ink:#1a1a1a; --main:#b3261e; --sub:#1d4ed8; --br:#15803d; --rule:#cfcfcf; --soft:#f4f4f0; }
+body { margin:0; color:var(--ink); background:#fff; font-family:"IPAPGothic","IPAGothic",sans-serif; font-size:10.5pt; line-height:1.75; }
+.en, .fulltext p, .qt, .answers td:last-child, .footnote { font-family:"Liberation Serif","DejaVu Serif",serif; }
+
+.cover { border-bottom:2px solid var(--ink); padding:6mm 0 5mm; margin-bottom:6mm; }
+.kicker { font-size:10pt; letter-spacing:.2em; color:#555; }
+h1 { font-size:22pt; margin:2mm 0 3mm; line-height:1.3; }
+h1 small { font-size:12pt; font-weight:normal; color:#444; }
+.toc { margin:0; padding-left:1.4em; font-size:10pt; color:#333; columns:2; }
+
+.page { break-before:page; }
+h2 { font-size:15pt; border-bottom:1.5px solid var(--ink); padding-bottom:1.5mm; margin:0 0 4mm; }
+h2 .num { display:inline-block; background:var(--ink); color:#fff; width:1.5em; text-align:center; margin-right:.5em; border-radius:2px; }
+h3 { font-size:11.5pt; margin:5mm 0 2.5mm; padding-left:2mm; border-left:4px solid var(--ink); break-after:avoid; }
+
+/* 1. 解答 */
+table.answers { width:100%; border-collapse:collapse; font-size:10pt; }
+.answers th, .answers td { border:1px solid #999; padding:1mm 2mm; vertical-align:top; }
+.answers th { background:var(--soft); }
+.answers td.qn, .answers td.an { text-align:center; white-space:nowrap; width:13mm; }
+.answers td.an { font-weight:bold; font-size:11pt; }
+.qa { margin:0 0 3mm; break-inside:avoid; }
+.qh { font-weight:bold; }
+.qa p { margin:.5mm 0 0 4mm; font-size:10pt; }
+.qt { font-weight:normal; }
+
+/* 完成本文・和訳：色や下線なし */
+.para { display:flex; gap:3mm; margin:0 0 3.2mm; }
+.plabel { flex:none; width:9mm; font-weight:bold; font-family:"Liberation Serif",serif; }
+.para p { margin:0; text-align:justify; }
+.fulltext p { font-size:11.5pt; line-height:1.85; }
+.translation p { line-height:1.95; }
+.footnote { font-size:9pt; color:#333; margin-top:4mm; border-top:1px solid var(--rule); padding-top:1.5mm; }
+
+/* 3. 文構造 */
+.legend { border:1px solid var(--rule); background:var(--soft); padding:3mm 4mm; font-size:9.5pt; line-height:2.9; margin-bottom:3mm; }
+.ph { margin-top:6mm; }
+.sent { position:relative; padding:1mm 0 3mm 9mm; border-bottom:1px dashed var(--rule); margin-bottom:2mm; break-inside:avoid; }
+.sn { position:absolute; left:0; top:4mm; width:6mm; height:6mm; border-radius:50%; border:1px solid var(--ink); font-size:8pt; text-align:center; line-height:5.6mm; }
+.en { font-size:12pt; line-height:3.25; padding-top:1mm; }
+.main { border-bottom:1.6px solid var(--main); -webkit-box-decoration-break:clone; box-decoration-break:clone; padding-bottom:1px; }
+.main.l-V { border-bottom:3px double var(--main); }
+.emph { border-bottom:1.6px dotted var(--main); }
+.tag { display:inline-block; width:0; position:relative; vertical-align:baseline; }
+.tag > span { position:absolute; left:0; white-space:nowrap; font-family:"IPAPGothic",sans-serif; font-weight:bold; line-height:1; }
+.main .tag > span, .emph .tag > span { top:.55em; font-size:8.5pt; color:var(--main); }
+.sub .tag > span { top:-2.7em; font-size:7.5pt; color:var(--sub); }
+.br { color:var(--br); font-weight:bold; }
+.legend .main, .legend .sub { margin-right:.3em; }
+.notes { margin:.5mm 0 1.5mm; padding-left:1.3em; font-size:9.5pt; line-height:1.65; }
+.notes li { margin:.3mm 0; }
+.ja { font-size:10pt; background:var(--soft); padding:1.5mm 2.5mm; border-radius:2px; }
+.jt { display:inline-block; font-size:8.5pt; border:1px solid var(--ink); padding:0 1.2mm; margin-right:2mm; line-height:1.4; }
+
+/* 4. 論理展開 */
+.lg { display:flex; border:1px solid #999; margin-bottom:2.5mm; break-inside:avoid; }
+.lg-h { flex:none; width:30mm; background:var(--soft); border-right:1px solid #999; padding:2mm; }
+.lg-h .plabel { display:block; width:auto; font-size:12pt; }
+.lg-h .role { font-size:9.5pt; font-weight:bold; }
+.lg-b { padding:2mm 3mm; font-size:9.8pt; }
+.lg-b p { margin:0; }
+.lg-b .func { margin-top:1mm; color:#333; }
+.overview .block { border:1.5px solid var(--ink); padding:2.5mm 4mm; break-inside:avoid; }
+.overview .conclusion { border-width:2.5px; }
+.overview .bh { font-weight:bold; margin-bottom:1mm; }
+.overview p { margin:0; font-size:10pt; line-height:1.9; }
+.arrow { text-align:center; font-size:12pt; line-height:1.6; }
+.summary { border:1px solid var(--rule); padding:3mm 4mm; margin:0; line-height:1.95; }
+.points { padding-left:1.3em; font-size:10pt; }
+.points li { margin-bottom:1.5mm; }
