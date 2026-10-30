@@ -70,3 +70,18 @@ table.answers { width:100%; border-collapse:collapse; font-size:10pt; }
 .summary { border:1px solid var(--rule); padding:3mm 4mm; margin:0; line-height:1.95; }
 .points { padding-left:1.3em; font-size:10pt; }
 .points li { margin-bottom:1.5mm; }
+
+/* 3. 文構造（登木式） */
+.pattern { display:inline-block; font-size:8.5pt; border:1px solid var(--ink); padding:0 1.5mm; margin:1mm 0 0; line-height:1.5; }
+.togi .main { border-bottom:none; background:#fff1a6; padding:.1em 0; }
+.togi .main.mm { background:#d3f1cc; }
+.togi .main > .tag > span { top:.75em; font-size:8pt; color:#111; border:1.1px solid #111; border-radius:999px; min-width:1.45em; padding:0 .25em; text-align:center; background:#fff; line-height:1.35; }
+.togi .tag small { font-size:.72em; }
+.togi .sub > .tag > span { color:var(--sub); top:-2.7em; }
+.en.togi { padding-bottom:2.5mm; }
+.togi .lv3 > .tag > span { position:absolute; top:-2.7em; font-size:7.3pt; color:#7c3aed; }
+.togi .gap { color:#b3261e; font-size:.8em; padding:0 .1em; margin-right:1.6em; }
+.togi .gap .tag > span { top:-2.9em; font-size:7.3pt; color:#b3261e; }
+.togi .emph { border-bottom:1.6px dotted #111; }
+.togi .emph > .tag > span { top:.75em; font-size:7.5pt; color:#111; }
+.legend.togi { line-height:3.1; }

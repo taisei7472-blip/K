@@ -4,6 +4,8 @@ import html
 import pathlib
 import re
 
+from syntax import TOGI
+
 HERE = pathlib.Path(__file__).resolve().parent
 OUT = HERE / "passage_v.html"
 
@@ -216,11 +218,12 @@ PARAS = [
 # ---------------------------------------------------------------------------
 # マークアップ → プレーン文 / 注釈付き HTML
 # ---------------------------------------------------------------------------
-BRACKETS = "()[]⟨⟩"
+BRACKETS = "()[]⟨⟩<>"
 
 
 def plain(s):
-    out = re.sub(r"\{[^|{}]+\|", "", s)
+    out = re.sub(r"⟪[^⟫]*⟫", "", s)
+    out = re.sub(r"\{[^|{}]+\|", "", out)
     while re.search(r"\{[^|{}]+\|", out):
         out = re.sub(r"\{[^|{}]+\|", "", out)
     out = out.replace("}", "")
@@ -248,6 +251,55 @@ def annotate(s):
         elif c == "}":
             res.append("</span>")
             i += 1
+        elif c in BRACKETS:
+            res.append(f'<span class="br">{html.escape(c)}</span>')
+            i += 1
+        else:
+            res.append(html.escape(c))
+            i += 1
+    return "".join(res)
+
+
+def label_html(label):
+    """Vt → V＋小さい t、仮S → 小さい仮＋S のように整形する。"""
+    m = re.fullmatch(r"(仮|真)?([SVOCM])('*)(.*)", label)
+    if not m:
+        return html.escape(label)
+    pre, core, primes, suf = m.groups()
+    out = f"<small>{pre}</small>" if pre else ""
+    out += core + primes
+    if suf:
+        out += f"<small>{html.escape(suf)}</small>"
+    return out
+
+
+def annotate_togi(s):
+    """登木式：主節は丸囲みラベル＋黄/緑マーカー、従属節は ' 付きラベル、準動詞は ( ) ラベル。"""
+    res, i = [], 0
+    while i < len(s):
+        c = s[i]
+        if c == "{":
+            j = s.index("|", i)
+            label = s[i + 1:j]
+            if label.startswith("("):
+                kind = "lv3"
+            elif "'" in label:
+                kind = "sub"
+            elif label == "強調":
+                kind = "emph"
+            elif label.endswith("M"):
+                kind = "main mm"
+            else:
+                kind = "main"
+            res.append(f'<span class="{kind}"><span class="tag"><span>{label_html(label)}</span></span>')
+            i = j + 1
+        elif c == "}":
+            res.append("</span>")
+            i += 1
+        elif c == "⟪":
+            j = s.index("⟫", i)
+            res.append(f'<span class="gap"><span class="tag"><span>{html.escape(s[i + 1:j])}</span></span>●</span>')
+            i = j + 1
         elif c in BRACKETS:
             res.append(f'<span class="br">{html.escape(c)}</span>')
             i += 1
@@ -352,29 +404,37 @@ def build():
 </section>""")
 
     # --- 3. 文構造 -----------------------------------------------------------
+    flat = [(label, s) for label, sents in PARAS for s in sents]
+    assert len(flat) == len(TOGI)
+    for (label, s), (tl, _, ann, _) in zip(flat, TOGI):
+        assert label == tl and plain(ann) == plain(s["annotated"]), (plain(ann), plain(s["annotated"]))
     blocks = []
-    n = 0
-    for label, sents in PARAS:
-        blocks.append(f'<h3 class="ph">段落 [{label}]</h3>')
-        for s in sents:
-            n += 1
-            notes = "".join(f"<li>{html.escape(x)}</li>" for x in s["notes"])
-            blocks.append(f"""
+    prev = None
+    for n, ((label, s), (_, pattern, ann, tnotes)) in enumerate(zip(flat, TOGI), 1):
+        if label != prev:
+            blocks.append(f'<h3 class="ph">段落 [{label}]</h3>')
+            prev = label
+        notes = "".join(f"<li>{html.escape(x)}</li>" for x in tnotes)
+        blocks.append(f"""
 <div class="sent">
   <div class="sn">{n}</div>
-  <div class="en">{annotate(s['annotated'])}</div>
+  <div class="pattern">{html.escape(pattern)}</div>
+  <div class="en togi">{annotate_togi(ann)}</div>
   <ul class="notes">{notes}</ul>
   <div class="ja"><span class="jt">訳</span>{s['ja']}</div>
 </div>""")
+    demo = annotate_togi("{S|S} {Vt|V} {O|O} {M|M}")
     parts.append(f"""
 <section class="sec page">
   <h2><span class="num">3</span>文構造（S・V・O・C 書き込み）</h2>
-  <div class="legend">
-    <div><b>記号の見方</b></div>
-    <div><span class="main l-S"><span class="tag"><span>S</span></span>下線＋下のラベル</span>　主節の S（主語）・V（動詞）・O（目的語）・C（補語）</div>
-    <div><span class="sub l-S"><span class="tag"><span>S'</span></span>上のラベル</span>　従属節（関係詞節・that 節・副詞節など）の中の S'・V'・O'・C'</div>
-    <div><span class="br">[ ]</span> 名詞のカタマリ（名詞節）　<span class="br">( )</span> 形容詞のカタマリ（前の名詞を修飾）　<span class="br">⟨ ⟩</span> 副詞のカタマリ（修飾語 M）</div>
-    <div>真S：形式主語 It に対する真主語　強調：It is ～ that … の強調構文</div>
+  <div class="legend togi">
+    <div><b>記号の見方</b>（『英文読解戦略』プリントの表記に合わせています）</div>
+    <div>{demo}　<b>主節（レベル①）</b>：黄色＝S・V・O・C（主役・中心・抽象）、緑色＝M（修飾語・具体・説明）。ラベルは丸囲み（tactics 001・037）</div>
+    <div>V の右下：<b>i</b>＝自動詞（Vi）、<b>t</b>＝他動詞（Vt）、<b>受</b>＝受身（be＋p.p.）</div>
+    <div><b>従属節（レベル②）</b>：S'・V'・O'・C'・M'（さらに内側は S''・V''…）。関係詞の内側で名詞が欠けている位置は <span class="gap">●</span>（S'欠・O'欠）</div>
+    <div><b>準動詞（レベル③）</b>：ing・to do・p.p. の内側のミクロ文型は (V)(O)(M) で表す（tactics 034）</div>
+    <div><span class="br">[ ]</span> 名詞のカタマリ　<span class="br">( )</span> 形容詞のカタマリ　<span class="br">&lt; &gt;</span> 副詞のカタマリ（tactics 037）</div>
+    <div>仮S・真S：形式主語 It と真主語　強調：It is 〜 that … の強調構文</div>
   </div>
   {''.join(blocks)}
 </section>""")
