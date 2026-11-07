@@ -1,0 +1,460 @@
+<!doctype html><html lang="ja"><head><meta charset="utf-8">
+<title>2026年度 英語 解説</title><style>@page { size: A4; margin: 16mm 15mm 16mm 15mm; }
+* { box-sizing: border-box; }
+:root { --ink:#1a1a1a; --main:#b3261e; --sub:#1d4ed8; --br:#15803d; --rule:#cfcfcf; --soft:#f4f4f0; }
+body { margin:0; color:var(--ink); background:#fff; font-family:"IPAPGothic","IPAGothic",sans-serif; font-size:10.5pt; line-height:1.75; }
+.en, .fulltext p, .qt, .answers td:last-child, .footnote { font-family:"Liberation Serif","DejaVu Serif",serif; }
+
+.cover { border-bottom:2px solid var(--ink); padding:6mm 0 5mm; margin-bottom:6mm; }
+.kicker { font-size:10pt; letter-spacing:.2em; color:#555; }
+h1 { font-size:22pt; margin:2mm 0 3mm; line-height:1.3; }
+h1 small { font-size:12pt; font-weight:normal; color:#444; }
+.toc { margin:0; padding-left:1.4em; font-size:10pt; color:#333; columns:2; }
+
+.page { break-before:page; }
+h2 { font-size:15pt; border-bottom:1.5px solid var(--ink); padding-bottom:1.5mm; margin:0 0 4mm; }
+h2 .num { display:inline-block; background:var(--ink); color:#fff; width:1.5em; text-align:center; margin-right:.5em; border-radius:2px; }
+h3 { font-size:11.5pt; margin:5mm 0 2.5mm; padding-left:2mm; border-left:4px solid var(--ink); break-after:avoid; }
+
+/* 1. 解答 */
+table.answers { width:100%; border-collapse:collapse; font-size:10pt; }
+.answers th, .answers td { border:1px solid #999; padding:1mm 2mm; vertical-align:top; }
+.answers th { background:var(--soft); }
+.answers td.qn, .answers td.an { text-align:center; white-space:nowrap; width:13mm; }
+.answers td.an { font-weight:bold; font-size:11pt; }
+.qa { margin:0 0 3mm; break-inside:avoid; }
+.qh { font-weight:bold; }
+.qa p { margin:.5mm 0 0 4mm; font-size:10pt; }
+.qt { font-weight:normal; }
+
+/* 完成本文・和訳：色や下線なし */
+.para { display:flex; gap:3mm; margin:0 0 3.2mm; }
+.plabel { flex:none; width:9mm; font-weight:bold; font-family:"Liberation Serif",serif; }
+.para p { margin:0; text-align:justify; }
+.fulltext p { font-size:11.5pt; line-height:1.85; }
+.translation p { line-height:1.95; }
+.footnote { font-size:9pt; color:#333; margin-top:4mm; border-top:1px solid var(--rule); padding-top:1.5mm; }
+
+/* 3. 文構造 */
+.legend { border:1px solid var(--rule); background:var(--soft); padding:3mm 4mm; font-size:9.5pt; line-height:2.9; margin-bottom:3mm; }
+.ph { margin-top:6mm; }
+.sent { position:relative; padding:1mm 0 3mm 9mm; border-bottom:1px dashed var(--rule); margin-bottom:2mm; break-inside:avoid; }
+.sn { position:absolute; left:0; top:4mm; width:6mm; height:6mm; border-radius:50%; border:1px solid var(--ink); font-size:8pt; text-align:center; line-height:5.6mm; }
+.en { font-size:12pt; line-height:3.25; padding-top:1mm; }
+.main { border-bottom:1.6px solid var(--main); -webkit-box-decoration-break:clone; box-decoration-break:clone; padding-bottom:1px; }
+.main.l-V { border-bottom:3px double var(--main); }
+.emph { border-bottom:1.6px dotted var(--main); }
+.tag { display:inline-block; width:0; position:relative; vertical-align:baseline; }
+.tag > span { position:absolute; left:0; white-space:nowrap; font-family:"IPAPGothic",sans-serif; font-weight:bold; line-height:1; }
+.main .tag > span, .emph .tag > span { top:.55em; font-size:8.5pt; color:var(--main); }
+.sub .tag > span { top:-2.7em; font-size:7.5pt; color:var(--sub); }
+.br { color:var(--br); font-weight:bold; }
+.legend .main, .legend .sub { margin-right:.3em; }
+.notes { margin:.5mm 0 1.5mm; padding-left:1.3em; font-size:9.5pt; line-height:1.65; }
+.notes li { margin:.3mm 0; }
+.ja { font-size:10pt; background:var(--soft); padding:1.5mm 2.5mm; border-radius:2px; }
+.jt { display:inline-block; font-size:8.5pt; border:1px solid var(--ink); padding:0 1.2mm; margin-right:2mm; line-height:1.4; }
+
+/* 4. 論理展開 */
+.lg { display:flex; border:1px solid #999; margin-bottom:2.5mm; break-inside:avoid; }
+.lg-h { flex:none; width:30mm; background:var(--soft); border-right:1px solid #999; padding:2mm; }
+.lg-h .plabel { display:block; width:auto; font-size:12pt; }
+.lg-h .role { font-size:9.5pt; font-weight:bold; }
+.lg-b { padding:2mm 3mm; font-size:9.8pt; }
+.lg-b p { margin:0; }
+.lg-b .func { margin-top:1mm; color:#333; }
+.overview .block { border:1.5px solid var(--ink); padding:2.5mm 4mm; break-inside:avoid; }
+.overview .conclusion { border-width:2.5px; }
+.overview .bh { font-weight:bold; margin-bottom:1mm; }
+.overview p { margin:0; font-size:10pt; line-height:1.9; }
+.arrow { text-align:center; font-size:12pt; line-height:1.6; }
+.summary { border:1px solid var(--rule); padding:3mm 4mm; margin:0; line-height:1.95; }
+.points { padding-left:1.3em; font-size:10pt; }
+.points li { margin-bottom:1.5mm; }
+
+/* 3. 文構造（登木式） */
+.pattern { display:inline-block; font-size:8.5pt; border:1px solid var(--ink); padding:0 1.5mm; margin:1mm 0 0; line-height:1.5; }
+.togi .main { border-bottom:none; background:#fff1a6; padding:.1em 0; }
+.togi .main.mm { background:#d3f1cc; }
+.togi .main > .tag > span { top:.75em; font-size:8pt; color:#111; border:1.1px solid #111; border-radius:999px; min-width:1.45em; padding:0 .25em; text-align:center; background:#fff; line-height:1.35; }
+.togi .tag small { font-size:.72em; }
+.togi .sub > .tag > span { color:var(--sub); top:-2.7em; }
+.en.togi { padding-bottom:2.5mm; }
+.togi .lv3 > .tag > span { position:absolute; top:-2.7em; font-size:7.3pt; color:#7c3aed; }
+.togi .gap { color:#b3261e; font-size:.8em; padding:0 .1em; margin-right:1.6em; }
+.togi .gap .tag > span { top:-2.9em; font-size:7.3pt; color:#b3261e; }
+.togi .emph { border-bottom:1.6px dotted #111; }
+.togi .emph > .tag > span { top:.75em; font-size:7.5pt; color:#111; }
+.legend.togi { line-height:3.1; }
+
+.flow-t { width:100%; border-collapse:collapse; font-size:9.8pt; margin-bottom:3mm; }
+.flow-t td { border:1px solid #999; padding:1.2mm 2mm; vertical-align:top; }
+.flow-t td.p { width:20mm; background:var(--soft); font-weight:bold; white-space:nowrap; }
+.flow-t td.r { width:22mm; font-weight:bold; }
+.ql { margin:0 0 3mm; break-inside:avoid; border-left:3px solid var(--ink); padding-left:3mm; }
+.ql .qh { font-weight:bold; font-size:10.5pt; }
+.ql .ans { display:inline-block; background:#fff1a6; border:1px solid #111; padding:0 2mm; margin-left:2mm; }
+.ql ul { margin:.8mm 0 0; padding-left:1.2em; font-size:9.6pt; line-height:1.7; }
+.tips td { border:1px solid #999; padding:1.2mm 2mm; font-size:10pt; }
+.tips { border-collapse:collapse; width:100%; }
+.tips td:first-child { width:22mm; font-weight:bold; background:var(--soft); white-space:nowrap; }
+
+h2 .num { width:auto; padding:0 .4em; }</style></head><body>
+<div class="cover">
+  <div class="kicker">英文読解戦略プリントで読む　精読 → 設問</div>
+  <h1>2026年度 英語 <small>大問Ⅰ〜Ⅲ 解説</small></h1>
+  <ol class="toc"><li>大問Ⅰ American English</li><li>大問Ⅱ do-gooder derogation</li><li>大問Ⅲ パルテノン・マーブル</li><li>間違えた問題から学ぶこと</li></ol>
+</div>
+<div class="legend togi">
+  <div><span class="main"><span class="tag"><span>S</span></span>S</span> <span class="main"><span class="tag"><span>V<small>t</small></span></span>V</span> <span class="main"><span class="tag"><span>O</span></span>O</span> <span class="main mm"><span class="tag"><span>M</span></span>M</span>　<b>主節</b>：黄色＝S・V・O・C（主役・中心・抽象）、緑色＝M（修飾語・具体・説明）（tactics 001・037）</div>
+  <div>V の右下：<b>i</b>＝自動詞、<b>t</b>＝他動詞、<b>受</b>＝受身　<b>従属節</b>：S'・V'・O'・C'・M'（さらに内側は S''…）</div>
+  <div><span class="gap">●</span>＝関係詞の内側で名詞が欠けている位置　△＝省略　(V)(O)(C)(M)＝準動詞のミクロ文型（tactics 034）</div>
+  <div><span class="br">[ ]</span> 名詞のカタマリ　<span class="br">( )</span> 形容詞のカタマリ　<span class="br">&lt; &gt;</span> 副詞のカタマリ　【推測】＝単語を知らなくても解ける手がかり</div>
+</div>
+<h3>間違えた問題から学ぶこと（大問Ⅰ）</h3>
+<table class="tips"><tr><td>Ⅰ 問5</td><td>fellow のような小さな語に国籍・立場の根拠が隠れている。人物の説明は所有格や fellow まで正確に読む。</td></tr><tr><td>Ⅰ 問9</td><td>知らない単語の直後に It was 〜 や that is のような言い換えがないか探す（chimera＝illusion）。</td></tr><tr><td>Ⅰ 問13</td><td>NOT 問題は、まず「内容が正反対の選択肢」を探す。細かい年代のズレより内容の逆転を優先する。</td></tr></table>
+
+<section class="sec page">
+  <h2><span class="num">Ⅰ</span>大問Ⅰ　American English は英語を壊しているのか</h2>
+  <h3>段落の流れ（速読用）</h3>
+  <table class="flow-t"><tr><td class="p">[1]〜[3]</td><td class="r">問題提起</td><td>イギリス人は昔からアメリカ英語を「野蛮・堕落」と非難してきた（1735年の Moore も、1995年のチャールズ皇太子も同じ）。</td></tr><tr><td class="p">[4]〜[6]</td><td class="r">皮肉・批判</td><td>「野蛮」とは「自分と同じ話し方をしない」というだけのこと。英国には「新しいもの＝アメリカのもの＝悪い」という思い込みがある。</td></tr><tr><td class="p">[7]〜[11]</td><td class="r">筆者の主張</td><td>言語の変化は避けられない。絶対的な権威はない。変わらない言語は死んだ言語である。</td></tr><tr><td class="p">[12]〜[13]</td><td class="r">根拠</td><td>英米の違いは、アメリカがイギリス英語を崩したせいではない。両者が共通の祖先から別々に進化した結果である。</td></tr><tr><td class="p">[14]〜[15]</td><td class="r">結論</td><td>Adams の予言どおり英語は世界に広がった。「変化＝破滅」と考える人にとってだけ、アメリカは英語を壊している。</td></tr></table>
+  <h3>精読：設問に関わる文の構造</h3>
+  
+<div class="sent">
+  <div class="sn">1</div>
+  <div class="pattern">[2]　SVOC の受身（S be p.p. C）</div>
+  <div class="en togi"><span class="main mm"><span class="tag"><span>M</span></span><span class="br">&lt;</span>In 1995<span class="br">&gt;</span></span>, <span class="main mm"><span class="tag"><span>M</span></span><span class="br">&lt;</span>in much the same vein <span class="br">(</span>as the comment 260 years earlier<span class="br">)</span><span class="br">&gt;</span></span>, <span class="main"><span class="tag"><span>S</span></span>His Royal Highness the Prince of Wales</span> <span class="main"><span class="tag"><span>V<small>受</small></span></span>was reported</span> <span class="main mm"><span class="tag"><span>M</span></span><span class="br">&lt;</span>by The Times<span class="br">&gt;</span></span> <span class="main"><span class="tag"><span>C</span></span>as <span class="lv3"><span class="tag"><span>(V)</span></span>complaining</span> <span class="lv3"><span class="tag"><span>(M)</span></span><span class="br">&lt;</span>to a British Council audience<span class="br">&gt;</span></span> <span class="lv3"><span class="tag"><span>(O)</span></span><span class="br">[</span>that <span class="sub"><span class="tag"><span>S'</span></span>American English</span> <span class="sub"><span class="tag"><span>V'</span></span>is</span> <span class="sub"><span class="tag"><span>C'</span></span>‘very corrupting’</span><span class="br">]</span></span></span>.</div>
+  <ul class="notes"><li>report A as doing「A が〜していると報じる」は SVOC。受身にすると C（as complaining 〜）が残る（tactics 018：SVOC ⇒ S be p.p. C）。</li><li>complain that 〜 の that は従接で、内側は完全文（tactics 033②）。</li><li>【推測】vein を知らなくても、same 〜 as the comment 260 years earlier（1735＋260＝1995）から「[1] の Moore の発言と同じ調子・趣旨で」とわかる。→ 問3</li></ul>
+  <div class="ja"><span class="jt">訳</span>1995年、260年前の発言とほぼ同じ調子で、チャールズ皇太子がブリティッシュ・カウンシルの聴衆に「アメリカ英語はひどく堕落を招く」と不満を述べたと『タイムズ』紙が報じた。</div>
+</div>
+<div class="sent">
+  <div class="sn">2</div>
+  <div class="pattern">[2]　SV（受身）＋仮定法過去完了</div>
+  <div class="en togi"><span class="main mm"><span class="tag"><span>M</span></span><span class="br">&lt;</span>By this time<span class="br">&gt;</span></span> <span class="main"><span class="tag"><span>S</span></span>the barbarous use <span class="br">(</span>of bluff<span class="br">)</span> <span class="br">(</span>for a steep bank<span class="br">)</span></span> <span class="main"><span class="tag"><span>V<small>受</small></span></span>had been civilized</span> <span class="main mm"><span class="tag"><span>M</span></span><span class="br">&lt;</span>by <span class="lv3"><span class="tag"><span>(V受)</span></span>being adopted</span> <span class="lv3"><span class="tag"><span>(M)</span></span><span class="br">&lt;</span>into the usage <span class="br">(</span>of the motherland<span class="br">)</span><span class="br">&gt;</span></span><span class="br">&gt;</span></span>, but <span class="main mm"><span class="tag"><span>M</span></span>doubtless</span> <span class="main mm"><span class="tag"><span>M</span></span><span class="br">&lt;</span>if <span class="sub"><span class="tag"><span>S'</span></span>the Prince</span> <span class="sub"><span class="tag"><span>V'<small>i</small></span></span>had lived</span> <span class="sub"><span class="tag"><span>M'</span></span>about nine generations earlier</span><span class="br">&gt;</span></span>, <span class="main"><span class="tag"><span>S</span></span>he</span> <span class="main"><span class="tag"><span>V<small>t</small></span></span>would have agreed</span> <span class="main mm"><span class="tag"><span>M</span></span><span class="br">&lt;</span>with Francis Moore<span class="br">&gt;</span></span> <span class="main"><span class="tag"><span>O</span></span><span class="br">[</span>that <span class="sub"><span class="tag"><span>S'</span></span>bluff</span> <span class="sub"><span class="tag"><span>V'</span></span>is</span> <span class="sub"><span class="tag"><span>C'</span></span>a word <span class="br">(</span>that <span class="gap"><span class="tag"><span>S&#x27;&#x27;欠</span></span>●</span> <span class="sub"><span class="tag"><span>V''</span></span>shouldn’t be</span><span class="br">)</span></span><span class="br">]</span></span>.</div>
+  <ul class="notes"><li>骨格は barbarous（野蛮な）⇔ civilized（文明化された）の対比。「野蛮な使い方」が「まともな語」になった、という流れ。</li><li>being adopted は前置詞 by の後ろの動名詞（受身）。ミクロ文型は (V受)(M)（tactics 034）。</li><li>motherland＝アメリカから見た「母国」＝イギリス。→ 問2</li><li>if S&#x27; had p.p., S would have p.p. は仮定法過去完了。agree with A that 〜「〜という点で A に同意する」。</li></ul>
+  <div class="ja"><span class="jt">訳</span>この頃までには、急な土手を指す bluff という野蛮な使い方も、母国の語法に取り入れられて洗練されていた。だが、皇太子が9世代ほど前に生きていたら、bluff は存在すべきでない語だという点で、きっと Moore に同意していただろう。</div>
+</div>
+<div class="sent">
+  <div class="sn">3</div>
+  <div class="pattern">[4]　SVO ; SVO（関係詞 who の中に V&#x27; が2つ）</div>
+  <div class="en togi"><span class="main"><span class="tag"><span>S</span></span>We</span> <span class="main"><span class="tag"><span>V<small>t</small></span></span>owe</span> <span class="main"><span class="tag"><span>O</span></span>the term barbarous</span> <span class="main mm"><span class="tag"><span>M</span></span><span class="br">&lt;</span>to the Greeks<span class="br">&gt;</span></span>; <span class="main"><span class="tag"><span>S</span></span>they</span> <span class="main"><span class="tag"><span>V<small>t</small></span></span>pitied</span> <span class="main"><span class="tag"><span>O</span></span>the poor foreigner <span class="br">(</span>who <span class="gap"><span class="tag"><span>S&#x27;欠</span></span>●</span> <span class="sub"><span class="tag"><span>V'</span></span>could only stammer</span> <span class="sub"><span class="tag"><span>O'</span></span>‘bar-bar’</span> and <span class="sub"><span class="tag"><span>M'</span></span>hence</span> <span class="sub"><span class="tag"><span>V'</span></span>was</span> <span class="sub"><span class="tag"><span>C'</span></span>a ‘barbaros’</span><span class="br">)</span></span>.</div>
+  <ul class="notes"><li>owe A to B「A は B のおかげだ（A の由来は B）」。</li><li>who の中は S が欠けた不完全文（tactics 031）。could only stammer と was の2つの V&#x27; を and が結んでいる（tactics 010・029）。</li></ul>
+  <div class="ja"><span class="jt">訳</span>barbarous という語はギリシャ人に由来する。彼らは「バルバル」としか口ごもれず、それゆえ「バルバロス」である哀れな外国人を気の毒がったのだ。</div>
+</div>
+<div class="sent">
+  <div class="sn">4</div>
+  <div class="pattern">[4]　SVC（S＝C）</div>
+  <div class="en togi"><span class="main"><span class="tag"><span>S</span></span>Barbarians</span> <span class="main"><span class="tag"><span>V</span></span>are</span> <span class="main mm"><span class="tag"><span>M</span></span>simply</span> <span class="main"><span class="tag"><span>C</span></span>those <span class="br">(</span>who <span class="gap"><span class="tag"><span>S&#x27;欠</span></span>●</span> <span class="sub"><span class="tag"><span>V'<small>i</small></span></span>do not talk</span> <span class="sub"><span class="tag"><span>M'</span></span><span class="br">&lt;</span>as we do<span class="br">&gt;</span></span><span class="br">)</span></span>, <span class="main mm"><span class="tag"><span>M</span></span><span class="br">&lt;</span>whether <span class="sub"><span class="tag"><span>S'</span></span>they</span> <span class="sub"><span class="tag"><span>V'</span></span>are</span> <span class="sub"><span class="tag"><span>C'</span></span>outsiders, Yanks or fellow countrymen and countrywomen <span class="br">(</span>whose style we do not admire<span class="br">)</span></span><span class="br">&gt;</span></span>.</div>
+  <ul class="notes"><li>S＝C（tactics 019）。simply は「単に〜にすぎない」。「野蛮人＝自分と同じ話し方をしない人にすぎない」→ 純粋主義者を冷ややかに見る、筆者の皮肉なトーン（問4）。</li><li>whether 〜 は「〜であろうと」の副詞のカタマリ（M）。whose style は admire の O が前に出たもの。</li></ul>
+  <div class="ja"><span class="jt">訳</span>野蛮人とは、自分たちと同じ話し方をしない人にすぎない。それが外国人だろうと、ヤンキーだろうと、話し方の気に入らない同国人だろうと。</div>
+</div>
+<div class="sent">
+  <div class="sn">5</div>
+  <div class="pattern">[5]　SVC＋関係詞 who（see A as B）</div>
+  <div class="en togi"><span class="main"><span class="tag"><span>S</span></span>The journalist Edwin Newman</span> <span class="main"><span class="tag"><span>V</span></span>is</span> <span class="main"><span class="tag"><span>C</span></span>a linguistic prophet <span class="br">(</span>who <span class="gap"><span class="tag"><span>S&#x27;欠</span></span>●</span> <span class="sub"><span class="tag"><span>V'<small>t</small></span></span>sees</span> <span class="sub"><span class="tag"><span>O'</span></span>the language style <span class="br">(</span>of his fellow Americans<span class="br">)</span></span> <span class="sub"><span class="tag"><span>M'</span></span>as deadly</span><span class="br">)</span></span>.</div>
+  <ul class="notes"><li>The journalist と Edwin Newman は同格（名詞のシゴト⑦：tactics 003）。</li><li>see A as B「A を B とみなす」。who の中は S 欠（tactics 031）。</li><li>his fellow Americans の fellow は「仲間の・同じ立場の」→「彼と同じアメリカ人」。Newman はアメリカ人。→ 問5</li></ul>
+  <div class="ja"><span class="jt">訳</span>ジャーナリストのエドウィン・ニューマンは、同胞のアメリカ人の言葉づかいを致命的だとみなす言語の予言者である。</div>
+</div>
+<div class="sent">
+  <div class="sn">6</div>
+  <div class="pattern">[6]　SV and V受（分詞構文＝理由）</div>
+  <div class="en togi"><span class="main"><span class="tag"><span>S</span></span>A knowledgeable British author</span> <span class="main"><span class="tag"><span>V<small>i</small></span></span>complained</span> <span class="main mm"><span class="tag"><span>M</span></span><span class="br">&lt;</span>about the supposedly American pronunciation conTROVersy<span class="br">&gt;</span></span> and <span class="main"><span class="tag"><span>V<small>受</small></span></span>was surprised</span> <span class="main mm"><span class="tag"><span>M</span></span><span class="br">&lt;</span>to hear <span class="br">[</span>that <span class="sub"><span class="tag"><span>S'</span></span>the antepenult accent</span> <span class="sub"><span class="tag"><span>V'</span></span>is</span> <span class="sub"><span class="tag"><span>C'</span></span>unknown</span> <span class="sub"><span class="tag"><span>M'</span></span><span class="br">&lt;</span>in the States<span class="br">&gt;</span></span>, <span class="sub"><span class="tag"><span>M'</span></span><span class="br">&lt;</span>being a recent British innovation<span class="br">&gt;</span></span><span class="br">]</span><span class="br">&gt;</span></span>.</div>
+  <ul class="notes"><li>complained と was surprised の2つの V を and が結ぶ（tactics 010・029）。to hear は感情の原因の to do（M）。</li><li>being 〜 は分詞のカタマリが M になったもの（分詞構文：tactics 052②）。ミクロ S は the accent（tactics 040）→「最近のイギリスの新しい発音なので」と理由を表す。→ 問8</li></ul>
+  <div class="ja"><span class="jt">訳</span>ある博識なイギリス人作家は、アメリカ風とされる conTROVersy という発音に不満を述べたが、第3音節前のアクセントは最近のイギリスの新しい発音なのでアメリカでは知られていないと聞いて驚いた。</div>
+</div>
+<div class="sent">
+  <div class="sn">7</div>
+  <div class="pattern">[7]　There＋V＋S（no の同形反復）＋though</div>
+  <div class="en togi">There <span class="main"><span class="tag"><span>V<small>i</small></span></span>are</span> <span class="main"><span class="tag"><span>S</span></span>no objective criteria <span class="br">(</span>for judging worth in language<span class="br">)</span>, no linguistic Tables of the Law, no archetypical authority <span class="br">(</span>called ‘The Dictionary’<span class="br">)</span></span>, <span class="main mm"><span class="tag"><span>M</span></span><span class="br">&lt;</span>though there <span class="sub"><span class="tag"><span>V'<small>i</small></span></span>are</span> <span class="sub"><span class="tag"><span>S'</span></span>wannabe authoritarians</span> <span class="sub"><span class="tag"><span>M'</span></span>aplenty</span><span class="br">&gt;</span></span>.</div>
+  <ul class="notes"><li>no 〜 が3回くり返される同形反復で、「絶対的な権威は存在しない」ことを強調している。</li><li>though は従接なので前後が対比になる。「権威はない。けれども権威者になりたがる人はたくさんいる」。</li><li>【推測】wannabe＝want to be（〜になりたがる人）、authoritarian＝authority（権威）＋-ian（人）、aplenty＝plenty（たくさん）。→ 問6</li></ul>
+  <div class="ja"><span class="jt">訳</span>言語の価値を判断する客観的基準も、言語の十戒も、『辞書』と呼ばれる原型的権威も存在しない。もっとも、権威者気取りの人はたくさんいるのだが。</div>
+</div>
+<div class="sent">
+  <div class="sn">8</div>
+  <div class="pattern">[8]　SVC（S＝C）</div>
+  <div class="en togi">But <span class="main"><span class="tag"><span>S</span></span>a language or anything else <span class="br">(</span>that <span class="gap"><span class="tag"><span>S&#x27;欠</span></span>●</span> <span class="sub"><span class="tag"><span>V'<small>i</small></span></span>does not change</span><span class="br">)</span></span> <span class="main"><span class="tag"><span>V</span></span>is</span> <span class="main"><span class="tag"><span>C</span></span>dead</span>.</div>
+  <ul class="notes"><li>S＝C（tactics 019）。「変化しないもの＝死んでいる」。裏返すと「変化する＝生きている」。→ 問7</li><li>that は関・名の that で、中は S が欠けている（tactics 033①）。</li></ul>
+  <div class="ja"><span class="jt">訳</span>だが、変化しない言語は、いや言語に限らず変化しないものはすべて、死んでいるのだ。</div>
+</div>
+<div class="sent">
+  <div class="sn">9</div>
+  <div class="pattern">[9]　長い S（同格 that）＋ V＋C → 言い換え</div>
+  <div class="en togi"><span class="main"><span class="tag"><span>S</span></span>The eighteenth-century hope <span class="br">[</span>that <span class="sub"><span class="tag"><span>S'</span></span>a language</span> <span class="sub"><span class="tag"><span>V'<small>受</small></span></span>could be ‘fixed’</span> — that is, improved, or changed <span class="br">&lt;</span>in a way <span class="br">(</span>△ <span class="sub"><span class="tag"><span>S''</span></span>some self-appointed linguistic judge</span> <span class="sub"><span class="tag"><span>V''<small>t</small></span></span>would approve of</span> <span class="gap"><span class="tag"><span>O&#x27;&#x27;欠</span></span>●</span><span class="br">)</span><span class="br">&gt;</span> <span class="br">&lt;</span>until it reached a state of perfection<span class="br">&gt;</span> and then preserved <span class="br">&lt;</span>so that it would not thereafter degenerate or change in a way <span class="br">(</span>△ the judge disliked ●<span class="br">)</span><span class="br">&gt;</span><span class="br">]</span></span> — <span class="main"><span class="tag"><span>V</span></span>was</span> <span class="main"><span class="tag"><span>C</span></span>a chimera</span>. <span class="main"><span class="tag"><span>S</span></span>It</span> <span class="main"><span class="tag"><span>V</span></span>was</span> <span class="main"><span class="tag"><span>C</span></span>an illusion <span class="br">(</span>based on misunderstandings about the nature of language, values and human nature<span class="br">)</span></span>.</div>
+  <ul class="notes"><li>S がとても長いので、まず V を探す（tactics 036）。主節の V は was。</li><li>hope [that 〜] は同格の that で、内側は完全文（tactics 033②）。</li><li>a way △ some … judge would approve of ● は「名詞＋SV」で、関係詞の省略（tactics 030）。approve of の O が欠けている。</li><li>【推測】chimera を知らなくても、次の文 It was an illusion で言い換えられている → chimera＝幻想。→ 問9</li></ul>
+  <div class="ja"><span class="jt">訳</span>言語は「固定」できる、つまり自称言語審判が認める形で完成の域に達するまで改良・変更され、その後は審判の嫌うように劣化・変化しないよう保存できる、という18世紀の希望は、幻想にすぎなかった。それは、言語と価値と人間性の本質を誤解したことから生まれた幻想だった。</div>
+</div>
+<div class="sent">
+  <div class="sn">10</div>
+  <div class="pattern">[10]　SV（change from A to B）</div>
+  <div class="en togi"><span class="main mm"><span class="tag"><span>M</span></span><span class="br">&lt;</span>During the recorded history of English<span class="br">&gt;</span></span>, <span class="main"><span class="tag"><span>S</span></span>the language</span> <span class="main"><span class="tag"><span>V<small>i</small></span></span>has changed</span> <span class="main mm"><span class="tag"><span>M</span></span><span class="br">&lt;</span>from something quite incomprehensible <span class="br">(</span>to a present-day English speaker<span class="br">)</span>, <span class="br">(</span>which <span class="sub"><span class="tag"><span>S'</span></span>we</span> <span class="sub"><span class="tag"><span>V'<small>t</small></span></span>call</span> <span class="gap"><span class="tag"><span>O&#x27;欠</span></span>●</span> <span class="sub"><span class="tag"><span>C'</span></span>Old English</span><span class="br">)</span><span class="br">&gt;</span></span> … <span class="main mm"><span class="tag"><span>M</span></span><span class="br">&lt;</span>to something equally incomprehensible <span class="br">(</span>to many of us<span class="br">)</span><span class="br">&gt;</span></span>, computerspeak ….</div>
+  <ul class="notes"><li>change from A to B「A から B へ変化する」。A＝古英語、B＝コンピュータ言葉。</li><li>which の中は call O C の O が欠けた不完全文（tactics 031）。computerspeak は something と同格。</li><li>has changed は現在完了 → 変化は今も続いている。→ 問11</li></ul>
+  <div class="ja"><span class="jt">訳</span>記録に残る英語の歴史の中で、英語は、現代の話者にはまったく理解できない古英語と呼ばれるものから、私たちの多くにとって同じくらい理解できないもの、つまりコンピュータ言葉へと変化してきた。</div>
+</div>
+<div class="sent">
+  <div class="sn">11</div>
+  <div class="pattern">[13]　not 〜. Rather …（否定 → 肯定）</div>
+  <div class="en togi"><span class="main"><span class="tag"><span>S</span></span>The differences <span class="br">(</span>between American and British<span class="br">)</span></span> <span class="main"><span class="tag"><span>V</span></span>are not</span> <span class="main"><span class="tag"><span>C</span></span><span class="br">&lt;</span>due to <span class="br">[</span><span class="lv3"><span class="tag"><span>(S)</span></span>Americans</span> <span class="lv3"><span class="tag"><span>(V)</span></span>changing</span> <span class="lv3"><span class="tag"><span>(M)</span></span><span class="br">&lt;</span>from a British standard<span class="br">&gt;</span></span><span class="br">]</span><span class="br">&gt;</span></span>. <span class="main"><span class="tag"><span>S</span></span>American</span> <span class="main"><span class="tag"><span>V</span></span><span class="br">[</span> A <span class="br">]</span></span> <span class="main"><span class="tag"><span>C</span></span>corrupt British <span class="br">[</span> B <span class="br">]</span> barbarisms</span>. <span class="main mm"><span class="tag"><span>M</span></span>Rather</span>, <span class="main"><span class="tag"><span>S</span></span>both American and British</span> <span class="main"><span class="tag"><span>V<small>i</small></span></span>evolved</span> <span class="main mm"><span class="tag"><span>M</span></span><span class="br">&lt;</span>in different ways<span class="br">&gt;</span></span> <span class="main mm"><span class="tag"><span>M</span></span><span class="br">&lt;</span>from a common sixteenth-century ancestral standard<span class="br">&gt;</span></span>.</div>
+  <ul class="notes"><li>Americans changing は「名詞＋ing」で、名詞を意味上の S として読む（tactics 032②）→「アメリカ人が変えたこと」。</li><li>not 〜 . Rather …「〜ではない。むしろ…だ」。前の文が否定なので、空所の文も否定（is not）で続く。→ 問12</li></ul>
+  <div class="ja"><span class="jt">訳</span>英米の違いは、アメリカ人がイギリスの標準から変えたことによるのではない。アメリカ英語は、崩れたイギリス英語に野蛮な語を足したもの、ではないのだ。むしろ英米の英語はともに、16世紀の共通の祖先から別々の形で進化したのである。</div>
+</div>
+<div class="sent">
+  <div class="sn">12</div>
+  <div class="pattern">[14]　SVC＋because 節（S&#x27; の後ろに分詞の挿入）</div>
+  <div class="en togi"><span class="main"><span class="tag"><span>S</span></span>The reason <span class="br">(</span>of this<span class="br">)</span></span> <span class="main"><span class="tag"><span>V</span></span>is</span> <span class="main"><span class="tag"><span>C</span></span>obvious</span>, <span class="main mm"><span class="tag"><span>M</span></span><span class="br">&lt;</span>because <span class="sub"><span class="tag"><span>S'</span></span>the increasing population <span class="br">(</span>in America<span class="br">)</span>, and their universal connection and correspondence <span class="br">(</span>with all nations<span class="br">)</span></span> <span class="sub"><span class="tag"><span>V'</span></span>will</span>, <span class="sub"><span class="tag"><span>M'</span></span><span class="br">&lt;</span>aided by the influence of England in the world, whether great or small<span class="br">&gt;</span></span>, <span class="sub"><span class="tag"><span>V'</span></span>force</span> <span class="sub"><span class="tag"><span>O'</span></span>their language</span> <span class="sub"><span class="tag"><span>M'</span></span><span class="br">&lt;</span>into general use<span class="br">&gt;</span></span><span class="br">&gt;</span></span>.</div>
+  <ul class="notes"><li>because の中の V&#x27; は will … force。間に aided by 〜（過去分詞の M&#x27;）が割り込んでいる（tactics 027「S V のアイダの M」）。</li><li>アメリカの人口増加は、英語を世界に広げる「プラスの要因」として描かれている。→ 問13</li></ul>
+  <div class="ja"><span class="jt">訳</span>その理由は明らかだ。アメリカの人口増加と、あらゆる国とのつながりや交流が、イギリスの世界的影響力の大小にかかわらずその助けを得て、彼らの言語を一般的に使われるものにするからだ。</div>
+</div>
+</section>
+<section class="sec page">
+  <h3>設問解説（大問Ⅰ）</h3>
+  
+<div class="ql"><div class="qh">問1　筆者の意見<span class="ans">c</span></div>
+<ul><li>[7] Change in language is inevitable と [8] no one is required to like any changes を合わせると c。</li><li>a は「どんな変化も歓迎すべき」が [8] と矛盾。b は [9] で chimera と否定された考え。d は [11] と逆（交流しないと違いが増える）。</li></ul></div>
+<div class="ql"><div class="qh">問2　bluff について正しいもの<span class="ans">c</span></div>
+<ul><li>根拠は [2] had been civilized by being <b>adopted</b> into the usage of the <b>motherland</b>。</li><li>【推測】adopted＝選択肢の accepted。motherland＝アメリカ人の母国＝イギリス。barbarous ⇔ civilized の対比から「野蛮な語がまともな語として受け入れられた」とわかる。</li><li>b「元の意味を失った」は書かれていない（意味は a steep bank のまま）。</li></ul></div>
+<div class="ql"><div class="qh">問3　皇太子の発言に言及する意図<span class="ans">c</span></div>
+<ul><li>in much the same vein as the comment 260 years earlier。1735年と1995年で同じ批判がある → 批判は現代まで続いている。</li></ul></div>
+<div class="ql"><div class="qh">問4　[4] のトーン<span class="ans">b（ironic and sceptical）</span></div>
+<ul><li>One way Americans are ruining English is by changing it は字面どおりではない。筆者は [7] で変化は避けられないと言っているので、「変えたら壊したことになるの？」という皮肉。</li><li>Barbarians are <b>simply</b> those who do not talk as we do の simply（〜にすぎない）にも注目。「野蛮」というレッテルは身内びいきにすぎない、と冷ややかに見ている。</li><li>a・c・d は純粋主義者側の態度。</li></ul></div>
+<div class="ql"><div class="qh">問5　[5] について NOT true<span class="ans">a</span></div>
+<ul><li><b>※ 間違えた問題。</b> [5] his <b>fellow</b> Americans から、Newman はアメリカ人。a の「イギリス人」が誤り。</li><li>b：verbosity（冗長）・euphemism（婉曲）に反対 → 冗長の反対＝簡潔なので simple and plain と一致。</li><li>c：A number of Americans bemoan … と一致。d：make a career of it（それで身を立てる）＝professional success と一致。</li></ul></div>
+<div class="ql"><div class="qh">問6　下線(2)の意味<span class="ans">b</span></div>
+<ul><li>【推測】wannabe＝want to be、authoritarian＝authority の人、aplenty＝plenty → Many people want to …。</li><li>though の前で「権威は存在しない」と言っているので、後ろは「でも権威者になりたがる人はたくさんいる」＝他人の言葉を統制したがる人が多い。</li></ul></div>
+<div class="ql"><div class="qh">問7　下線(3)が示唆すること<span class="ans">b</span></div>
+<ul><li>does not change＝dead を裏返すと change＝alive。vitality（生命力）は dead の反対、adapt over time は change の言い換え。</li></ul></div>
+<div class="ql"><div class="qh">問8　controversy の発音を論じる理由<span class="ans">c</span></div>
+<ul><li>unknown in the States, <b>being</b> a recent British innovation の分詞構文（理由）。</li><li>[6] の主旨は「新しいもの＝アメリカ製、という思い込み」なので、その思い込みが外れている例として挙げている。</li></ul></div>
+<div class="ql"><div class="qh">問9　下線(4)が含意すること<span class="ans">c</span></div>
+<ul><li><b>※ 間違えた問題。</b> 直後の It was <b>an illusion</b> based on misunderstandings が言い換え → chimera＝幻想。</li><li>主語の「言語を fixed（固定）できるという希望」が immutability（im-＋mutable＝変わらないこと）にあたり、それが a myth（作り話）にすぎない、となる。</li><li>d「英語は混成言語」は本文で話題になっていない。</li></ul></div>
+<div class="ql"><div class="qh">問10　[11]〜[13] の要約<span class="ans">b</span></div>
+<ul><li>[13] Rather, both American and British evolved in different ways の言い換え。</li><li>a は Present-day British is no closer … than present-day American is と矛盾（むしろアメリカ英語のほうが保守的）。</li></ul></div>
+<div class="ql"><div class="qh">問11　下線(5)を挙げる理由<span class="ans">d</span></div>
+<ul><li>change from A（Old English）to B（computerspeak）は、昔から現在までの変化の流れ。has changed（現在完了）と最新の computerspeak から「今も変化中」。evolving は changed の言い換え。</li></ul></div>
+<div class="ql"><div class="qh">問12　空所 A・B<span class="ans">c（is not／plus）</span></div>
+<ul><li>前の not due to … と、後ろの Rather から、A は否定の is not。</li><li>「アメリカ英語は、崩れたイギリス英語に野蛮な語を足したもの（plus）ではない」となるので B は plus。</li></ul></div>
+<div class="ql"><div class="qh">問13　Adams の考えに NOT in line<span class="ans">b</span></div>
+<ul><li><b>※ 間違えた問題。</b> Adams はアメリカの人口増加と世界とのつながりが英語を広めると言っている（プラス要因）。b の「アメリカ人のせいで劣化する」は正反対。</li><li>c・d は本文と一致。</li><li>補足：a の「18〜19世紀」は、1780年から見れば「次とその次の世紀」なので厳密には19〜20世紀。ただし内容が正反対なのは b だけなので、答えは b。NOT 問題はまず「内容が逆転している選択肢」を探す。</li></ul></div>
+</section>
+<section class="sec page">
+  <h2><span class="num">Ⅱ</span>大問Ⅱ　なぜ「いい人すぎる人」は癪にさわるのか</h2>
+  <h3>段落の流れ（速読用）</h3>
+  <table class="flow-t"><tr><td class="p">[1]〜[3]</td><td class="r">現象の提示</td><td>親切な善人をなぜか疑ってしまう。心理学では「do-gooder derogation（善人けなし）」と呼ぶ。進化上の理由がある。</td></tr><tr><td class="p">[4]〜[9]</td><td class="r">実験1</td><td>公共財ゲームでは、ケチなただ乗りだけでなく、最も利他的な人も罰され、追い出された。8歳ごろから現れる、世界共通の傾向。</td></tr><tr><td class="p">[10]〜[16]</td><td class="r">理由</td><td>利他性は評判を生むが、評判は「相対的（positional）」。他人の善行は自分の地位を下げるので、警戒・反感が生まれる。</td></tr><tr><td class="p">[17]〜[21]</td><td class="r">実験2</td><td>利益が偶然なら問題ないが、利益が動機だと知ると「利己的」と評価が逆転する。私たちの疑いは直感にすぎず、正しいとは限らない。</td></tr><tr><td class="p">[22]〜[27]</td><td class="r">教訓</td><td>他人には疑わしきは罰せず。自分の善行は控えめに。得をしたら正直に。最善はこっそり行い、誰かに見つけてもらうこと（Wilde）。</td></tr></table>
+  <h3>精読：設問に関わる文の構造</h3>
+  
+<div class="sent">
+  <div class="sn">1</div>
+  <div class="pattern">[1]　SVO（O が that 節）</div>
+  <div class="en togi"><span class="main mm"><span class="tag"><span>M</span></span><span class="br">&lt;</span>without any good reason to think so<span class="br">&gt;</span></span>, <span class="main"><span class="tag"><span>S</span></span>you</span> <span class="main"><span class="tag"><span>V<small>t</small></span></span>suspect</span> <span class="main"><span class="tag"><span>O</span></span><span class="br">[</span>that there <span class="sub"><span class="tag"><span>V'<small>i</small></span></span>’s</span> <span class="sub"><span class="tag"><span>S'</span></span>something <span class="br">[</span> A <span class="br">]</span></span> <span class="sub"><span class="tag"><span>M'</span></span><span class="br">&lt;</span>about their altruism<span class="br">&gt;</span></span><span class="br">]</span></span>.</div>
+  <ul class="notes"><li>something＋形容詞は後ろから修飾（something calculated）。suspect that 〜「〜ではないかと疑う」はマイナスの内容を導く。→ 問2</li></ul>
+  <div class="ja"><span class="jt">訳</span>とくに理由もないのに、彼らの利他的な行為には何か計算があるのではないかと疑ってしまう。</div>
+</div>
+<div class="sent">
+  <div class="sn">2</div>
+  <div class="pattern">[2]　SVC（S が動名詞のカタマリ）</div>
+  <div class="en togi"><span class="main"><span class="tag"><span>S</span></span><span class="br">[</span><span class="lv3"><span class="tag"><span>(V)</span></span>Finding</span> <span class="lv3"><span class="tag"><span>(O)</span></span>yourself</span> <span class="lv3"><span class="tag"><span>(C)</span></span>taking such an uncharitable attitude <span class="br">(</span>towards people <span class="br">(</span>who are only trying to make the world a better place<span class="br">)</span><span class="br">)</span></span><span class="br">]</span></span> <span class="main"><span class="tag"><span>V</span></span>might feel</span> <span class="main"><span class="tag"><span>C</span></span>uncomfortable</span>.</div>
+  <ul class="notes"><li>文頭の ing で、後ろに V（might feel）がある → ing のカタマリは名詞で S（tactics 028・041）。</li><li>find O C（O が C しているのに気づく）のミクロ文型 (V)(O)(C)（tactics 034）。</li><li>people who are <b>only</b> trying to make the world a better place → 善人に悪意はない（問14のヒント）。</li></ul>
+  <div class="ja"><span class="jt">訳</span>世界をよくしようとしているだけの人々に、自分がそんな意地の悪い態度をとっていると気づくのは、落ち着かないことかもしれない。</div>
+</div>
+<div class="sent">
+  <div class="sn">3</div>
+  <div class="pattern">[5]　SVOO の受身（O が1つ残る）</div>
+  <div class="en togi"><span class="main"><span class="tag"><span>S</span></span>Participants</span> <span class="main"><span class="tag"><span>V<small>受</small></span></span>were then given</span> <span class="main"><span class="tag"><span>O</span></span>the possibility <span class="br">(</span>of <span class="lv3"><span class="tag"><span>(V)</span></span>contributing</span> <span class="lv3"><span class="tag"><span>(O)</span></span>some of that income</span> <span class="lv3"><span class="tag"><span>(M)</span></span><span class="br">&lt;</span>to a communal pool<span class="br">&gt;</span></span> <span class="lv3"><span class="tag"><span>(M)</span></span><span class="br">&lt;</span>in each round of a game<span class="br">&gt;</span></span><span class="br">)</span></span>.</div>
+  <ul class="notes"><li>give O₁ O₂ の受身 → O（the possibility）が1つ残る（tactics 018・022）。</li><li>possibility＝「〜する可能性・選択肢」。出すかどうかは任意で、義務ではない。→ 問3</li></ul>
+  <div class="ja"><span class="jt">訳</span>参加者はそれから、各ラウンドで、その所持金の一部を共同の資金に出す機会を与えられた。</div>
+</div>
+<div class="sent">
+  <div class="sn">4</div>
+  <div class="pattern">[6]　SVO＋by doing（A and B）</div>
+  <div class="en togi"><span class="main"><span class="tag"><span>S</span></span>Those <span class="br">(</span>who are very stingy<span class="br">)</span></span>, however, <span class="main"><span class="tag"><span>V<small>t</small></span></span>can game</span> <span class="main"><span class="tag"><span>O</span></span>the system</span> <span class="main mm"><span class="tag"><span>M</span></span><span class="br">&lt;</span>by <span class="lv3"><span class="tag"><span>(V)</span></span>paying</span> <span class="lv3"><span class="tag"><span>(O)</span></span>very little</span> themselves and <span class="lv3"><span class="tag"><span>(V)</span></span>reaping</span> <span class="lv3"><span class="tag"><span>(O)</span></span>the rewards of others’ investments</span><span class="br">&gt;</span></span>.</div>
+  <ul class="notes"><li>by の後ろの paying と reaping を and が並べる（tactics 029）。game the system「制度を悪用する」。</li></ul>
+  <div class="ja"><span class="jt">訳</span>しかし、ひどくケチな人は、自分はほとんど払わず他人の出資の利益を得ることで、仕組みを悪用できる。</div>
+</div>
+<div class="sent">
+  <div class="sn">5</div>
+  <div class="pattern">[7]　SVOC（expect O to do）→ however で転換</div>
+  <div class="en togi"><span class="main mm"><span class="tag"><span>M</span></span><span class="br">&lt;</span>Given classic economic theory<span class="br">&gt;</span></span>, <span class="main"><span class="tag"><span>S</span></span>you</span> <span class="main"><span class="tag"><span>V<small>t</small></span></span>might expect</span> <span class="main"><span class="tag"><span>O</span></span>the stingy free-riders</span> <span class="main"><span class="tag"><span>C</span></span>to receive those punishments</span> — and that was indeed the case. <span class="main mm"><span class="tag"><span>M</span></span><span class="br">[</span> B <span class="br">]</span></span>, however, <span class="main"><span class="tag"><span>S</span></span>the <span class="br">[</span> C <span class="br">]</span> altruistic participants</span> <span class="main"><span class="tag"><span>V<small>受</small></span></span>were also targeted</span> — <span class="main mm"><span class="tag"><span>M</span></span><span class="br">&lt;</span>even though <span class="sub"><span class="tag"><span>S'</span></span>they</span> <span class="sub"><span class="tag"><span>V'</span></span>were contributing</span> <span class="sub"><span class="tag"><span>O'</span></span>more than their fair share</span> <span class="sub"><span class="tag"><span>M'</span></span><span class="br">&lt;</span>to the others’ riches<span class="br">&gt;</span></span><span class="br">&gt;</span></span>.</div>
+  <ul class="notes"><li>expect O to do は SVOC（tactics 062）。O と C に主述関係（ただ乗りが罰を受ける）。</li><li>however と also から、ここで「予想どおり」→「予想外」に転換する。B は驚きの語（Amazingly）。</li><li>C は even though … more than their fair share と [8] the <b>extreme</b> altruists から most。→ 問5</li></ul>
+  <div class="ja"><span class="jt">訳</span>古典的な経済理論からすれば、ケチなただ乗りが罰を受けると予想するだろうし、実際そうだった。ところが驚いたことに、最も利他的な参加者も標的にされた。彼らは他人の利益に、公平な分担以上の貢献をしていたにもかかわらず。</div>
+</div>
+<div class="sent">
+  <div class="sn">6</div>
+  <div class="pattern">[11]　SVOC（help O to do）＋関係詞</div>
+  <div class="en togi"><span class="main mm"><span class="tag"><span>M</span></span><span class="br">&lt;</span>In the case of altruism<span class="br">&gt;</span></span>, <span class="main"><span class="tag"><span>S</span></span><span class="br">[</span> D <span class="br">]</span> acts</span> <span class="main"><span class="tag"><span>V<small>t</small></span></span>could help</span> <span class="main"><span class="tag"><span>O</span></span>us</span> <span class="main"><span class="tag"><span>C</span></span>to foster good relationships <span class="br">(</span>within the group<span class="br">)</span> <span class="br">(</span>which <span class="gap"><span class="tag"><span>S&#x27;欠</span></span>●</span>, <span class="br">&lt;</span>over time<span class="br">&gt;</span>, <span class="sub"><span class="tag"><span>V'<small>t</small></span></span>help</span> <span class="sub"><span class="tag"><span>O'</span></span>to build social capital and status</span><span class="br">)</span></span>.</div>
+  <ul class="notes"><li>help O to do「O が〜するのを助ける」。</li><li>which の後ろの V&#x27; は help で、s が付いていない → 先行詞は複数の relationships（group ではない）。V の形で先行詞を決める。</li><li>空所 D は In the case of altruism を受けて generous（気前のよい）。→ 問7</li></ul>
+  <div class="ja"><span class="jt">訳</span>利他性の場合、気前のよい行為は集団内のよい関係を育むのに役立ち、その関係が時間とともに社会的な資本や地位を築くのに役立つのだ。</div>
+</div>
+<div class="sent">
+  <div class="sn">7</div>
+  <div class="pattern">[16]　SVO（O の中が強調構文）</div>
+  <div class="en togi"><span class="main"><span class="tag"><span>S</span></span>she</span> <span class="main"><span class="tag"><span>V<small>t</small></span></span>found</span> <span class="main"><span class="tag"><span>O</span></span><span class="br">[</span>△ <span class="emph"><span class="tag"><span>強調</span></span>it’s</span> often the highest <span class="br">(</span>as well as the lowest<span class="br">)</span> givers <span class="emph"><span class="tag"><span>強調</span></span>who</span> <span class="gap"><span class="tag"><span>S&#x27;欠</span></span>●</span> choose to remain anonymous<span class="br">]</span></span>.</div>
+  <ul class="notes"><li>found の後ろは that の省略（tactics 005①・024）。</li><li>it’s 〜 who … は強調構文（tactics 095）。who の後ろは S が欠けた不完全文。</li></ul>
+  <div class="ja"><span class="jt">訳</span>匿名を選ぶのは、最も少なく寄付する人だけでなく、最も多く寄付する人であることが多いと彼女はわかった。</div>
+</div>
+<div class="sent">
+  <div class="sn">8</div>
+  <div class="pattern">[21]　SVO — and SVO＋when 節 → 言い換え</div>
+  <div class="en togi"><span class="main"><span class="tag"><span>S</span></span>we</span> <span class="main"><span class="tag"><span>V</span></span>are constantly trying to second-guess</span> <span class="main"><span class="tag"><span>O</span></span>the reasons <span class="br">(</span>for others’ actions<span class="br">)</span></span> — and <span class="main"><span class="tag"><span>S</span></span>we</span> <span class="main"><span class="tag"><span>V<small>t</small></span></span>punish</span> <span class="main"><span class="tag"><span>O</span></span>people</span> <span class="main mm"><span class="tag"><span>M</span></span>harshly</span> <span class="main mm"><span class="tag"><span>M</span></span><span class="br">&lt;</span>when <span class="sub"><span class="tag"><span>S'</span></span>we</span> <span class="sub"><span class="tag"><span>V'<small>t</small></span></span>suspect</span> <span class="sub"><span class="tag"><span>O'</span></span><span class="br">[</span>that their motives are impure<span class="br">]</span></span><span class="br">&gt;</span></span>. <span class="main"><span class="tag"><span>S</span></span>Those instinctive suspicions</span> <span class="main"><span class="tag"><span>V</span></span>may or may not be</span> <span class="main"><span class="tag"><span>C</span></span>true</span>.</div>
+  <ul class="notes"><li>【推測】and の後ろの suspect と、次の文の Those instinctive <b>suspicions</b> が second-guess の言い換え → 「疑う」。→ 問9</li><li>may or may not be true「正しいかもしれないし、そうでないかもしれない」→ 判断の根拠は直感。→ 問10</li></ul>
+  <div class="ja"><span class="jt">訳</span>私たちは他人の行動の理由を絶えず勘ぐり、動機が不純だと疑うと厳しく罰する。もちろん、そうした本能的な疑いは正しいとは限らない。</div>
+</div>
+<div class="sent">
+  <div class="sn">9</div>
+  <div class="pattern">[22]　SVOO（give O₁ O₂）＋分詞構文</div>
+  <div class="en togi"><span class="main mm"><span class="tag"><span>M</span></span><span class="br">&lt;</span>If there’s no good evidence <span class="br">(</span>to suggest <span class="br">[</span>that their acts of generosity are self-serving<span class="br">]</span><span class="br">)</span><span class="br">&gt;</span></span>, <span class="main"><span class="tag"><span>S</span></span>we</span> <span class="main"><span class="tag"><span>V</span></span>may choose to give</span> <span class="main"><span class="tag"><span>O</span></span>them</span> <span class="main"><span class="tag"><span>O</span></span>the benefit of the doubt</span>, <span class="main mm"><span class="tag"><span>M</span></span><span class="br">&lt;</span><span class="lv3"><span class="tag"><span>(V)</span></span>knowing</span> <span class="lv3"><span class="tag"><span>(O)</span></span><span class="br">[</span>that our uncharitable intuitions may be fuelled by our own fears of losing status<span class="br">]</span></span><span class="br">&gt;</span></span>.</div>
+  <ul class="notes"><li>give O₁ the benefit of the doubt「（証拠がないので）O₁ を善意に解釈する」。</li><li>knowing 〜 は分詞構文で、ミクロ S は文全体の S の we（tactics 040・052②）。→ 問8 b の根拠</li></ul>
+  <div class="ja"><span class="jt">訳</span>彼らの善行が私利私欲のためだという確かな証拠がなければ、意地の悪い直感は自分の地位を失う恐れからきているかもしれないと心得て、善意に解釈することを選んでもよい。</div>
+</div>
+<div class="sent">
+  <div class="sn">10</div>
+  <div class="pattern">[23]　if 節＋SVO</div>
+  <div class="en togi">And <span class="main mm"><span class="tag"><span>M</span></span><span class="br">&lt;</span>if <span class="sub"><span class="tag"><span>S'</span></span>people</span> <span class="sub"><span class="tag"><span>V'<small>t</small></span></span>bring</span> <span class="sub"><span class="tag"><span>O'</span></span><span class="br">[</span> F <span class="br">]</span></span> <span class="sub"><span class="tag"><span>M'</span></span>up</span><span class="br">&gt;</span></span>, <span class="main"><span class="tag"><span>S</span></span>you</span> <span class="main"><span class="tag"><span>V</span></span>should <span class="br">[</span> G <span class="br">]</span></span> <span class="main"><span class="tag"><span>O</span></span>them</span>, says Raihani.</div>
+  <ul class="notes"><li>bring O up「O を話題にする」。前の文の your good deeds を受けるので F＝them。</li><li>前後の avoid noisily broadcasting（言いふらすな）と err on the side of modesty（控えめに）から G＝downplay。→ 問11</li></ul>
+  <div class="ja"><span class="jt">訳</span>「人がそれを話題にしたら、控えめに扱うべきだ」とライハニは言う。</div>
+</div>
+<div class="sent">
+  <div class="sn">11</div>
+  <div class="pattern">[26]　SVC（C が to do）</div>
+  <div class="en togi"><span class="main mm"><span class="tag"><span>M</span></span>Ultimately</span>, <span class="main"><span class="tag"><span>S</span></span>the only fool-proof way <span class="br">(</span>to avoid do-gooder derogation<span class="br">)</span></span> <span class="main"><span class="tag"><span>V</span></span>may be</span> <span class="main"><span class="tag"><span>C</span></span><span class="br">[</span>to do your best deeds in complete secret<span class="br">]</span></span>.</div>
+  <ul class="notes"><li>S＝C（tactics 019）。「善人けなしを避ける唯一確実な方法＝完全に秘密で善行をすること」→ 問13 b の反証。</li></ul>
+  <div class="ja"><span class="jt">訳</span>結局のところ、善人けなしを避ける唯一確実な方法は、最善の善行を完全に秘密で行うことかもしれない。</div>
+</div>
+<div class="sent">
+  <div class="sn">12</div>
+  <div class="pattern">[27]　SVC（C が to do and (to) have O 原形）</div>
+  <div class="en togi"><span class="main"><span class="tag"><span>S</span></span>The nicest feeling <span class="br">(</span>in the world<span class="br">)</span></span> <span class="main"><span class="tag"><span>V</span></span>is</span> <span class="main"><span class="tag"><span>C</span></span><span class="br">[</span>to do a good deed anonymously — and <span class="br">(</span>to<span class="br">)</span> have somebody find out<span class="br">]</span></span>.</div>
+  <ul class="notes"><li>C は to do 〜 と (to) have O 原形 を and で並べたもの。have O do は使役（tactics 051）。</li><li>anonymously（匿名で）＝自分からは言わない → 見せびらかさない。→ 問12</li></ul>
+  <div class="ja"><span class="jt">訳</span>世界で最も素晴らしい気分は、匿名で善行をし、そして誰かにそれを見つけてもらうことだ。</div>
+</div>
+</section>
+<section class="sec page">
+  <h3>設問解説（大問Ⅱ）</h3>
+  
+<div class="ql"><div class="qh">問1　do-gooder derogation が不可解な理由<span class="ans">b</span></div>
+<ul><li>puzzling＝本文の seemingly irrational／wholly irrational。何が不合理かというと、[7] even though they were contributing more than their fair share to the others’ riches（他人に貢献しているのに罰される）こと。</li><li>d は、経済理論が予測したのは「ただ乗りが罰される」ことで、「貢献者が報われる」とは書かれていない。</li></ul></div>
+<div class="ql"><div class="qh">問2　空所 A<span class="ans">a（calculated）</span></div>
+<ul><li>【推測】you suspect（疑う）なのでマイナスの内容。直前の too pleased with their good deeds（ご満悦すぎる）と [13] cunning and manipulative（ずる賢く操作的）から「善行の裏に計算がある」→ calculated。</li><li>miscalculated（計算違い）、uncalculated（打算のない）、recalculated（再計算した）は「疑い」にならない。</li></ul></div>
+<div class="ql"><div class="qh">問3　公共財ゲームについて NOT true<span class="ans">a</span></div>
+<ul><li>本文は given the <b>possibility</b> of contributing（出すのは任意）。a の were <b>required</b> to（義務）が矛盾。</li><li>b は [7][8] と一致（parsimonious＝stingy）。c は [9] universal tendency と一致。</li></ul></div>
+<div class="ql"><div class="qh">問4　実験の並べ替え<span class="ans">a（(3)→(2)→(4)→(1)）</span></div>
+<ul><li>[18] presented participants with various vignettes＝(3)、asked them to rate＝(2)。その後に結果の (1)[19] と (4)[20] が続く。(3)(2) で始まるのは a だけ。</li></ul></div>
+<div class="ql"><div class="qh">問5　空所 B・C<span class="ans">b（Amazingly／most）</span></div>
+<ul><li>however があるので、B は「予想どおり」の反対＝驚き（Expectedly は不可）。</li><li>C は even though … more than their fair share と [8] the <b>extreme</b> altruists から most。</li></ul></div>
+<div class="ql"><div class="qh">問6　下線(1) hardwired<span class="ans">b（inherent）</span></div>
+<ul><li>【推測】hard＋wired＝「配線が固定された」。文脈の evolved（進化した）と pass on our genes（遺伝子を受け継ぐ）から「遺伝的に組み込まれた＝生まれつきの」。</li></ul></div>
+<div class="ql"><div class="qh">問7　空所 D<span class="ans">c（generous）</span></div>
+<ul><li>直前の In the case of altruism（利他性の場合）を受ける → 利他的＝気前のよい行為。general／generic／genius は形の似た語のワナ。</li></ul></div>
+<div class="ql"><div class="qh">問8　Carlson の実験から推論できるもの<span class="ans">b と e</span></div>
+<ul><li>b：[21] Those instinctive suspicions may or may not be true と [22] give them the benefit of the doubt →「善人への反感は根拠がないこともある」。</li><li>e：[19][20] 同じ善行でも、利益が偶然か動機かで評価が逆転する → 人は結果よりも意図を見ている。</li><li>c は [17] we value integrity and honesty（誠実さも重視）と矛盾。</li></ul></div>
+<div class="ql"><div class="qh">問9　下線(2) second-guess<span class="ans">b（question or doubt）</span></div>
+<ul><li>【推測】and の後ろの we punish … when we <b>suspect</b> … は同じ方向の内容。次の文の Those instinctive <b>suspicions</b> も言い換え。</li><li>second（もう一度）＋guess（推測）＝「人の動機をあれこれ勘ぐる」。</li></ul></div>
+<div class="ql"><div class="qh">問10　空所 E<span class="ans">a（intuition rather than hard facts）</span></div>
+<ul><li>直前の Those <b>instinctive</b> suspicions may or may not be true から、判断の根拠は直感。[22] の our uncharitable <b>intuitions</b> も言い換え。</li></ul></div>
+<div class="ql"><div class="qh">問11　空所 F・G<span class="ans">c（them／downplay）</span></div>
+<ul><li>前文 avoid noisily broadcasting your good deeds、後文 err on the side of modesty。人が your good deeds を話題にしたら（bring them up）控えめに扱え（downplay）。us では「人が私たちを話題にしたら」で意味が通らない。</li></ul></div>
+<div class="ql"><div class="qh">問12　下線(3)と合うもの<span class="ans">b</span></div>
+<ul><li>anonymously（匿名で）＝自分では言わない → not … show off と一致。[26] the good reputation that follows is simply a bonus（評判は結果としてついてくるおまけ）と同じ趣旨。</li><li>d「利他的な行為は必ず報われる」は言い過ぎ。</li></ul></div>
+<div class="ql"><div class="qh">問13　記事について NOT true<span class="ans">b</span></div>
+<ul><li>本文は [26] で do your best deeds in complete secret を勧めている。b の「秘密にするのは避けるべき」は正反対。</li></ul></div>
+<div class="ql"><div class="qh">問14　rub you up the wrong way<span class="ans">a（annoy you unintentionally）</span></div>
+<ul><li>猫の毛を逆向きになでる →「逆なでする」。</li><li>【推測】善人は only trying to make the world a better place（よくしようとしているだけ）なのに、こちらは insufferable と感じる。悪意がないので「意図せずに」苛立たせる。辞書でもこの熟語は「意図せず人を苛立たせる」と説明されている。</li></ul></div>
+</section>
+<section class="sec page">
+  <h2><span class="num">Ⅲ</span>大問Ⅲ　パルテノン・マーブル論争（返還を主張するコラム）</h2>
+  <h3>段落の流れ（速読用）</h3>
+  <table class="flow-t"><tr><td class="p">[1]〜[2]</td><td class="r">導入（皮肉）</td><td>スナク首相の子どもっぽい態度。国民は無関心で、半数以上は返還に賛成。英国にとっては学術的な口論だが、ギリシャにとっては深い恨み（非対称な論争）。</td></tr><tr><td class="p">[3]〜[6]</td><td class="r">反論つぶし</td><td>法的所有権・保存の功績・見る人の数・複製で十分、という議論を一つずつ退ける。ギリシャ人にとっては「本物であること」が重要。</td></tr><tr><td class="p">[7]〜[9]</td><td class="r">批判</td><td>帝国主義の後に残った傲慢さ。大博物館は他国の文化財を私物のように抱え込み、地下に眠らせている。</td></tr><tr><td class="p">[10]〜[11]</td><td class="r">結論</td><td>世界は返還の流れにある（仏・独）。博物館は物を持ちすぎ。マーブルの返還はすぐれた前例になる。</td></tr></table>
+  <h3>精読：設問に関わる文の構造</h3>
+  
+<div class="sent">
+  <div class="sn">1</div>
+  <div class="pattern">[1]　SVO＋like 〜（M）</div>
+  <div class="en togi"><span class="main"><span class="tag"><span>S</span></span>Rishi Sunak</span> <span class="main"><span class="tag"><span>V<small>t</small></span></span>screeches</span> <span class="main"><span class="tag"><span>O</span></span>“Mine, mine”</span> <span class="main mm"><span class="tag"><span>M</span></span><span class="br">&lt;</span>like a child <span class="br">(</span>in a playground<span class="br">)</span><span class="br">&gt;</span></span>.</div>
+  <ul class="notes"><li>【推測】screech を知らなくても、“Mine, mine”（ぼくの！）と like a child in a playground から駄々っ子のイメージ → demanding and immature。→ 問1</li></ul>
+  <div class="ja"><span class="jt">訳</span>リシ・スナクは遊び場の子どものように「ぼくの、ぼくの」と金切り声をあげている。</div>
+</div>
+<div class="sent">
+  <div class="sn">2</div>
+  <div class="pattern">[1]　SV — SVO（O の中は that 省略）</div>
+  <div class="en togi"><span class="main"><span class="tag"><span>S</span></span>The nation</span> <span class="main"><span class="tag"><span>V<small>i</small></span></span><span class="br">[</span> A <span class="br">]</span></span> — <span class="main"><span class="tag"><span>S</span></span>polls</span> <span class="main"><span class="tag"><span>V<small>t</small></span></span>show</span> <span class="main"><span class="tag"><span>O</span></span><span class="br">[</span>△ <span class="sub"><span class="tag"><span>S'</span></span>over half</span> <span class="sub"><span class="tag"><span>V'</span></span>are</span> <span class="sub"><span class="tag"><span>C'</span></span><span class="br">[</span> B <span class="br">]</span></span> <span class="sub"><span class="tag"><span>M'</span></span><span class="br">&lt;</span>to see the marbles returned<span class="br">&gt;</span></span> and <span class="sub"><span class="tag"><span>S'</span></span>just above 20%</span> <span class="sub"><span class="tag"><span>V'<small>t</small></span></span>want</span> <span class="sub"><span class="tag"><span>O'</span></span>them</span> <span class="sub"><span class="tag"><span>C'</span></span>to stay</span><span class="br">]</span></span>.</div>
+  <ul class="notes"><li>show の後ろは that の省略（tactics 005①・010）。</li><li>over half are [B] と just above 20% want them to stay の対比 → 半数以上は返還に前向き＝happy。</li><li>首相の大騒ぎに、野党党首は laughs、国民は yawns（あくび＝無関心）。→ 問2</li></ul>
+  <div class="ja"><span class="jt">訳</span>国民はあくびをしている。世論調査では半数以上がマーブルの返還を喜んで受け入れ、残すべきだとするのは2割強にすぎない。</div>
+</div>
+<div class="sent">
+  <div class="sn">3</div>
+  <div class="pattern">[2]　SVC（S が what のカタマリ）</div>
+  <div class="en togi">But <span class="main mm"><span class="tag"><span>M</span></span><span class="br">&lt;</span>as any visitor <span class="br">(</span>to <span class="br">[</span> C <span class="br">]</span><span class="br">)</span> knows<span class="br">&gt;</span></span>, <span class="main"><span class="tag"><span>S</span></span><span class="br">[</span>what <span class="gap"><span class="tag"><span>S&#x27;欠</span></span>●</span> <span class="sub"><span class="tag"><span>M'</span></span>to <span class="br">[</span> D <span class="br">]</span></span> <span class="sub"><span class="tag"><span>V'</span></span>is</span> <span class="sub"><span class="tag"><span>C'</span></span>a boring scholastic quarrel</span><span class="br">]</span></span> <span class="main"><span class="tag"><span>V</span></span>is</span> <span class="main mm"><span class="tag"><span>M</span></span>to <span class="br">[</span> E <span class="br">]</span></span> <span class="main"><span class="tag"><span>C</span></span>a burning sense of grievance <span class="br">(</span>that <span class="gap"><span class="tag"><span>S&#x27;欠</span></span>●</span> will not go away<span class="br">)</span></span>.</div>
+  <ul class="notes"><li>V は knows・is・is・will go の4つ、接続の役は as・what・that の3つで数が合う（V の数の法則：tactics 010）。</li><li>what の中は S が欠けた不完全文（tactics 044）。「D にとっては退屈な学術的口論であるもの」が S。</li><li>boring scholastic quarrel（持っている側）⇔ burning sense of grievance（奪われた側）の対比 → D＝Britain、E＝Greeks。恨みを知るのはギリシャを訪れた人 → C＝Greece。→ 問3</li></ul>
+  <div class="ja"><span class="jt">訳</span>だがギリシャを訪れた人なら誰でも知っているように、英国にとっては退屈な学術的口論にすぎないものが、ギリシャ人にとっては消えることのない燃えるような恨みなのだ。</div>
+</div>
+<div class="sent">
+  <div class="sn">4</div>
+  <div class="pattern">[3]　仮S真S＋but SVOC → And so what?</div>
+  <div class="en togi"><span class="main"><span class="tag"><span>S</span></span>It</span> <span class="main"><span class="tag"><span>V</span></span>is</span> <span class="main"><span class="tag"><span>C</span></span>true</span> <span class="main"><span class="tag"><span>S</span></span><span class="br">[</span>that <span class="sub"><span class="tag"><span>S'</span></span>more people</span> <span class="sub"><span class="tag"><span>V'<small>t</small></span></span>see</span> <span class="sub"><span class="tag"><span>O'</span></span>the marbles</span> <span class="sub"><span class="tag"><span>M'</span></span>in London</span> <span class="sub"><span class="tag"><span>M'</span></span><span class="br">&lt;</span>than they would △ in Athens<span class="br">&gt;</span></span><span class="br">]</span></span>, but <span class="main"><span class="tag"><span>S</span></span>they</span> <span class="main"><span class="tag"><span>V<small>t</small></span></span>do not see</span> <span class="main"><span class="tag"><span>O</span></span>them</span> <span class="main"><span class="tag"><span>C</span></span>complete</span>. And so what?</div>
+  <ul class="notes"><li>It は仮主語、that 節が真主語。would の後ろは see them の省略。</li><li>It is true that 〜, but …（確かに〜だが）の譲歩 → 反論。see O C は「O を C の状態で見る」→ 完全な形では見ていない。</li><li>And so what?（それがどうした）で論点を切り捨てている。→ 問4</li></ul>
+  <div class="ja"><span class="jt">訳</span>確かにアテネよりロンドンのほうがマーブルを見る人は多いが、完全な形で見ているわけではない。それがどうしたというのか。</div>
+</div>
+<div class="sent">
+  <div class="sn">5</div>
+  <div class="pattern">[5]　仮定法の if 省略（倒置）</div>
+  <div class="en togi"><span class="main mm"><span class="tag"><span>M</span></span><span class="br">&lt;</span>Were <span class="sub"><span class="tag"><span>S'</span></span>the marbles</span> <span class="sub"><span class="tag"><span>V'<small>受</small></span></span>cast</span> <span class="sub"><span class="tag"><span>M'</span></span>from bronze</span>, like St Mark’s horses in Venice or David in Florence<span class="br">&gt;</span></span>, <span class="main"><span class="tag"><span>S</span></span>they</span> <span class="main"><span class="tag"><span>V<small>受</small></span></span>could be copied</span> <span class="main mm"><span class="tag"><span>M</span></span>over and again</span>.</div>
+  <ul class="notes"><li>仮定法で if を省略すると、条件部分が疑問文の語順（倒置）になる（tactics 005⑥）。＝ If the marbles were cast from bronze …。</li></ul>
+  <div class="ja"><span class="jt">訳</span>もしマーブルがヴェネツィアのサン・マルコの馬やフィレンツェのダビデ像のようにブロンズで鋳造されていたら、何度でも複製できるだろう。</div>
+</div>
+<div class="sent">
+  <div class="sn">6</div>
+  <div class="pattern">[6]　SVO ×3（Instead で対比）</div>
+  <div class="en togi">And <span class="main mm"><span class="tag"><span>M</span></span>surely</span> <span class="main"><span class="tag"><span>S</span></span>a <span class="br">[</span> F <span class="br">]</span> country <span class="br">(</span>such as Britain<span class="br">)</span></span> <span class="main"><span class="tag"><span>V<small>t</small></span></span>should have</span> <span class="main"><span class="tag"><span>O</span></span>the <span class="br">[</span> G <span class="br">]</span> <span class="br">(</span>to oblige<span class="br">)</span></span>. <span class="main"><span class="tag"><span>S</span></span>It</span> <span class="main"><span class="tag"><span>V<small>t</small></span></span>has</span> <span class="main"><span class="tag"><span>O</span></span>the power <span class="br">(</span>to restore integrity to this stupendous composition<span class="br">)</span></span> …. <span class="main mm"><span class="tag"><span>M</span></span>Instead</span> <span class="main"><span class="tag"><span>S</span></span>it</span> <span class="main"><span class="tag"><span>V<small>t</small></span></span>humiliates</span> <span class="main"><span class="tag"><span>O</span></span>itself</span> <span class="main mm"><span class="tag"><span>M</span></span><span class="br">&lt;</span>by taking umbrage over a cup of tea<span class="br">&gt;</span></span>.</div>
+  <ul class="notes"><li>【推測】Instead it <b>humiliates</b> itself（その代わり自ら恥をさらしている）と対比 →「本来は品位を示すべきなのに」→ G＝dignity（humiliate の反対）。have the dignity to do「品位をもって〜する」。</li><li>dignity と合う F は cultured（教養ある）。arrogance は [7] で筆者が批判する態度そのものなので不可。→ 問6</li></ul>
+  <div class="ja"><span class="jt">訳</span>そして英国のような教養ある国なら、きっと品位をもって応じるべきだ。英国には、この壮大な作品の完全性を回復させる力がある。それなのに、お茶一杯のことで腹を立てて自ら恥をさらしているのだ。</div>
+</div>
+<div class="sent">
+  <div class="sn">7</div>
+  <div class="pattern">[8]　SVOO（deny O₁ O₂）／as if の仮定法</div>
+  <div class="en togi"><span class="main"><span class="tag"><span>S</span></span>They</span> <span class="main"><span class="tag"><span>V<small>t</small></span></span>want to deny</span> <span class="main"><span class="tag"><span>O</span></span>newly emergent countries</span> <span class="main"><span class="tag"><span>O</span></span>the scope <span class="br">(</span>to acquire similar collections<span class="br">)</span></span> <span class="main mm"><span class="tag"><span>M</span></span><span class="br">&lt;</span>by refusing to dispose or de-acquisition their vast reserves<span class="br">&gt;</span></span>. <span class="main"><span class="tag"><span>S</span></span>Many</span> <span class="main"><span class="tag"><span>V<small>t</small></span></span>have</span> <span class="main"><span class="tag"><span>O</span></span>the vast amount of their works</span> <span class="main mm"><span class="tag"><span>M</span></span><span class="br">&lt;</span>in store<span class="br">&gt;</span></span>, <span class="main mm"><span class="tag"><span>M</span></span><span class="br">&lt;</span>as if <span class="sub"><span class="tag"><span>S'</span></span>they</span> <span class="sub"><span class="tag"><span>V'</span></span>were</span> <span class="sub"><span class="tag"><span>C'</span></span>the private property <span class="br">(</span>of their custodians<span class="br">)</span></span><span class="br">&gt;</span></span>.</div>
+  <ul class="notes"><li>deny O₁ O₂「O₁ から O₂ を奪う・与えない」（tactics 022 の「奪う」シリーズ）。</li><li>as if S&#x27; were 〜「まるで〜であるかのように」（事実は私物ではない）。fanatically reactionary とあわせて、博物館を「貪欲な保管者」と描いている。→ 問9</li></ul>
+  <div class="ja"><span class="jt">訳</span>これらの施設は、膨大な所蔵品を手放すことを拒み、新興国が同様のコレクションを得る余地を奪おうとしている。多くの館は、まるで管理者の私物であるかのように、膨大な作品を倉庫にしまい込んでいる。</div>
+</div>
+<div class="sent">
+  <div class="sn">8</div>
+  <div class="pattern">[10]　SV＋if not（たとえ〜でないにしても）</div>
+  <div class="en togi"><span class="main"><span class="tag"><span>S</span></span>Museum walls</span> <span class="main"><span class="tag"><span>V<small>i</small></span></span>are now crumbling</span> <span class="main mm"><span class="tag"><span>M</span></span>ideologically</span> <span class="main mm"><span class="tag"><span>M</span></span><span class="br">&lt;</span>if not physically<span class="br">&gt;</span></span>.</div>
+  <ul class="notes"><li>if not 〜「たとえ〜でないにしても」（if＋語：tactics 093）。「物理的には崩れていなくても、思想的には崩れつつある」という比喩。</li><li>直後のフランス・ドイツの返還プログラムが具体例 → 従来の正当化が力を失っている。→ 問11</li></ul>
+  <div class="ja"><span class="jt">訳</span>博物館の壁は、物理的にではないにしても、思想的には今や崩れつつある。</div>
+</div>
+<div class="sent">
+  <div class="sn">9</div>
+  <div class="pattern">[11]　SVO＋関係詞 that（S 欠）</div>
+  <div class="en togi"><span class="main"><span class="tag"><span>S</span></span>The V&amp;A’s director, Tristram Hunt</span>, <span class="main mm"><span class="tag"><span>M</span></span><span class="br">&lt;</span>this week<span class="br">&gt;</span></span> <span class="main"><span class="tag"><span>V<small>t</small></span></span>floated</span> <span class="main"><span class="tag"><span>O</span></span>a reform <span class="br">(</span>of the 1983 National Heritage Act<span class="br">)</span> <span class="br">(</span>that <span class="gap"><span class="tag"><span>S&#x27;欠</span></span>●</span> <span class="sub"><span class="tag"><span>M'</span></span>at present</span> <span class="sub"><span class="tag"><span>V'<small>t</small></span></span>curbs</span> <span class="sub"><span class="tag"><span>O'</span></span>certain museums</span> <span class="sub"><span class="tag"><span>M'</span></span><span class="br">&lt;</span>from “de-acquisitioning”<span class="br">&gt;</span></span><span class="br">)</span></span>.</div>
+  <ul class="notes"><li>that の後ろの V&#x27; は curbs（三単現）→ 先行詞は単数の the 1983 National Heritage Act（tactics 031）。</li><li>curb A from doing「A が〜するのを抑える」。</li></ul>
+  <div class="ja"><span class="jt">訳</span>V&amp;A 館長のトリストラム・ハントは今週、現在一部の博物館の「収蔵品の放出」を制限している1983年国家遺産法の改正を提案した。</div>
+</div>
+</section>
+<section class="sec page">
+  <h3>設問解説（大問Ⅲ）</h3>
+  
+<div class="ql"><div class="qh">問1　screeches の含意<span class="ans">b（demanding and immature）</span></div>
+<ul><li>“Mine, mine” と like a child in a playground から駄々っ子のイメージ。</li></ul></div>
+<div class="ql"><div class="qh">問2　空所 A・B<span class="ans">d（yawns／happy）</span></div>
+<ul><li>B：over half are [B] to see … returned と just above 20% want them to stay の対比 → 返還に前向き＝happy。</li><li>A：首相の騒ぎに野党党首は laughs、国民は相手にしない → 退屈・無関心の yawns。</li></ul></div>
+<div class="ql"><div class="qh">問3　空所 C・D・E<span class="ans">d（Greece／Britain／Greeks）</span></div>
+<ul><li>boring scholastic quarrel ⇔ burning sense of grievance の対比。恨みを抱くのは奪われた側（E＝Greeks）、退屈な口論と思っているのは持っている側（D＝Britain）。その恨みを知るのはギリシャを訪れた人（C＝Greece）。直後の asymmetrical row（非対称な口論）とも一致。</li></ul></div>
+<div class="ql"><div class="qh">問4　「ロンドンのほうが多くの人が見られる」という議論への態度<span class="ans">c（無関係・誤解を招くとして退ける）</span></div>
+<ul><li>It is true that 〜, but … で譲歩 → they do not see them complete で反論 → And so what?（それがどうした）と切り捨て、ピラミッドの例で皮肉っている。</li></ul></div>
+<div class="ql"><div class="qh">問5　複製と本物についての見解<span class="ans">b</span></div>
+<ul><li>[5] reproduction can … appreciate the beauty（見た目は複製で足りる）。[6] But to the Greeks … this is indeed about <b>authenticity</b>（本物であることが重要）。But の前後で「見た目は OK、文化的意義は不十分」。</li></ul></div>
+<div class="ql"><div class="qh">問6　空所 F・G<span class="ans">a（cultured／dignity）</span></div>
+<ul><li>Instead it <b>humiliates</b> itself との対比 → 本来は品位（dignity）を示すべき。arrogance は筆者が批判する態度。</li></ul></div>
+<div class="ql"><div class="qh">問7　[7] の筆者の意見<span class="ans">d</span></div>
+<ul><li>筆者の評価は a post-imperial <b>arrogance</b> has crept into the debate。</li><li>you may have got your independence back, but you are not getting your stuff 以降は、英国政府の言い分を真似た皮肉（it seems to say「〜と言っているようだ」）。a・b・c は皮肉として紹介された政府側の主張で、筆者の意見ではない。</li></ul></div>
+<div class="ql"><div class="qh">問8　ギリシャと英国の見方の核心的な違い<span class="ans">b</span></div>
+<ul><li>ギリシャ側：their ancestral temple、their crown jewels（最も大切なもの）＝象徴的な遺産。英国側：more people see them、a bigger show＝展示品・見せ物。</li></ul></div>
+<div class="ql"><div class="qh">問9　大英博物館の描き方<span class="ans">c（他文化の財産を貪欲に抱え込む存在）</span></div>
+<ul><li>[8] fanatically reactionary、refusing to dispose（手放さない）、as if they were the private property of their custodians（まるで私物のように）。</li></ul></div>
+<div class="ql"><div class="qh">問10　マーブル保持論が誤っている理由<span class="ans">c（法的な形式論にもとづいている）</span></div>
+<ul><li>[3] Of course Britain has legal title …, but laws can be changed で、「法的所有権」という形式論を退けている。b は [1] の世論調査（返還賛成が半数以上）と逆。</li></ul></div>
+<div class="ql"><div class="qh">問11　下線(2)の意味<span class="ans">b</span></div>
+<ul><li>if not physically＝「物理的にではないにしても」（tactics 093）。壁が実際に崩れているのではなく、ideologically に崩れている（比喩）。具体例が直後の仏・独の返還。a・d は物理的な崩壊なので不可。</li></ul></div>
+<div class="ql"><div class="qh">問12　記事と NOT in line<span class="ans">b</span></div>
+<ul><li>本文は This does not mean the death of the Louvre（ルーヴルが終わるわけではない）と言っているだけ。「ルーヴルに集中させるべき」は返還を主張する筆者の考えとも正反対。a は [3]、c は [9] vulnerable to theft and decay、d は [10] と一致。</li></ul></div>
+<div class="ql"><div class="qh">問13　最適なタイトル<span class="ans">a</span></div>
+<ul><li>最終段落 most museums have too much stuff と Returning the Parthenon marbles … an excellent one がそのままタイトルになっている。b は逆の主張、c は議論の紹介にとどまり筆者の返還論が出ていない、d は歴史の話。</li></ul></div>
+</section></body></html>
