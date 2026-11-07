@@ -1,0 +1,263 @@
+<!doctype html><html lang="ja"><head><meta charset="utf-8">
+<title>大問Ⅲ 徹底解説</title><style>@page { size: A4; margin: 16mm 15mm 16mm 15mm; }
+* { box-sizing: border-box; }
+:root { --ink:#1a1a1a; --main:#b3261e; --sub:#1d4ed8; --br:#15803d; --rule:#cfcfcf; --soft:#f4f4f0; }
+body { margin:0; color:var(--ink); background:#fff; font-family:"IPAPGothic","IPAGothic",sans-serif; font-size:10.5pt; line-height:1.75; }
+.en, .fulltext p, .qt, .answers td:last-child, .footnote { font-family:"Liberation Serif","DejaVu Serif",serif; }
+
+.cover { border-bottom:2px solid var(--ink); padding:6mm 0 5mm; margin-bottom:6mm; }
+.kicker { font-size:10pt; letter-spacing:.2em; color:#555; }
+h1 { font-size:22pt; margin:2mm 0 3mm; line-height:1.3; }
+h1 small { font-size:12pt; font-weight:normal; color:#444; }
+.toc { margin:0; padding-left:1.4em; font-size:10pt; color:#333; columns:2; }
+
+.page { break-before:page; }
+h2 { font-size:15pt; border-bottom:1.5px solid var(--ink); padding-bottom:1.5mm; margin:0 0 4mm; }
+h2 .num { display:inline-block; background:var(--ink); color:#fff; width:1.5em; text-align:center; margin-right:.5em; border-radius:2px; }
+h3 { font-size:11.5pt; margin:5mm 0 2.5mm; padding-left:2mm; border-left:4px solid var(--ink); break-after:avoid; }
+
+/* 1. 解答 */
+table.answers { width:100%; border-collapse:collapse; font-size:10pt; }
+.answers th, .answers td { border:1px solid #999; padding:1mm 2mm; vertical-align:top; }
+.answers th { background:var(--soft); }
+.answers td.qn, .answers td.an { text-align:center; white-space:nowrap; width:13mm; }
+.answers td.an { font-weight:bold; font-size:11pt; }
+.qa { margin:0 0 3mm; break-inside:avoid; }
+.qh { font-weight:bold; }
+.qa p { margin:.5mm 0 0 4mm; font-size:10pt; }
+.qt { font-weight:normal; }
+
+/* 完成本文・和訳：色や下線なし */
+.para { display:flex; gap:3mm; margin:0 0 3.2mm; }
+.plabel { flex:none; width:9mm; font-weight:bold; font-family:"Liberation Serif",serif; }
+.para p { margin:0; text-align:justify; }
+.fulltext p { font-size:11.5pt; line-height:1.85; }
+.translation p { line-height:1.95; }
+.footnote { font-size:9pt; color:#333; margin-top:4mm; border-top:1px solid var(--rule); padding-top:1.5mm; }
+
+/* 3. 文構造 */
+.legend { border:1px solid var(--rule); background:var(--soft); padding:3mm 4mm; font-size:9.5pt; line-height:2.9; margin-bottom:3mm; }
+.ph { margin-top:6mm; }
+.sent { position:relative; padding:1mm 0 3mm 9mm; border-bottom:1px dashed var(--rule); margin-bottom:2mm; break-inside:avoid; }
+.sn { position:absolute; left:0; top:4mm; width:6mm; height:6mm; border-radius:50%; border:1px solid var(--ink); font-size:8pt; text-align:center; line-height:5.6mm; }
+.en { font-size:12pt; line-height:3.25; padding-top:1mm; }
+.main { border-bottom:1.6px solid var(--main); -webkit-box-decoration-break:clone; box-decoration-break:clone; padding-bottom:1px; }
+.main.l-V { border-bottom:3px double var(--main); }
+.emph { border-bottom:1.6px dotted var(--main); }
+.tag { display:inline-block; width:0; position:relative; vertical-align:baseline; }
+.tag > span { position:absolute; left:0; white-space:nowrap; font-family:"IPAPGothic",sans-serif; font-weight:bold; line-height:1; }
+.main .tag > span, .emph .tag > span { top:.55em; font-size:8.5pt; color:var(--main); }
+.sub .tag > span { top:-2.7em; font-size:7.5pt; color:var(--sub); }
+.br { color:var(--br); font-weight:bold; }
+.legend .main, .legend .sub { margin-right:.3em; }
+.notes { margin:.5mm 0 1.5mm; padding-left:1.3em; font-size:9.5pt; line-height:1.65; }
+.notes li { margin:.3mm 0; }
+.ja { font-size:10pt; background:var(--soft); padding:1.5mm 2.5mm; border-radius:2px; }
+.jt { display:inline-block; font-size:8.5pt; border:1px solid var(--ink); padding:0 1.2mm; margin-right:2mm; line-height:1.4; }
+
+/* 4. 論理展開 */
+.lg { display:flex; border:1px solid #999; margin-bottom:2.5mm; break-inside:avoid; }
+.lg-h { flex:none; width:30mm; background:var(--soft); border-right:1px solid #999; padding:2mm; }
+.lg-h .plabel { display:block; width:auto; font-size:12pt; }
+.lg-h .role { font-size:9.5pt; font-weight:bold; }
+.lg-b { padding:2mm 3mm; font-size:9.8pt; }
+.lg-b p { margin:0; }
+.lg-b .func { margin-top:1mm; color:#333; }
+.overview .block { border:1.5px solid var(--ink); padding:2.5mm 4mm; break-inside:avoid; }
+.overview .conclusion { border-width:2.5px; }
+.overview .bh { font-weight:bold; margin-bottom:1mm; }
+.overview p { margin:0; font-size:10pt; line-height:1.9; }
+.arrow { text-align:center; font-size:12pt; line-height:1.6; }
+.summary { border:1px solid var(--rule); padding:3mm 4mm; margin:0; line-height:1.95; }
+.points { padding-left:1.3em; font-size:10pt; }
+.points li { margin-bottom:1.5mm; }
+
+/* 3. 文構造（登木式） */
+.pattern { display:inline-block; font-size:8.5pt; border:1px solid var(--ink); padding:0 1.5mm; margin:1mm 0 0; line-height:1.5; }
+.togi .main { border-bottom:none; background:#fff1a6; padding:.1em 0; }
+.togi .main.mm { background:#d3f1cc; }
+.togi .main > .tag > span { top:.75em; font-size:8pt; color:#111; border:1.1px solid #111; border-radius:999px; min-width:1.45em; padding:0 .25em; text-align:center; background:#fff; line-height:1.35; }
+.togi .tag small { font-size:.72em; }
+.togi .sub > .tag > span { color:var(--sub); top:-2.7em; }
+.en.togi { padding-bottom:2.5mm; }
+.togi .lv3 > .tag > span { position:absolute; top:-2.7em; font-size:7.3pt; color:#7c3aed; }
+.togi .gap { color:#b3261e; font-size:.8em; padding:0 .1em; margin-right:1.6em; }
+.togi .gap .tag > span { top:-2.9em; font-size:7.3pt; color:#b3261e; }
+.togi .emph { border-bottom:1.6px dotted #111; }
+.togi .emph > .tag > span { top:.75em; font-size:7.5pt; color:#111; }
+.legend.togi { line-height:3.1; }
+
+table.t { width:100%; border-collapse:collapse; font-size:9.4pt; margin-bottom:3mm; }
+.t td, .t th { border:1px solid #999; padding:1mm 2mm; vertical-align:top; }
+.t th { background:var(--soft); }
+.t td.k { white-space:nowrap; font-weight:bold; width:12mm; text-align:center; }
+.t td.e { font-family:"Liberation Serif",serif; }
+.t td.tag { width:20mm; font-weight:bold; }
+.voice-irony { color:#b3261e; } .voice-own { color:#15803d; }
+.qbox { border:1.5px solid var(--ink); padding:3mm 4mm; margin:0 0 4mm; break-inside:avoid-page; }
+.qbox .qq { font-family:"Liberation Serif",serif; font-size:11pt; margin:1mm 0 2mm; }
+.qbox .meta { font-size:9pt; color:#555; }
+.qbox .ans { display:inline-block; background:#fff1a6; border:1px solid #111; padding:0 2.5mm; font-weight:bold; margin-left:2mm; }
+.qbox ol { margin:1mm 0 2mm; padding-left:1.4em; font-size:9.8pt; line-height:1.75; }
+.opts td.v { width:16mm; text-align:center; font-weight:bold; white-space:nowrap; }
+.opts tr.ok td { background:#fff8cc; }
+.tipq { border-left:4px solid #15803d; background:#eef8ec; padding:1.5mm 3mm; font-size:9.6pt; }
+.intro { border:2px solid var(--ink); padding:3mm 4mm; margin-bottom:4mm; line-height:1.85; font-size:10pt; }
+</style></head><body>
+<div class="cover">
+  <div class="kicker">2026年度 英語　大問Ⅲ 徹底解説</div>
+  <h1>パルテノン・マーブル論争 <small>— 皮肉と譲歩を見抜いて解く</small></h1>
+</div>
+<div class="intro"><b>この大問が難しい理由</b><br>
+この文章は返還を主張するコラムだが、筆者は自分の意見をストレートに言うだけでなく、<b>①反対派の言い分をいったん認める（譲歩）</b>、<b>②英国政府の口ぶりを真似てからかう（皮肉）</b>、という書き方を何度も使う。
+そのため、本文の言い換えになっている選択肢でも、それが「筆者の声」ではなく「他人の声」なら不正解になる（問4・5・7・9・10）。
+まず「筆者はギリシャへの返還に賛成」という立場を [1] で確定し、各文が「筆者の声」か「譲歩・皮肉」かを仕分けながら読むのがコツ。</div>
+
+<h2><span class="num">1</span>「誰の声か」を仕分ける</h2>
+<h3>筆者の声ではない文（譲歩・皮肉）</h3>
+<table class="t"><tr><th>段落</th><th>本文</th><th>種類</th><th>読み方</th></tr><tr><td class="k">[1]</td><td class="e">But what fun it is to think up smart reasons why this should never happen.</td><td class="tag voice-irony">皮肉</td><td>「返さない屁理屈を考えるのは楽しいねえ」。本気で楽しいと言っているのではなく、返還反対派をからかっている。</td></tr><tr><td class="k">[2]</td><td class="e">Mitsotakis’ reference … might be over the top.</td><td class="tag voice-irony">譲歩</td><td>「ギリシャ側も言い過ぎかもね」と一歩譲る → 直後の But から本音（ギリシャ人の恨みは本物）。</td></tr><tr><td class="k">[3]</td><td class="e">Of course Britain has legal title … / Of course Lord Elgin probably saved them … / Of course repatriating them might be a precedent …</td><td class="tag voice-irony">譲歩×3</td><td>返還反対派の言い分を Of course で認めるふり → すべて but / though で否定する。</td></tr><tr><td class="k">[3]</td><td class="e">It is true that more people see the marbles in London …</td><td class="tag voice-irony">譲歩</td><td>It is true that 〜, but … → And so what? で切り捨て。</td></tr><tr><td class="k">[5]</td><td class="e">It is true that reproduction can nowadays enable …</td><td class="tag voice-irony">譲歩</td><td>複製でも美しさは味わえる、と認める → [6] But to the Greeks … authenticity で反論。</td></tr><tr><td class="k">[7]</td><td class="e">you may have got your independence back, but you are not getting your stuff.</td><td class="tag voice-irony">政府の声（皮肉）</td><td>Britain’s government is telling the rest of the world: の後。筆者が英国政府の口ぶりを真似ている。</td></tr><tr><td class="k">[7]</td><td class="e">You Greeks, it seems to say, were too weak … so that is tough on you.</td><td class="tag voice-irony">政府の声（皮肉）</td><td>it seems to say（〜と言っているようだ）が目印。筆者の意見ではない。</td></tr><tr><td class="k">[7]</td><td class="e">So tell the Greeks they should be proud … They should thank British taxpayers …</td><td class="tag voice-irony">政府の声（皮肉）</td><td>命令文・should の連続で、傲慢な口調を誇張して再現している。</td></tr></table>
+<h3>筆者自身の主張（ここだけ拾えば立場がわかる）</h3>
+<table class="t"><tr><th>段落</th><th>本文</th></tr><tr><td class="k">[1]</td><td class="e voice-own">The Parthenon marbles row is beyond silly. / Any civilised Briton knows they should be displayed … in their former home of Athens.</td></tr><tr><td class="k">[4]</td><td class="e voice-own">The marbles issue is simply about the integrity of one of Europe’s greatest artistic compositions.</td></tr><tr><td class="k">[6]</td><td class="e voice-own">surely a cultured country such as Britain should have the dignity to oblige. … Instead it humiliates itself</td></tr><tr><td class="k">[7]</td><td class="e voice-own">a post-imperial arrogance has crept into the marbles debate.</td></tr><tr><td class="k">[8]</td><td class="e voice-own">These institutions are fanatically reactionary.</td></tr><tr><td class="k">[9]</td><td class="e voice-own">There is nothing sacred about a museum.</td></tr><tr><td class="k">[11]</td><td class="e voice-own">most museums have too much stuff, far too much. They should distribute it … Returning the Parthenon marbles might indeed be a precedent, and an excellent one.</td></tr></table>
+
+<section class="sec page">
+<h2><span class="num">2</span>設問に直結する文の構造</h2>
+<div class="legend togi"><div><span class="main"><span class="tag"><span>S</span></span>S</span> <span class="main"><span class="tag"><span>V<small>t</small></span></span>V</span> <span class="main"><span class="tag"><span>O</span></span>O</span> <span class="main mm"><span class="tag"><span>M</span></span>M</span>　黄色＝S・V・O・C、緑＝M。△＝省略、<span class="gap">●</span>＝欠けている位置</div></div>
+<div class="sent"><div class="pattern">[1]</div><div class="en togi"><span class="main"><span class="tag"><span>S</span></span>The nation</span> <span class="main"><span class="tag"><span>V<small>i</small></span></span><span class="br">[</span> A <span class="br">]</span></span> — <span class="main"><span class="tag"><span>S</span></span>polls</span> <span class="main"><span class="tag"><span>V<small>t</small></span></span>show</span> <span class="main"><span class="tag"><span>O</span></span><span class="br">[</span>△ <span class="sub"><span class="tag"><span>S'</span></span>over half</span> <span class="sub"><span class="tag"><span>V'</span></span>are</span> <span class="sub"><span class="tag"><span>C'</span></span><span class="br">[</span> B <span class="br">]</span></span> <span class="sub"><span class="tag"><span>M'</span></span><span class="br">&lt;</span>to see the marbles returned<span class="br">&gt;</span></span> and <span class="sub"><span class="tag"><span>S'</span></span>just above 20%</span> <span class="sub"><span class="tag"><span>V'<small>t</small></span></span>want</span> <span class="sub"><span class="tag"><span>O'</span></span>them</span> <span class="sub"><span class="tag"><span>C'</span></span>to stay</span><span class="br">]</span></span>.</div></div><div class="sent"><div class="pattern">[2]</div><div class="en togi">But <span class="main mm"><span class="tag"><span>M</span></span><span class="br">&lt;</span>as any visitor <span class="br">(</span>to <span class="br">[</span> C <span class="br">]</span><span class="br">)</span> knows<span class="br">&gt;</span></span>, <span class="main"><span class="tag"><span>S</span></span><span class="br">[</span>what <span class="gap"><span class="tag"><span>S&#x27;欠</span></span>●</span> <span class="sub"><span class="tag"><span>M'</span></span>to <span class="br">[</span> D <span class="br">]</span></span> <span class="sub"><span class="tag"><span>V'</span></span>is</span> <span class="sub"><span class="tag"><span>C'</span></span>a boring scholastic quarrel</span><span class="br">]</span></span> <span class="main"><span class="tag"><span>V</span></span>is</span> <span class="main mm"><span class="tag"><span>M</span></span>to <span class="br">[</span> E <span class="br">]</span></span> <span class="main"><span class="tag"><span>C</span></span>a burning sense of grievance <span class="br">(</span>that <span class="gap"><span class="tag"><span>S&#x27;欠</span></span>●</span> will not go away<span class="br">)</span></span>.</div></div><div class="sent"><div class="pattern">[3]</div><div class="en togi"><span class="main"><span class="tag"><span>S</span></span>It</span> <span class="main"><span class="tag"><span>V</span></span>is</span> <span class="main"><span class="tag"><span>C</span></span>true</span> <span class="main"><span class="tag"><span>S</span></span><span class="br">[</span>that <span class="sub"><span class="tag"><span>S'</span></span>more people</span> <span class="sub"><span class="tag"><span>V'<small>t</small></span></span>see</span> <span class="sub"><span class="tag"><span>O'</span></span>the marbles</span> <span class="sub"><span class="tag"><span>M'</span></span>in London</span> <span class="sub"><span class="tag"><span>M'</span></span><span class="br">&lt;</span>than they would △ in Athens<span class="br">&gt;</span></span><span class="br">]</span></span>, but <span class="main"><span class="tag"><span>S</span></span>they</span> <span class="main"><span class="tag"><span>V<small>t</small></span></span>do not see</span> <span class="main"><span class="tag"><span>O</span></span>them</span> <span class="main"><span class="tag"><span>C</span></span>complete</span>. And so what?</div></div><div class="sent"><div class="pattern">[6]</div><div class="en togi">And <span class="main mm"><span class="tag"><span>M</span></span>surely</span> <span class="main"><span class="tag"><span>S</span></span>a <span class="br">[</span> F <span class="br">]</span> country <span class="br">(</span>such as Britain<span class="br">)</span></span> <span class="main"><span class="tag"><span>V<small>t</small></span></span>should have</span> <span class="main"><span class="tag"><span>O</span></span>the <span class="br">[</span> G <span class="br">]</span> <span class="br">(</span>to oblige<span class="br">)</span></span>. … <span class="main mm"><span class="tag"><span>M</span></span>Instead</span> <span class="main"><span class="tag"><span>S</span></span>it</span> <span class="main"><span class="tag"><span>V<small>t</small></span></span>humiliates</span> <span class="main"><span class="tag"><span>O</span></span>itself</span> <span class="main mm"><span class="tag"><span>M</span></span><span class="br">&lt;</span>by taking umbrage over a cup of tea<span class="br">&gt;</span></span>.</div></div><div class="sent"><div class="pattern">[10]</div><div class="en togi"><span class="main"><span class="tag"><span>S</span></span>Museum walls</span> <span class="main"><span class="tag"><span>V<small>i</small></span></span>are now crumbling</span> <span class="main mm"><span class="tag"><span>M</span></span>ideologically</span> <span class="main mm"><span class="tag"><span>M</span></span><span class="br">&lt;</span>if not physically<span class="br">&gt;</span></span>.</div></div>
+<h3>語彙（推測のしかたつき）</h3>
+<table class="t"><tr><th>語句</th><th>意味</th><th>知らなくても推測できる手がかり</th></tr><tr><td class="e"><b>row</b></td><td>口論・騒動</td><td>the Parthenon marbles row is beyond silly → 「ばかげた」ものなので騒ぎ。[2] asymmetrical row も同じ。</td></tr><tr><td class="e"><b>screech</b></td><td>金切り声をあげる</td><td>“Mine, mine” like a child → 子どもが叫ぶ声。</td></tr><tr><td class="e"><b>yawn</b></td><td>あくびをする</td><td>laughs と並ぶ反応。[2] boring と対応 → 退屈。</td></tr><tr><td class="e"><b>synthetic</b></td><td>作り物の・わざとらしい</td><td>合成（synthesis）→ 人工的。quest for a daily headline（見出し狙い）からも。</td></tr><tr><td class="e"><b>over the top</b></td><td>大げさな・やりすぎの</td><td>top を越える → 度を越している。</td></tr><tr><td class="e"><b>scholastic</b></td><td>学者的な・机上の</td><td>school と同語源。boring と並ぶ → 退屈な学問的議論。</td></tr><tr><td class="e"><b>grievance</b></td><td>不満・恨み</td><td>grieve（悲しむ）。burning（燃えるような）と組む。</td></tr><tr><td class="e"><b>asymmetrical</b></td><td>非対称の</td><td>a（否定）＋symmetrical（対称の）。退屈 ⇔ 恨みの温度差。</td></tr><tr><td class="e"><b>legal title</b></td><td>法的所有権</td><td>直後の laws can be changed から「法律上の権利」。</td></tr><tr><td class="e"><b>repatriate</b></td><td>本国に返す</td><td>re（戻す）＋patria（祖国）。[10] repatriation も同じ。</td></tr><tr><td class="e"><b>precedent</b></td><td>前例</td><td>precede（先に起こる）。</td></tr><tr><td class="e"><b>integrity</b></td><td>完全性・一体性</td><td>[3] do not see them complete と対応 → 欠けていないこと。</td></tr><tr><td class="e"><b>fountainhead</b></td><td>源泉</td><td>fountain（泉）＋head（源）。</td></tr><tr><td class="e"><b>cast</b></td><td>鋳造する</td><td>from bronze と組む → 型に流し込んで作る。cast courts＝石膏像展示室。</td></tr><tr><td class="e"><b>snobbery</b></td><td>俗物根性・気取り</td><td>snob。craving for authenticity（本物志向）と結びつく。</td></tr><tr><td class="e"><b>oblige</b></td><td>（頼みに）応じる</td><td>have the dignity to oblige → ギリシャの返還要求に応じる。</td></tr><tr><td class="e"><b>humiliate oneself</b></td><td>恥をさらす</td><td>humble（低い）と同語源。dignity の反対。</td></tr><tr><td class="e"><b>take umbrage</b></td><td>腹を立てる</td><td>over a cup of tea（お茶一杯のことで）→ 子どもっぽい反応。</td></tr><tr><td class="e"><b>arrogance</b></td><td>傲慢</td><td>post-imperial arrogance → 帝国時代の名残の思い上がり。</td></tr><tr><td class="e"><b>inviolability</b></td><td>不可侵性</td><td>in（否定）＋violate（侵す）＋able。</td></tr><tr><td class="e"><b>aggrandisement</b></td><td>権勢の拡大</td><td>grand（大きい）を含む → 国家が大きく見せること。</td></tr><tr><td class="e"><b>reactionary</b></td><td>反動的・変化に抵抗する</td><td>react（反発する）→ 新しい流れに逆らう。refusing to dispose と対応。</td></tr><tr><td class="e"><b>custodian</b></td><td>管理人・保管者</td><td>custody（保管）。as if … private property of their custodians。</td></tr><tr><td class="e"><b>in perpetuity</b></td><td>永久に</td><td>perpetual（永続的な）。locked away と組む。</td></tr><tr><td class="e"><b>crumble</b></td><td>崩れる</td><td>walls と組む → 崩れる。if not physically で比喩とわかる。</td></tr><tr><td class="e"><b>loot</b></td><td>略奪する</td><td>whether looted or not → 略奪されたかどうか。</td></tr><tr><td class="e"><b>float</b></td><td>（案を）出す</td><td>a reform を目的語にとる → 提案する。</td></tr><tr><td class="e"><b>curb A from doing</b></td><td>A が〜するのを抑える</td><td>from doing は「妨害・禁止」の型（prevent A from doing と同じ）。</td></tr></table>
+</section>
+
+<section class="sec page">
+<h2><span class="num">3</span>設問の徹底解説</h2>
+
+<div class="qbox">
+  <div class="meta">問1　【語の含意（下線部）】<span class="ans">正解 b</span></div>
+  <div class="qq">What does the word “screeches” in underline (1) most likely imply?</div>
+  <b>解く手順</b>
+  <ol><li>下線を含む文を SVOC で読む：Ⓢ Rishi Sunak Ⓥ screeches Ⓞ “Mine, mine” Ⓜ&lt;like a child in a playground&gt;。</li><li>screech を知らなくても、O の “Mine, mine”（ぼくの！ぼくの！）と M の like a child in a playground（遊び場の子どものように）が手がかりになる。</li><li>前の文 The Parthenon marbles row is <b>beyond silly</b>（ばかげているにもほどがある）から、筆者は首相に否定的。</li></ol>
+  <b>選択肢の検討</b>
+  <table class="t opts"><tr class=""><td class="k">a</td><td class="e">a loud and joyful announcement</td><td class="v">×</td><td>joyful（喜ばしい）が誤り。beyond silly・child から否定的なトーン。</td></tr><tr class="ok"><td class="k">b</td><td class="e">a demanding and immature reaction</td><td class="v">○</td><td>“Mine, mine” が demanding（要求がましい）、like a child が immature（未熟な）。</td></tr><tr class=""><td class="k">c</td><td class="e">a calm and reasoned argument</td><td class="v">×</td><td>calm（冷静）は子どもの叫びと正反対。</td></tr><tr class=""><td class="k">d</td><td class="e">a political statement of ownership</td><td class="v">×</td><td><b>ワナ。</b> “Mine” から「所有権の主張」を連想させる。だが問われているのは screeches という語が表す「様子・態度」で、like a child が示す子どもっぽさを落としている。</td></tr></table>
+  <div class="tipq">▶ 「語の含意」を問う問題は、その語の辞書的な意味だけでなく、同じ文の比喩（like 〜）が示す評価まで答えに入れる。</div>
+</div>
+<div class="qbox">
+  <div class="meta">問2　【空所補充（2つ）】<span class="ans">正解 d</span></div>
+  <div class="qq">Blanks [A] and [B] can best be filled by:</div>
+  <b>解く手順</b>
+  <ol><li>文の骨格：Ⓢ The nation Ⓥi [A] — Ⓢ polls Ⓥt show Ⓞ[△ over half are [B] to see the marbles returned <b>and</b> just above 20% want them to stay]。</li><li>まず B から決める（根拠が文中にある方から）。and の前後は対比：「半数以上は返還を見て [B]」⇔「2割強だけが残してほしい」。→ 半数以上は返還に前向き → <b>happy</b>。</li><li>次に A。直前は He refuses a cup of tea … / The leader of the opposition laughs. と、首相への反応が短文で続く。国民の大半は返還でかまわないので、首相の騒ぎに関心がない → 退屈・無関心。</li><li>さらに [2] what to Britain is a <b>boring</b> scholastic quarrel（英国にとっては退屈な口論）と対応 → <b>yawns</b>（あくびをする）。</li></ol>
+  <b>選択肢の検討</b>
+  <table class="t opts"><tr class=""><td class="k">a</td><td class="e">burps / full</td><td class="v">×</td><td>burp（げっぷ）・full（満腹）。「返還を見て満腹」では意味が通らない。</td></tr><tr class=""><td class="k">b</td><td class="e">coughs / irritated</td><td class="v">×</td><td>irritated to see the marbles returned（返還を見て苛立つ）が半数以上なら、残してほしい人が多数になり、just above 20% want them to stay と矛盾。</td></tr><tr class=""><td class="k">c</td><td class="e">snores / despairing</td><td class="v">×</td><td>despairing（絶望して）も b と同じ理由で矛盾。snore（いびき）は「寝ている」で yawn より極端。</td></tr><tr class="ok"><td class="k">d</td><td class="e">yawns / happy</td><td class="v">○</td><td>半数以上が返還を喜ぶ → 首相の騒ぎには退屈（yawn）。[2] boring とも一致。</td></tr></table>
+  <div class="tipq">▶ 空所が2つある問題は、根拠がはっきりしている方（ここでは B：数字の対比）から決めると選択肢が半分に絞れる。</div>
+</div>
+<div class="qbox">
+  <div class="meta">問3　【空所補充（3つ）】<span class="ans">正解 d</span></div>
+  <div class="qq">Blanks [C], [D], and [E] can best be filled by:</div>
+  <b>解く手順</b>
+  <ol><li>文の骨格：&lt;as any visitor to [C] knows&gt;, Ⓢ[what to [D] is a boring scholastic quarrel] Ⓥ is Ⓜ to [E] Ⓒ a burning sense of grievance (that will not go away)。</li><li>what のカタマリが S（tactics 044）。「D にとっては退屈な学術的口論であるもの」が「E にとっては消えない燃えるような恨み」である、という対比。</li><li>恨みを抱くのは奪われた側 → E＝<b>Greeks</b>。退屈だと思っているのは持っている側 → D＝<b>Britain</b>（[1] The nation yawns とも一致）。</li><li>その燃える恨みを「知っている」のは、ギリシャに行ったことのある人 → C＝<b>Greece</b>。</li><li>直後の This is an <b>asymmetrical</b> row（非対称な口論）＝両者の温度差、が確認になる。</li></ol>
+  <b>選択肢の検討</b>
+  <table class="t opts"><tr class=""><td class="k">a</td><td class="e">Britain / Greece / Britons</td><td class="v">×</td><td>恨みを持つのが英国人になり、逆。</td></tr><tr class=""><td class="k">b</td><td class="e">Britain / Britain / Greeks</td><td class="v">×</td><td>英国を訪れた人がギリシャ人の恨みを知る、は筋が通らない（C が×）。</td></tr><tr class=""><td class="k">c</td><td class="e">Greece / Greece / Britons</td><td class="v">×</td><td>D・E が逆。ギリシャにとって退屈で、英国人が恨む、になってしまう。</td></tr><tr class="ok"><td class="k">d</td><td class="e">Greece / Britain / Greeks</td><td class="v">○</td><td>C 訪問先＝ギリシャ、D 持っている側＝英国、E 奪われた側＝ギリシャ人。</td></tr></table>
+  <div class="tipq">▶ what S is A is B の文は「〜にとって A のものが、…にとって B」という対比文。対比の両側に「誰」が来るかを、文章全体の立場（英国＝持つ側、ギリシャ＝奪われた側）で決める。</div>
+</div>
+<div class="qbox">
+  <div class="meta">問4　【筆者の態度】<span class="ans">正解 c</span></div>
+  <div class="qq">What is the author’s attitude towards the argument that more people can see the marbles in London?</div>
+  <b>解く手順</b>
+  <ol><li>該当箇所は [3]：It is true that more people see the marbles in London than they would in Athens, <b>but</b> they do not see them complete. <b>And so what?</b> We are not moving the pyramids to London for a bigger show.</li><li>It is true that 〜, but …＝譲歩 → 反論の型。筆者の本音は but の後ろ。</li><li>And so what?（それがどうした）＝相手の論点を「関係ない」と切り捨てる表現。</li><li>ピラミッドの例：見る人を増やすためにピラミッドをロンドンへ運ばないのと同じで、「見る人の数」は返還しない理由にならない。</li></ol>
+  <b>選択肢の検討</b>
+  <table class="t opts"><tr class=""><td class="k">a</td><td class="e">He almost fully agrees with its logic.</td><td class="v">×</td><td>It is true（確かに）は譲歩にすぎず、すぐ but で否定している。</td></tr><tr class=""><td class="k">b</td><td class="e">He finds it persuasive but unfortunate.</td><td class="v">×</td><td>persuasive（説得力がある）とは思っていない。And so what? で切り捨てている。</td></tr><tr class="ok"><td class="k">c</td><td class="e">He dismisses it as irrelevant or misleading.</td><td class="v">○</td><td>And so what? が dismiss（退ける）、ピラミッドの例で irrelevant（的外れ）。</td></tr><tr class=""><td class="k">d</td><td class="e">He thinks it proves Britain’s right to keep them.</td><td class="v">×</td><td>筆者は返還派。正反対。</td></tr></table>
+  <div class="tipq">▶ It is true that 〜 / Of course 〜 / might 〜 は譲歩のサイン。筆者の態度は必ず but の後ろで判断する。</div>
+</div>
+<div class="qbox">
+  <div class="meta">問5　【筆者の見解（複数段落）】<span class="ans">正解 b</span></div>
+  <div class="qq">What is the author’s view regarding reproduction and authenticity?</div>
+  <b>解く手順</b>
+  <ol><li>[5] It is true that reproduction can … enable the naked eye … to appreciate the beauty of the original in a copy.（譲歩：見た目の美しさは複製でも味わえる）</li><li>[6] Science could satisfyingly replicate the Parthenon marbles …. <b>But</b> to the Greeks … this is indeed about <b>authenticity</b>.（反論：ギリシャ人にとっては本物であることが問題）</li><li>[6] The Parthenon is their ancestral temple and the marbles their crown jewels.（本物には文化的・象徴的な意味がある）</li><li>まとめ：「見て楽しむだけなら複製で十分」＋「でも文化的な意義は本物にしかない」。</li></ol>
+  <b>選択肢の検討</b>
+  <table class="t opts"><tr class=""><td class="k">a</td><td class="e">Reproductions are by definition aesthetically inferior to originals.</td><td class="v">×</td><td>[5] で複製でも美しさは味わえると認めている。aesthetically（美的に）劣るとは言っていない。</td></tr><tr class="ok"><td class="k">b</td><td class="e">Reproductions may suffice for visual appreciation but fall short in cultural significance.</td><td class="v">○</td><td>visual appreciation＝[5] appreciate the beauty、cultural significance＝[6] authenticity・ancestral temple。</td></tr><tr class=""><td class="k">c</td><td class="e">Reproductions could positively contribute to tourism in both London and Athens.</td><td class="v">×</td><td>観光の話は出てこない。in both Athens and London につられないこと。</td></tr><tr class=""><td class="k">d</td><td class="e">Reproductions have the potential to bring an end to the authenticity debate.</td><td class="v">×</td><td>むしろ「本物かどうか」がギリシャ人にとって核心で、議論は終わらない。</td></tr></table>
+  <div class="tipq">▶ It is true that 〜（[5]）と But（[6]）は段落をまたいでいる。譲歩と反論が離れていても、両方を合わせた選択肢を選ぶ。</div>
+</div>
+<div class="qbox">
+  <div class="meta">問6　【空所補充（対比で決める）】<span class="ans">正解 a</span></div>
+  <div class="qq">Blanks [F] and [G] can best be filled by:</div>
+  <b>解く手順</b>
+  <ol><li>文：And surely a [F] country such as Britain should have the [G] to oblige. It has the power to restore integrity …. <b>Instead</b> it <b>humiliates itself</b> by taking umbrage over a cup of tea.</li><li>Instead（そうせずに）があるので、「本来すべきこと（G をもって応じる）」⇔「実際にしていること（自ら恥をさらす）」の対比。</li><li>humiliate oneself（恥をさらす）の反対 → <b>dignity</b>（品位・威厳）。have the dignity to do「品位をもって〜する」は定型。</li><li>dignity と相性がよく、筆者が英国に「本来こうあるべき」と期待する国の姿 → <b>cultured</b>（教養ある）。[1] Any <b>civilised</b> Briton とも対応。</li></ol>
+  <b>選択肢の検討</b>
+  <table class="t opts"><tr class="ok"><td class="k">a</td><td class="e">cultured / dignity</td><td class="v">○</td><td>humiliates itself との対比で dignity。civilised Briton と cultured country が対応。</td></tr><tr class=""><td class="k">b</td><td class="e">delicate / prosperity</td><td class="v">×</td><td>have the prosperity to oblige（繁栄をもって応じる）は意味をなさない。</td></tr><tr class=""><td class="k">c</td><td class="e">prestigious / arrogance</td><td class="v">×</td><td>arrogance（傲慢）は [7] で筆者が批判する態度そのもの。「傲慢さをもって応じるべき」は矛盾。</td></tr><tr class=""><td class="k">d</td><td class="e">sophisticated / dominance</td><td class="v">×</td><td>have the dominance to oblige は不自然。dominance（支配）も筆者が批判する帝国的な発想。</td></tr></table>
+  <div class="tipq">▶ 単語の意味がわからなくても、Instead / but / not 〜 but などの対比の合図があれば、反対側の語から逆算できる（humiliate ⇔ dignity）。</div>
+</div>
+<div class="qbox">
+  <div class="meta">問7　【筆者の意見（皮肉の見抜き）】<span class="ans">正解 d</span></div>
+  <div class="qq">Which of the following is in line with the author’s opinion in paragraph [7]?</div>
+  <b>解く手順</b>
+  <ol><li>[7] は「筆者の声」と「英国政府の声（皮肉な代弁）」が混ざっている。まず仕分ける。</li><li>筆者の声：Bringing empire into these arguments is <b>rarely helpful</b>. / But a post-imperial <b>arrogance</b> has crept into the marbles debate.</li><li>政府の声：Britain’s government is telling the rest of the world: 〜 / You Greeks, <b>it seems to say</b>, were too weak … / So tell the Greeks they should be proud … / They should thank British taxpayers …</li><li>後半の命令文や should は、政府の傲慢な態度を誇張して真似したもの（皮肉）。筆者がそう思っているのではない。</li><li>筆者の意見は arrogance への批判 →「英国政府は尊大な態度を恥じるべき」。</li></ol>
+  <b>選択肢の検討</b>
+  <table class="t opts"><tr class=""><td class="k">a</td><td class="e">The history of imperialism can be valid evidence in favour of Britain’s right to keep the marbles.</td><td class="v">×</td><td>筆者は Bringing empire into these arguments is rarely helpful と言っている。</td></tr><tr class=""><td class="k">b</td><td class="e">The Greeks cannot blame Britain because their ancestors were not strong enough to protect their marbles.</td><td class="v">×</td><td><b>ワナ。</b> You Greeks … were too weak to stop the Ottomans の言い換えだが、これは it seems to say がついた政府の声。</td></tr><tr class=""><td class="k">c</td><td class="e">Greece must be content with the fact that their marbles are exhibited in the British Museum with other masterpieces from around the world.</td><td class="v">×</td><td><b>ワナ。</b> So tell the Greeks they should be proud to see their relics sit alongside the finest of Africa and Asia の言い換え。これも皮肉な代弁。</td></tr><tr class="ok"><td class="k">d</td><td class="e">The British government should be ashamed of its self-important attitude with regard to other cultures’ artefacts.</td><td class="v">○</td><td>self-important attitude＝arrogance。ashamed は [6] humiliates itself とも対応。</td></tr></table>
+  <div class="tipq">▶ 本文の言い換えになっている選択肢でも、それが「誰の声」かを確認する。telling 〜: / it seems to say / 命令文の連続は、筆者が他人の主張を真似している合図。</div>
+</div>
+<div class="qbox">
+  <div class="meta">問8　【対比の整理】<span class="ans">正解 b</span></div>
+  <div class="qq">According to the author, what is the core difference between Greek and British views of the marbles?</div>
+  <b>解く手順</b>
+  <ol><li>ギリシャ側：[6] this is indeed about <b>authenticity</b> / The Parthenon is their <b>ancestral temple</b> and the marbles their <b>crown jewels</b> / They badly want them back.</li><li>英国側：[3] more people see the marbles in London / a bigger <b>show</b> / [7] they should be proud to see their relics <b>sit alongside</b> the finest of Africa and Asia（並べて展示）。</li><li>まとめ：ギリシャ＝祖先の神殿・至宝（象徴的な遺産）、英国＝人に見せる展示品。</li></ol>
+  <b>選択肢の検討</b>
+  <table class="t opts"><tr class=""><td class="k">a</td><td class="e">The Greeks want financial compensation; the British do not.</td><td class="v">×</td><td>金銭的補償の話は本文にない。</td></tr><tr class="ok"><td class="k">b</td><td class="e">The Greeks see them as symbolic heritage; the British as display items.</td><td class="v">○</td><td>ancestral temple・crown jewels＝symbolic heritage、show・more people see＝display items。</td></tr><tr class=""><td class="k">c</td><td class="e">The Greeks believe they are Ottoman property; the British disagree.</td><td class="v">×</td><td>オスマン人は手放した側として出てくるだけ。所有者だとは言っていない。</td></tr><tr class=""><td class="k">d</td><td class="e">The Greeks think replicas are unacceptable; the British don’t want any.</td><td class="v">×</td><td>英国が複製を望まない、とは書かれていない。前半も「複製は受け入れられない」とまでは言っていない。</td></tr></table>
+  <div class="tipq">▶ 「核心の違い」を問う問題は、両者それぞれの表現を本文から集めて、抽象度を一段上げた言葉（symbolic heritage / display items）に置き換えて照合する。</div>
+</div>
+<div class="qbox">
+  <div class="meta">問9　【筆者の評価】<span class="ans">正解 c</span></div>
+  <div class="qq">How does the author characterise the British Museum?</div>
+  <b>解く手順</b>
+  <ol><li>[8] These institutions are <b>fanatically reactionary</b>.（狂信的に反動的）</li><li>[8] They want to <b>deny</b> newly emergent countries the scope to acquire similar collections by <b>refusing to dispose</b> … their vast reserves.（手放さない・他国に与えない）</li><li>[8] Many have the vast amount of their works in store, <b>as if they were the private property of their custodians</b>.（まるで私物のように）</li><li>[9] It is an unnatural place to leave thousands of objects frozen …（不自然な保管場所）</li><li>→ 他文化の財産を抱え込んで手放さない、貪欲な保管者。</li></ol>
+  <b>選択肢の検討</b>
+  <table class="t opts"><tr class=""><td class="k">a</td><td class="e">as a benevolent guardian of world heritage</td><td class="v">×</td><td>benevolent（慈悲深い）は正反対。inviolability や global context は政府側の言い分として皮肉で出てくるだけ。</td></tr><tr class=""><td class="k">b</td><td class="e">as a dynamic institution eager to modernise</td><td class="v">×</td><td>reactionary（変化に抵抗する）と正反対。</td></tr><tr class="ok"><td class="k">c</td><td class="e">as a greedy keeper of other cultures’ property</td><td class="v">○</td><td>refusing to dispose・as if … private property が greedy keeper。</td></tr><tr class=""><td class="k">d</td><td class="e">as a neutral institution committed to scholarly access</td><td class="v">×</td><td><b>ワナ。</b> [8] declared itself primarily a research resource for scholars を使った選択肢。だが even（〜さえ）がついていて、公開せず学者向けに囲い込む態度を批判する文脈。neutral（中立）でもない。</td></tr></table>
+  <div class="tipq">▶ 本文の語句をそのまま使った選択肢（d の scholars）は、本文での評価（プラスかマイナスか）まで一致しているか確認する。even は「そこまでするか」という筆者の批判の合図。</div>
+</div>
+<div class="qbox">
+  <div class="meta">問10　【理由（消去法）】<span class="ans">正解 c</span></div>
+  <div class="qq">Why does the author think the arguments for keeping the marbles are flawed?</div>
+  <b>解く手順</b>
+  <ol><li>「保持する側の議論」は [3] にまとめて出てくる。筆者は Of course 〜, but … でそれぞれに反論している。</li><li>① legal title（法的所有権）→ but laws can be changed</li><li>② Elgin saved them → though they were later damaged</li><li>③ might be a precedent → but not if you don’t（前例にしたくなければならない）</li><li>④ more people see them → but they do not see them complete. And so what?</li><li>選択肢の中で、この反論と一致するのは「法的な形式論にもとづいている」だけ。筆者が最初に挙げ、[11] で法改正（reform of the National Heritage Act）の話で締めくくる中心の論点でもある。</li></ol>
+  <b>選択肢の検討</b>
+  <table class="t opts"><tr class=""><td class="k">a</td><td class="e">The British Museum does not have proper facilities.</td><td class="v">×</td><td><b>ワナ。</b> [9] vulnerable to theft and decay は博物館一般が「不自然な場所」だという話で、大英博物館の設備不足を保持論の欠陥として挙げてはいない。</td></tr><tr class=""><td class="k">b</td><td class="e">British citizens overwhelmingly support keeping them.</td><td class="v">×</td><td>[1] の世論調査では返還賛成が半数以上。正反対。</td></tr><tr class="ok"><td class="k">c</td><td class="e">The arguments are based on legal technicalities.</td><td class="v">○</td><td>legal title に対して laws can be changed。法律上の権利は変えられる形式にすぎない、という反論。</td></tr><tr class=""><td class="k">d</td><td class="e">They have already been returned without public notice.</td><td class="v">×</td><td>返還されたという事実はない。</td></tr></table>
+  <div class="tipq">▶ 「なぜ〜は誤りだと考えるか」は、本文で筆者が反論している箇所（but の後ろ）を集め、選択肢と1つずつ照合する消去法が確実。</div>
+</div>
+<div class="qbox">
+  <div class="meta">問11　【下線部の意味（比喩）】<span class="ans">正解 b</span></div>
+  <div class="qq">What does the author mean by underline (2)?</div>
+  <b>解く手順</b>
+  <ol><li>Ⓢ Museum walls Ⓥi are now crumbling Ⓜ ideologically Ⓜ&lt;if not physically&gt;.</li><li><b>if not 〜「たとえ〜でないにしても／〜とまではいかなくても」</b>（tactics 093：if＋語）。例：difficult, if not impossible「不可能とまではいかなくても難しい」。</li><li>→「物理的にではないにしても、思想的には崩れつつある」。壁が崩れるのは比喩で、博物館を支えてきた考え方が崩れている、という意味。</li><li>直後の具体例：France has a major programme of repatriation … So does Germany. … African bronzes are returning to Africa … → 返還の流れ＝「返さない」という従来の理屈が通用しなくなっている。</li></ol>
+  <b>選択肢の検討</b>
+  <table class="t opts"><tr class=""><td class="k">a</td><td class="e">Museums are physically deteriorating due to poor maintenance.</td><td class="v">×</td><td>if not physically を「物理的に」と読み違えたワナ。</td></tr><tr class="ok"><td class="k">b</td><td class="e">Traditional justifications for museum practices are losing ground.</td><td class="v">○</td><td>ideologically crumbling＝考え方（正当化の理屈）が崩れる＝losing ground（力を失う）。</td></tr><tr class=""><td class="k">c</td><td class="e">Museums are being relocated to digital environments.</td><td class="v">×</td><td>デジタル化の話はない。</td></tr><tr class=""><td class="k">d</td><td class="e">Visitors have been vandalising museum walls during protests.</td><td class="v">×</td><td>物理的な破壊なので不可。</td></tr></table>
+  <div class="tipq">▶ A if not B は「B ではないにしても A」。B の方を否定しているので、if not の後ろの語（physically）を答えに選ばないこと。</div>
+</div>
+<div class="qbox">
+  <div class="meta">問12　【内容不一致（NOT）】<span class="ans">正解 b</span></div>
+  <div class="qq">Which of the following statements is NOT in line with the content of the article?</div>
+  <b>解く手順</b>
+  <ol><li>NOT 問題は、一致する3つを根拠つきで消し、残った1つを確認する。</li><li>a：[3] Of course Britain has <b>legal title</b> to the statues → 法的には英国のもの。一致。</li><li>c：[9] vulnerable to <b>theft and decay</b> → 盗難や劣化の危険。一致。</li><li>d：[10] France has a major programme of <b>repatriation</b> of imperial objects → 一致。</li><li>b：[10] This does <b>not</b> mean the death of the Louvre（ルーヴルが終わるわけではない）と言っているだけ。「最も重要な品をルーヴルに集めるべき」とは言っていない。むしろ筆者は分散・返還を主張（[11] distribute it to the rest of the world）。</li></ol>
+  <b>選択肢の検討</b>
+  <table class="t opts"><tr class=""><td class="k">a</td><td class="e">Legally, the marbles belong to Britain rather than to Greece.</td><td class="v">一致</td><td>[3] legal title。筆者は「法律は変えられる」と言うが、現在の法的所有が英国にあることは認めている。</td></tr><tr class="ok"><td class="k">b</td><td class="e">The most important objects of antiquity should be concentrated at the Louvre.</td><td class="v">○（不一致）</td><td>[10] はルーヴルが存続するというだけ。集中ではなく分散が筆者の主張。</td></tr><tr class=""><td class="k">c</td><td class="e">Objects stored in museums could wear out or be stolen.</td><td class="v">一致</td><td>[9] vulnerable to theft and decay。wear out＝decay。</td></tr><tr class=""><td class="k">d</td><td class="e">France has begun returning objects it previously collected to their countries of origin.</td><td class="v">一致</td><td>[10] France has a major programme of repatriation。</td></tr></table>
+  <div class="tipq">▶ 筆者が反対している事実（法的所有権が英国にあること）も「本文の内容」としては一致になる。NOT 問題では「筆者が賛成か」ではなく「本文に書いてあるか」で判断する。</div>
+</div>
+<div class="qbox">
+  <div class="meta">問13　【タイトル選択】<span class="ans">正解 a</span></div>
+  <div class="qq">Which of the following titles best matches the content of the article?</div>
+  <b>解く手順</b>
+  <ol><li>タイトルは「主張（筆者の結論）」と「話題」の両方を含むものを選ぶ。</li><li>話題：パルテノン・マーブルの返還問題。筆者の立場：返還すべき（[1] they should be displayed … in Athens）。</li><li>結論：[11] The truth is that most museums have <b>too much stuff</b>, far too much. … Returning the Parthenon marbles might indeed be a precedent, and an excellent one.</li></ol>
+  <b>選択肢の検討</b>
+  <table class="t opts"><tr class="ok"><td class="k">a</td><td class="e">Return the Parthenon marbles: The British Museum has too much stuff anyway</td><td class="v">○</td><td>前半＝筆者の主張、後半＝[11] too much stuff。主張と根拠の両方を含む。</td></tr><tr class=""><td class="k">b</td><td class="e">Marvelous marbles from Greece: Let’s leave them in London</td><td class="v">×</td><td>主張が正反対。</td></tr><tr class=""><td class="k">c</td><td class="e">How they lost their marbles: Debating Greece’s claims to the Parthenon sculptures</td><td class="v">×</td><td>lose one’s marbles（正気を失う）のしゃれ。Debating（議論の紹介）では中立的すぎて、返還を強く主張する筆者の立場が出ていない。</td></tr><tr class=""><td class="k">d</td><td class="e">From Athens to London and back again: The long journey of the Parthenon marbles</td><td class="v">×</td><td>マーブルの移動の歴史が中心の話ではない。and back again（返還済み）も事実と違う。</td></tr></table>
+  <div class="tipq">▶ タイトル問題は、①話題が合っているか、②筆者の立場（賛成・反対）が合っているか、③範囲が広すぎ・狭すぎないか、の順にチェックする。</div>
+</div>
+</section>
+
+<section class="sec page">
+<h2><span class="num">4</span>大問Ⅲで使った解き方のまとめ</h2>
+<ul class="points">
+  <li><b>筆者の立場を最初に確定する</b>：[1] beyond silly／Any civilised Briton knows they should be displayed … in Athens → 返還賛成。これと逆の選択肢はほぼすべて消える（問2 b・c、問4 d、問7 a・b・c、問9 a、問13 b）。</li>
+  <li><b>譲歩のサイン</b>（Of course／It is true that／might be over the top）の後は必ず but・though・And so what? で反論が来る。筆者の意見は反論の側（問4・5・10）。</li>
+  <li><b>皮肉・代弁のサイン</b>（is telling 〜:／it seems to say／命令文・should の連続）がある文は筆者の意見ではない（問7）。</li>
+  <li><b>対比の合図</b>（Instead／but／⇔ の形容詞）があれば、知らない語でも反対側の語から逆算できる（問3 boring ⇔ burning、問6 humiliate ⇔ dignity）。</li>
+  <li><b>if not B</b> は「B ではないにしても」。B は否定されている側（問11）。</li>
+  <li><b>本文の語句をそのまま使った選択肢</b>は、本文でのプラス・マイナスの評価まで一致しているか確認する（問1 d、問7 b・c、問9 d）。</li>
+</ul>
+</section>
+</body></html>
