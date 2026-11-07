@@ -5,6 +5,7 @@ import pathlib
 import re
 
 from build import annotate_togi
+import exam_p1, exam_p2, exam_p3
 
 HERE = pathlib.Path(__file__).resolve().parent
 OUT = HERE / "exam2026.html"
@@ -333,17 +334,27 @@ CSS_EXTRA = """
 def section(no, P):
     flow = "".join(f'<tr><td class="p">{html.escape(p)}</td><td class="r">{html.escape(r)}</td><td>{html.escape(t)}</td></tr>'
                    for p, r, t in P["flow"])
-    sents = []
+    sents, prev = [], None
     for n, (para, pattern, ann, notes, ja) in enumerate(P["sents"], 1):
+        if para != prev:
+            sents.append(f'<h3 class="ph">{html.escape(para)}</h3>')
+            prev = para
         li = "".join(f"<li>{md(x)}</li>" for x in notes)
         sents.append(f"""
 <div class="sent">
   <div class="sn">{n}</div>
-  <div class="pattern">{html.escape(para)}　{html.escape(pattern)}</div>
+  <div class="pattern">{html.escape(pattern)}</div>
   <div class="en togi">{annotate_togi(ann)}</div>
   <ul class="notes">{li}</ul>
   <div class="ja"><span class="jt">訳</span>{html.escape(ja)}</div>
 </div>""")
+    paras, order = {}, []
+    for para, _, _, _, ja in P["sents"]:
+        if para not in paras:
+            paras[para] = []
+            order.append(para)
+        paras[para].append(ja)
+    tr = "".join(f'<div class="para"><div class="plabel">{html.escape(k)}</div><p>{html.escape("".join(paras[k]))}</p></div>' for k in order)
     qs = "".join(f"""
 <div class="ql"><div class="qh">問{q}　{html.escape(t)}<span class="ans">{html.escape(a)}</span></div>
 <ul>{''.join(f'<li>{md(x)}</li>' for x in xs)}</ul></div>""" for q, t, a, xs in P["qs"])
@@ -352,8 +363,14 @@ def section(no, P):
   <h2><span class="num">{no}</span>{html.escape(P['title'])}</h2>
   <h3>段落の流れ（速読用）</h3>
   <table class="flow-t">{flow}</table>
-  <h3>精読：設問に関わる文の構造</h3>
+</section>
+<section class="sec page">
+  <h3>精読：全文の構造</h3>
   {''.join(sents)}
+</section>
+<section class="sec page">
+  <h3>全訳（{html.escape(P['title'].split('　')[0])}）</h3>
+  <div class="translation">{tr}</div>
 </section>
 <section class="sec page">
   <h3>設問解説（{html.escape(P['title'].split('　')[0])}）</h3>
@@ -362,12 +379,17 @@ def section(no, P):
 
 
 def build():
+    P1["sents"], P2["sents"], P3["sents"] = exam_p1.SENTS, exam_p2.SENTS, exam_p3.SENTS
+    for m in (exam_p1, exam_p2, exam_p3):
+        for t in m.SENTS:
+            a = t[2]
+            assert a.count("{") == a.count("}") and a.count("⟪") == a.count("⟫"), a
     css = (HERE / "style.css").read_text() + CSS_EXTRA
     demo = annotate_togi("{S|S} {Vt|V} {O|O} {M|M}")
     tips = "".join(f"<tr><td>{html.escape(a)}</td><td>{html.escape(b)}</td></tr>" for a, b in TIPS)
     head = f"""
 <div class="cover">
-  <div class="kicker">英文読解戦略プリントで読む　精読 → 設問</div>
+  <div class="kicker">英文読解戦略プリントで読む　全文精読 → 設問</div>
   <h1>2026年度 英語 <small>大問Ⅰ〜Ⅲ 解説</small></h1>
   <ol class="toc"><li>大問Ⅰ American English</li><li>大問Ⅱ do-gooder derogation</li><li>大問Ⅲ パルテノン・マーブル</li><li>間違えた問題から学ぶこと</li></ol>
 </div>
