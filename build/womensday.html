@@ -1,0 +1,215 @@
+<!doctype html><html lang="ja"><head><meta charset="utf-8">
+<title>1 国際女性デー 精読→速読</title><style>@page { size: A4; margin: 16mm 15mm 16mm 15mm; }
+* { box-sizing: border-box; }
+:root { --ink:#1a1a1a; --main:#b3261e; --sub:#1d4ed8; --br:#15803d; --rule:#cfcfcf; --soft:#f4f4f0; }
+body { margin:0; color:var(--ink); background:#fff; font-family:"IPAPGothic","IPAGothic",sans-serif; font-size:10.5pt; line-height:1.75; }
+.en, .fulltext p, .qt, .answers td:last-child, .footnote { font-family:"Liberation Serif","DejaVu Serif",serif; }
+
+.cover { border-bottom:2px solid var(--ink); padding:6mm 0 5mm; margin-bottom:6mm; }
+.kicker { font-size:10pt; letter-spacing:.2em; color:#555; }
+h1 { font-size:22pt; margin:2mm 0 3mm; line-height:1.3; }
+h1 small { font-size:12pt; font-weight:normal; color:#444; }
+.toc { margin:0; padding-left:1.4em; font-size:10pt; color:#333; columns:2; }
+
+.page { break-before:page; }
+h2 { font-size:15pt; border-bottom:1.5px solid var(--ink); padding-bottom:1.5mm; margin:0 0 4mm; }
+h2 .num { display:inline-block; background:var(--ink); color:#fff; width:1.5em; text-align:center; margin-right:.5em; border-radius:2px; }
+h3 { font-size:11.5pt; margin:5mm 0 2.5mm; padding-left:2mm; border-left:4px solid var(--ink); break-after:avoid; }
+
+/* 1. 解答 */
+table.answers { width:100%; border-collapse:collapse; font-size:10pt; }
+.answers th, .answers td { border:1px solid #999; padding:1mm 2mm; vertical-align:top; }
+.answers th { background:var(--soft); }
+.answers td.qn, .answers td.an { text-align:center; white-space:nowrap; width:13mm; }
+.answers td.an { font-weight:bold; font-size:11pt; }
+.qa { margin:0 0 3mm; break-inside:avoid; }
+.qh { font-weight:bold; }
+.qa p { margin:.5mm 0 0 4mm; font-size:10pt; }
+.qt { font-weight:normal; }
+
+/* 完成本文・和訳：色や下線なし */
+.para { display:flex; gap:3mm; margin:0 0 3.2mm; }
+.plabel { flex:none; width:9mm; font-weight:bold; font-family:"Liberation Serif",serif; }
+.para p { margin:0; text-align:justify; }
+.fulltext p { font-size:11.5pt; line-height:1.85; }
+.translation p { line-height:1.95; }
+.footnote { font-size:9pt; color:#333; margin-top:4mm; border-top:1px solid var(--rule); padding-top:1.5mm; }
+
+/* 3. 文構造 */
+.legend { border:1px solid var(--rule); background:var(--soft); padding:3mm 4mm; font-size:9.5pt; line-height:2.9; margin-bottom:3mm; }
+.ph { margin-top:6mm; }
+.sent { position:relative; padding:1mm 0 3mm 9mm; border-bottom:1px dashed var(--rule); margin-bottom:2mm; break-inside:avoid; }
+.sn { position:absolute; left:0; top:4mm; width:6mm; height:6mm; border-radius:50%; border:1px solid var(--ink); font-size:8pt; text-align:center; line-height:5.6mm; }
+.en { font-size:12pt; line-height:3.25; padding-top:1mm; }
+.main { border-bottom:1.6px solid var(--main); -webkit-box-decoration-break:clone; box-decoration-break:clone; padding-bottom:1px; }
+.main.l-V { border-bottom:3px double var(--main); }
+.emph { border-bottom:1.6px dotted var(--main); }
+.tag { display:inline-block; width:0; position:relative; vertical-align:baseline; }
+.tag > span { position:absolute; left:0; white-space:nowrap; font-family:"IPAPGothic",sans-serif; font-weight:bold; line-height:1; }
+.main .tag > span, .emph .tag > span { top:.55em; font-size:8.5pt; color:var(--main); }
+.sub .tag > span { top:-2.7em; font-size:7.5pt; color:var(--sub); }
+.br { color:var(--br); font-weight:bold; }
+.legend .main, .legend .sub { margin-right:.3em; }
+.notes { margin:.5mm 0 1.5mm; padding-left:1.3em; font-size:9.5pt; line-height:1.65; }
+.notes li { margin:.3mm 0; }
+.ja { font-size:10pt; background:var(--soft); padding:1.5mm 2.5mm; border-radius:2px; }
+.jt { display:inline-block; font-size:8.5pt; border:1px solid var(--ink); padding:0 1.2mm; margin-right:2mm; line-height:1.4; }
+
+/* 4. 論理展開 */
+.lg { display:flex; border:1px solid #999; margin-bottom:2.5mm; break-inside:avoid; }
+.lg-h { flex:none; width:30mm; background:var(--soft); border-right:1px solid #999; padding:2mm; }
+.lg-h .plabel { display:block; width:auto; font-size:12pt; }
+.lg-h .role { font-size:9.5pt; font-weight:bold; }
+.lg-b { padding:2mm 3mm; font-size:9.8pt; }
+.lg-b p { margin:0; }
+.lg-b .func { margin-top:1mm; color:#333; }
+.overview .block { border:1.5px solid var(--ink); padding:2.5mm 4mm; break-inside:avoid; }
+.overview .conclusion { border-width:2.5px; }
+.overview .bh { font-weight:bold; margin-bottom:1mm; }
+.overview p { margin:0; font-size:10pt; line-height:1.9; }
+.arrow { text-align:center; font-size:12pt; line-height:1.6; }
+.summary { border:1px solid var(--rule); padding:3mm 4mm; margin:0; line-height:1.95; }
+.points { padding-left:1.3em; font-size:10pt; }
+.points li { margin-bottom:1.5mm; }
+
+/* 3. 文構造（登木式） */
+.pattern { display:inline-block; font-size:8.5pt; border:1px solid var(--ink); padding:0 1.5mm; margin:1mm 0 0; line-height:1.5; }
+.togi .main { border-bottom:none; background:#fff1a6; padding:.1em 0; }
+.togi .main.mm { background:#d3f1cc; }
+.togi .main > .tag > span { top:.75em; font-size:8pt; color:#111; border:1.1px solid #111; border-radius:999px; min-width:1.45em; padding:0 .25em; text-align:center; background:#fff; line-height:1.35; }
+.togi .tag small { font-size:.72em; }
+.togi .sub > .tag > span { color:var(--sub); top:-2.7em; }
+.en.togi { padding-bottom:2.5mm; }
+.togi .lv3 > .tag > span { position:absolute; top:-2.7em; font-size:7.3pt; color:#7c3aed; }
+.togi .gap { color:#b3261e; font-size:.8em; padding:0 .1em; margin-right:1.6em; }
+.togi .gap .tag > span { top:-2.9em; font-size:7.3pt; color:#b3261e; }
+.togi .emph { border-bottom:1.6px dotted #111; }
+.togi .emph > .tag > span { top:.75em; font-size:7.5pt; color:#111; }
+.legend.togi { line-height:3.1; }
+
+.lead { font-size:10pt; color:#333; margin:0 0 3mm; }
+.fulltext p { margin:0 0 2.2mm; }
+table.vocab { width:100%; border-collapse:collapse; font-size:9.5pt; margin-top:2mm; }
+.vocab td { border-bottom:1px solid var(--rule); padding:.6mm 2mm; }
+.vocab td.w { font-family:"Liberation Serif",serif; font-weight:bold; width:28%; }
+.motto { border:2px solid var(--ink); padding:3mm 4mm; margin:0 0 4mm; font-size:10pt; line-height:1.8; }
+.motto b { font-size:11pt; }
+table.skel { width:100%; border-collapse:collapse; font-size:9.6pt; }
+.skel td, .skel th { border:1px solid #999; padding:1mm 2mm; vertical-align:top; }
+.skel th { background:var(--soft); }
+.skel td.e { font-family:"Liberation Serif",serif; background:#fff1a6; width:38%; }
+.skel td.n { text-align:center; width:7mm; }
+.chunk { margin:0 0 3mm; break-inside:avoid; border-bottom:1px dashed var(--rule); padding-bottom:2mm; }
+.chunk .c { display:inline-block; margin:0 1mm 1.2mm 0; vertical-align:top; }
+.chunk .c .ce { font-family:"Liberation Serif",serif; font-size:11pt; }
+.chunk .c .cj { display:block; font-size:8.3pt; color:#1d4ed8; line-height:1.3; }
+.chunk .sl { color:#b3261e; font-weight:bold; margin:0 1mm; }
+.flow .block { border:1.5px solid var(--ink); padding:2mm 4mm; break-inside:avoid; font-size:10pt; }
+.flow .arrow { text-align:center; line-height:1.4; }
+.points li { margin-bottom:1.2mm; }
+</style></head><body>
+<div class="cover">
+  <div class="kicker">英文読解戦略プリントで読む　精読 → 速読</div>
+  <h1>1 国際女性デー <small>International Women’s Day（190 words）</small></h1>
+  <ol class="toc"><li>本文と語句</li><li>QUIZ 解答</li><li>精読：文構造と公式</li><li>速読：骨格読み・スラッシュリーディング</li><li>記事の流れ</li><li>全訳</li></ol>
+</div>
+<div class="motto"><b>精読の上に速読がある。</b>　まず1文ずつ S・V・O・C を確定し、「なぜそう読めるのか」を公式（tactics）で説明できる状態にする（第3章）。
+それができたら、黄色（S・V・O・C）の骨格だけを拾い、緑（M）は「何の説明か」を予想しながら左から右へ流す（第4章）。速読は「読み飛ばし」ではなく、精読で身につけた判断を一瞬で行うことである。</div>
+<h2><span class="num">1</span>本文と語句</h2>
+<div class="fulltext"><p>Rallies were held around the world Thursday to celebrate International Women’s Day and to demand an end to the exploitation, discrimination and violence that women face.</p><p>Hundreds of women stopped traffic outside city hall in Madrid in Spain’s first national women’s strike, in protest against wage gaps and gender violence. A recent study found Spanish women on average were paid nearly 13 percent less than their male colleagues. (…)</p><p>In Seoul, women’s groups used the day to boost support for the American-born #MeToo movement against sexual assault in the workplace. The movement has spread across the Asian economic giant after a female prosecutor revealed in January that she had been assaulted by a colleague several years ago, leading to the downfall of numerous high-profile men, including a provincial governor who was a leading presidential contender before he was accused of raping his secretary. (…)</p><p>In Myanmar, de facto leader Aung San Suu Kyi urged women to build peaceful democracies using their strength in politics, economics and social issues. (…)</p><p>And in China, students at Tsinghua University used the occasion to make light of a proposed constitutional amendment to scrap term limits for the country’s president.</p></div>
+<table class="vocab"><tr><td class="w">rally</td><td>集会</td></tr><tr><td class="w">exploitation</td><td>搾取</td></tr><tr><td class="w">discrimination</td><td>差別</td></tr><tr><td class="w">wage gap</td><td>賃金格差</td></tr><tr><td class="w">boost</td><td>〜を後押しする</td></tr><tr><td class="w">assault</td><td>暴行（する）</td></tr><tr><td class="w">prosecutor</td><td>検察官</td></tr><tr><td class="w">downfall</td><td>失脚・没落</td></tr><tr><td class="w">high-profile</td><td>注目を集める・著名な</td></tr><tr><td class="w">provincial governor</td><td>（州・道の）知事</td></tr><tr><td class="w">contender</td><td>競争者・候補者</td></tr><tr><td class="w">accuse A of B</td><td>B のことで A を告発する</td></tr><tr><td class="w">de facto</td><td>事実上の</td></tr><tr><td class="w">urge O to do</td><td>O に〜するよう促す</td></tr><tr><td class="w">make light of</td><td>〜を軽んじる・茶化す</td></tr><tr><td class="w">constitutional</td><td>憲法の</td></tr><tr><td class="w">amendment</td><td>修正案</td></tr><tr><td class="w">scrap</td><td>〜を廃止する</td></tr><tr><td class="w">term limit</td><td>任期制限</td></tr></table>
+<section class="sec page"><h2><span class="num">2</span>QUIZ 解答</h2>
+<div class="qa"><div class="qh">Q1　スペインではどのくらいの男女の賃金格差がある？</div><p>▶ 女性の給料は、平均して男性の同僚より<b>13％近く低い</b>。</p><p class="qt">第3文 Spanish women on average were paid nearly 13 percent less than their male colleagues. pay O₁ O₂ の受身で O が残った形（tactics 018・022）。nearly は「ほぼ・〜近く」（13％弱）。</p></div>
+<div class="qa"><div class="qh">Q2　下線部❶ a leading presidential contender はどのような意味？</div><p>▶ 「<b>有力な大統領候補</b>（大統領選の最有力候補の一人）」。</p><p class="qt">leading は名詞の前の形容詞「主要な・一流の」、presidential「大統領（選）の」、contender「競争者・候補者」。who 節の C&#x27;（S&#x27;＝C&#x27;）なので「その道知事＝有力な大統領候補だった」（tactics 019）。before 〜 があるので「告発されるまでは」有力候補だった、という含み。</p></div>
+<div class="qa"><div class="qh">Q3　下線部❷ a proposed constitutional amendment にはどのような内容が含まれている？</div><p>▶ <b>国家主席（the country’s president）の任期制限を撤廃する</b>という内容。</p><p class="qt">直後の to scrap term limits for the country’s president が amendment にかかる形容詞のカタマリ（名詞＋to do）。scrap「廃止する」、term limits「任期制限」。</p></div></section>
+<section class="sec page">
+  <h2><span class="num">3</span>精読：文構造と公式</h2>
+  <div class="legend togi">
+    <div><span class="main"><span class="tag"><span>S</span></span>S</span> <span class="main"><span class="tag"><span>V<small>t</small></span></span>V</span> <span class="main"><span class="tag"><span>O</span></span>O</span> <span class="main mm"><span class="tag"><span>M</span></span>M</span>　<b>主節</b>：黄色＝S・V・O・C（主役・中心・抽象）、緑色＝M（修飾語・具体・説明）（tactics 001・037）</div>
+    <div>V の右下：<b>i</b>＝自動詞、<b>t</b>＝他動詞、<b>受</b>＝受身（be＋p.p.）　<b>従属節</b>：S'・V'・O'・C'・M'（さらに内側は S''…）</div>
+    <div><span class="gap">●</span>＝関係詞の内側で名詞が欠けている位置　△＝省略された that　(V)(O)(M)＝準動詞のミクロ文型（tactics 034）</div>
+    <div><span class="br">[ ]</span> 名詞のカタマリ　<span class="br">( )</span> 形容詞のカタマリ　<span class="br">&lt; &gt;</span> 副詞のカタマリ</div>
+  </div>
+  
+<div class="sent">
+  <div class="sn">1</div>
+  <div class="pattern">SV（受身：SVO → SV）</div>
+  <div class="en togi"><span class="main"><span class="tag"><span>S</span></span>Rallies</span> <span class="main"><span class="tag"><span>V<small>受</small></span></span>were held</span> <span class="main mm"><span class="tag"><span>M</span></span><span class="br">&lt;</span>around the world<span class="br">&gt;</span></span> <span class="main mm"><span class="tag"><span>M</span></span><span class="br">&lt;</span>Thursday<span class="br">&gt;</span></span> <span class="main mm"><span class="tag"><span>M</span></span><span class="br">&lt;</span>to <span class="lv3"><span class="tag"><span>(V)</span></span>celebrate</span> <span class="lv3"><span class="tag"><span>(O)</span></span>International Women’s Day</span><span class="br">&gt;</span></span> and <span class="main mm"><span class="tag"><span>M</span></span><span class="br">&lt;</span>to <span class="lv3"><span class="tag"><span>(V)</span></span>demand</span> <span class="lv3"><span class="tag"><span>(O)</span></span>an end <span class="br">(</span>to the exploitation, discrimination and violence <span class="br">(</span>that <span class="sub"><span class="tag"><span>S'</span></span>women</span> <span class="sub"><span class="tag"><span>V'<small>t</small></span></span>face</span> <span class="gap"><span class="tag"><span>O&#x27;欠</span></span>●</span><span class="br">)</span><span class="br">)</span></span><span class="br">&gt;</span></span>.</div>
+  <ul class="notes"><li>were held＝be＋p.p.＝受身。hold O「O を開催する」は SVO なので、受身にすると O が1個減って SV で完全文（tactics 018）。V はこの1個だけ（tactics 010）。</li><li>Thursday は前置詞なしの名詞だが、時間を表す「副」のシゴト（副詞的目的格：tactics 003⑤）なので M。</li><li>完全文が成立した後ろの to celebrate 〜 / to demand 〜 は M（tactics 025）。to do のカタマリの中はミクロ文型 (V)(O)（tactics 034）。2つの to do を and が並べている（等位接続詞：tactics 029）。意味は「〜するために」（目的）。</li><li>an end to 〜 の to は後ろが名詞なので前置詞の to（tactics 074）。「〜を終わらせること」。</li><li>that women face は関・名の that。内側は face の O が欠けた不完全文（tactics 031・033①）。先行詞は the exploitation, discrimination and violence の3つ全部。</li></ul>
+  <div class="ja"><span class="jt">訳</span>木曜日、国際女性デーを祝い、そして女性が直面している搾取・差別・暴力をなくすよう求めるために、世界各地で集会が開かれた。</div>
+</div>
+<div class="sent">
+  <div class="sn">2</div>
+  <div class="pattern">SVO（第3文型）</div>
+  <div class="en togi"><span class="main"><span class="tag"><span>S</span></span>Hundreds <span class="br">(</span>of women<span class="br">)</span></span> <span class="main"><span class="tag"><span>V<small>t</small></span></span>stopped</span> <span class="main"><span class="tag"><span>O</span></span>traffic</span> <span class="main mm"><span class="tag"><span>M</span></span><span class="br">&lt;</span>outside city hall <span class="br">(</span>in Madrid<span class="br">)</span><span class="br">&gt;</span></span> <span class="main mm"><span class="tag"><span>M</span></span><span class="br">&lt;</span>in Spain’s first national women’s strike<span class="br">&gt;</span></span>, <span class="main mm"><span class="tag"><span>M</span></span><span class="br">&lt;</span>in protest <span class="br">(</span>against wage gaps and gender violence<span class="br">)</span><span class="br">&gt;</span></span>.</div>
+  <ul class="notes"><li>hundreds of 名＝「何百もの名」。数量表現は of までをまとめて読み、中心は women（tactics 071）。</li><li>stop は他動詞で traffic が O。SVO で完全文が成立したので、残りはすべて M（tactics 025・027「文末M」）。</li><li>outside 〜 / in 〜 / in protest against 〜 はすべて前＋名＝M（tactics 001：緑色）。in protest against 〜「〜に抗議して」。</li></ul>
+  <div class="ja"><span class="jt">訳</span>マドリードでは、スペイン初の全国規模の女性ストライキで、何百人もの女性が市庁舎の外で交通を止め、賃金格差とジェンダーに基づく暴力に抗議した。</div>
+</div>
+<div class="sent">
+  <div class="sn">3</div>
+  <div class="pattern">SVO（O が that 節）</div>
+  <div class="en togi"><span class="main"><span class="tag"><span>S</span></span>A recent study</span> <span class="main"><span class="tag"><span>V<small>t</small></span></span>found</span> <span class="main"><span class="tag"><span>O</span></span><span class="br">[</span>△ <span class="sub"><span class="tag"><span>S'</span></span>Spanish women</span> <span class="sub"><span class="tag"><span>M'</span></span><span class="br">&lt;</span>on average<span class="br">&gt;</span></span> <span class="sub"><span class="tag"><span>V'<small>受</small></span></span>were paid</span> <span class="sub"><span class="tag"><span>O'</span></span>nearly 13 percent less</span> <span class="sub"><span class="tag"><span>M'</span></span><span class="br">&lt;</span>than their male colleagues<span class="br">&gt;</span></span><span class="br">]</span></span>.</div>
+  <ul class="notes"><li>V（found・were paid）が2個あるのに接続詞が見えない → どこかに △（省略された that）がある（V の数の法則：tactics 010）。</li><li>think・know・find などの思考・認識の V の後ろの従接 that は省略できる（tactics 005①）。SV [that S&#x27;V&#x27;] の V は「思う・知る・表明する」の意味（tactics 024）→「調査で〜とわかった」。</li><li>pay O₁ O₂「O₁ に O₂ を支払う」（tactics 022）を受身にすると O が1個残る（SVOO ⇒ S be p.p. O：tactics 018）。残った O&#x27; が nearly 13 percent less「13％近く少ない額」。</li><li>on average「平均して」は S&#x27; と V&#x27; の間に割り込んだ M&#x27;。than 〜 は比較の相手。</li></ul>
+  <div class="ja"><span class="jt">訳</span>最近の調査で、スペインの女性は平均して、男性の同僚よりも13％近く少ない給料しか支払われていないことがわかった。</div>
+</div>
+<div class="sent">
+  <div class="sn">4</div>
+  <div class="pattern">SVO（第3文型）＋目的の to do</div>
+  <div class="en togi"><span class="main mm"><span class="tag"><span>M</span></span><span class="br">&lt;</span>In Seoul<span class="br">&gt;</span></span>, <span class="main"><span class="tag"><span>S</span></span>women’s groups</span> <span class="main"><span class="tag"><span>V<small>t</small></span></span>used</span> <span class="main"><span class="tag"><span>O</span></span>the day</span> <span class="main mm"><span class="tag"><span>M</span></span><span class="br">&lt;</span>to <span class="lv3"><span class="tag"><span>(V)</span></span>boost</span> <span class="lv3"><span class="tag"><span>(O)</span></span>support <span class="br">(</span>for the American-born #MeToo movement <span class="br">(</span>against sexual assault <span class="br">(</span>in the workplace<span class="br">)</span><span class="br">)</span><span class="br">)</span></span><span class="br">&gt;</span></span>.</div>
+  <ul class="notes"><li>文頭 M → S → V → O（tactics 027 の頻出パターン「文頭M・SV のアイダ・文末」）。In Seoul は前＋名＝M。</li><li>use A to do「A を使って〜する／〜するために A を利用する」。to boost 〜 は完全文の後ろなので M（目的）。中身は (V)(O)（tactics 034）。</li><li>名詞の後ろに続く (for 〜)(against 〜)(in 〜) は、それぞれ直前の名詞にかかる形容詞のカタマリ（前＋名＝M：tactics 001）。support → movement → assault と順にかかっていく。</li><li>the day は前の文の International Women’s Day の言い換え。</li></ul>
+  <div class="ja"><span class="jt">訳</span>ソウルでは、女性団体がこの日を利用して、職場での性的暴行に反対するアメリカ発の #MeToo 運動への支持を高めようとした。</div>
+</div>
+<div class="sent">
+  <div class="sn">5</div>
+  <div class="pattern">SV（第1文型）＋分詞構文（結果）</div>
+  <div class="en togi"><span class="main"><span class="tag"><span>S</span></span>The movement</span> <span class="main"><span class="tag"><span>V<small>i</small></span></span>has spread</span> <span class="main mm"><span class="tag"><span>M</span></span><span class="br">&lt;</span>across the Asian economic giant<span class="br">&gt;</span></span> <span class="main mm"><span class="tag"><span>M</span></span><span class="br">&lt;</span>after <span class="sub"><span class="tag"><span>S'</span></span>a female prosecutor</span> <span class="sub"><span class="tag"><span>V'<small>t</small></span></span>revealed</span> <span class="sub"><span class="tag"><span>M'</span></span><span class="br">&lt;</span>in January<span class="br">&gt;</span></span> <span class="sub"><span class="tag"><span>O'</span></span><span class="br">[</span>that <span class="sub"><span class="tag"><span>S''</span></span>she</span> <span class="sub"><span class="tag"><span>V''<small>受</small></span></span>had been assaulted</span> <span class="sub"><span class="tag"><span>M''</span></span><span class="br">&lt;</span>by a colleague<span class="br">&gt;</span></span> <span class="sub"><span class="tag"><span>M''</span></span><span class="br">&lt;</span>several years ago<span class="br">&gt;</span></span><span class="br">]</span></span><span class="br">&gt;</span></span>, <span class="main mm"><span class="tag"><span>M</span></span><span class="br">&lt;</span><span class="lv3"><span class="tag"><span>(V)</span></span>leading</span> <span class="lv3"><span class="tag"><span>(M)</span></span><span class="br">&lt;</span>to the downfall <span class="br">(</span>of numerous high-profile men<span class="br">)</span>, including a provincial governor <span class="br">(</span>who <span class="gap"><span class="tag"><span>S&#x27;欠</span></span>●</span> <span class="sub"><span class="tag"><span>V'</span></span>was</span> <span class="sub"><span class="tag"><span>C'</span></span>a leading presidential contender</span> <span class="sub"><span class="tag"><span>M'</span></span><span class="br">&lt;</span>before <span class="sub"><span class="tag"><span>S''</span></span>he</span> <span class="sub"><span class="tag"><span>V''<small>受</small></span></span>was accused</span> <span class="sub"><span class="tag"><span>M''</span></span><span class="br">&lt;</span>of <span class="lv3"><span class="tag"><span>(V)</span></span>raping</span> <span class="lv3"><span class="tag"><span>(O)</span></span>his secretary</span><span class="br">&gt;</span></span><span class="br">&gt;</span></span><span class="br">)</span><span class="br">&gt;</span></span><span class="br">&gt;</span></span>.</div>
+  <ul class="notes"><li>長い文こそ「わからない時はまず V から探せ」（tactics 036）。主節の V は has spread の1個だけ。spread は「S 自身が広がる」完全自動詞なので SV で完成し、残りは全部 M（tactics 008・025）。</li><li>after の後ろに S&#x27;V&#x27;（a female prosecutor revealed）があるので、after は従属接続詞。after 〜 ago までが副詞のカタマリ（M）。</li><li>revealed [that 〜]：V that 〜 は従接の that で内側は完全文（tactics 033②・070）。had been assaulted は過去完了の受身：明かした（1月）よりも前に暴行された、という時間のズレ（大過去）。</li><li>カンマ＋leading 〜 は分詞のカタマリが M になったもの（分詞構文：tactics 052②）。ing のミクロ S は文全体の S（tactics 040）→「運動が広がり、その結果〜につながった」（文末の分詞構文は「結果」で訳すと自然）。lead to 〜「〜につながる」。</li><li>the downfall of 〜 は「名詞 of 名詞」のデキゴト解釈：「多数の著名な男性が失脚すること」（tactics 112）。</li><li>including 〜「〜を含めて」は前置詞扱い。who は関係代名詞で内側は S が欠けた不完全文（tactics 031）。was が V&#x27;、a leading presidential contender が C&#x27;（S&#x27;＝C&#x27;：tactics 019）。</li><li>before 〜 の内側：accuse A of B「B のことで A を告発する」の受身 → A is accused of B。raping は前置詞 of の後ろの動名詞（ミクロ文型 (V)(O)：tactics 034）。</li></ul>
+  <div class="ja"><span class="jt">訳</span>この運動は、1月に女性検察官が数年前に同僚から暴行を受けていたことを明かした後、このアジアの経済大国全体に広がり、多数の著名な男性の失脚につながった。その中には、秘書への性的暴行で告発されるまでは有力な大統領候補だった道知事も含まれている。</div>
+</div>
+<div class="sent">
+  <div class="sn">6</div>
+  <div class="pattern">SVOC（第5文型：urge O to do）</div>
+  <div class="en togi"><span class="main mm"><span class="tag"><span>M</span></span><span class="br">&lt;</span>In Myanmar<span class="br">&gt;</span></span>, <span class="main"><span class="tag"><span>S</span></span>de facto leader Aung San Suu Kyi</span> <span class="main"><span class="tag"><span>V<small>t</small></span></span>urged</span> <span class="main"><span class="tag"><span>O</span></span>women</span> <span class="main"><span class="tag"><span>C</span></span>to <span class="lv3"><span class="tag"><span>(V)</span></span>build</span> <span class="lv3"><span class="tag"><span>(O)</span></span>peaceful democracies</span></span> <span class="main mm"><span class="tag"><span>M</span></span><span class="br">&lt;</span><span class="lv3"><span class="tag"><span>(V)</span></span>using</span> <span class="lv3"><span class="tag"><span>(O)</span></span>their strength</span> <span class="lv3"><span class="tag"><span>(M)</span></span><span class="br">&lt;</span>in politics, economics and social issues<span class="br">&gt;</span></span><span class="br">&gt;</span></span>.</div>
+  <ul class="notes"><li>de facto leader と Aung San Suu Kyi は同格（名詞のシゴト⑦：tactics 003）。「事実上の指導者であるアウン・サン・スー・チー氏」。</li><li>urge O to do「O に〜するよう促す」。O（women）と C（to build 〜）に主述関係がある「O に C させる」作為系の SVOC（tactics 062）。</li><li>using 〜 は分詞のカタマリで M（tactics 052②）。their＝women なので、使うのは女性たち（build する人）。「自分たちの力を使って」。</li><li>politics, economics and social issues は A, B and C の並列（tactics 029）。</li></ul>
+  <div class="ja"><span class="jt">訳</span>ミャンマーでは、事実上の指導者であるアウン・サン・スー・チー氏が、政治・経済・社会問題における自らの力を生かして平和な民主主義を築くよう、女性たちに呼びかけた。</div>
+</div>
+<div class="sent">
+  <div class="sn">7</div>
+  <div class="pattern">SVO（第3文型）＋目的の to do</div>
+  <div class="en togi"><span class="main mm"><span class="tag"><span>M</span></span><span class="br">&lt;</span>And in China<span class="br">&gt;</span></span>, <span class="main"><span class="tag"><span>S</span></span>students <span class="br">(</span>at Tsinghua University<span class="br">)</span></span> <span class="main"><span class="tag"><span>V<small>t</small></span></span>used</span> <span class="main"><span class="tag"><span>O</span></span>the occasion</span> <span class="main mm"><span class="tag"><span>M</span></span><span class="br">&lt;</span>to <span class="lv3"><span class="tag"><span>(V)</span></span>make light of</span> <span class="lv3"><span class="tag"><span>(O)</span></span>a proposed constitutional amendment <span class="br">(</span>to scrap term limits <span class="br">(</span>for the country’s president<span class="br">)</span><span class="br">)</span></span><span class="br">&gt;</span></span>.</div>
+  <ul class="notes"><li>第4文と同じ use A to do の型。同じカタチの文を並べて各国の様子を紹介している。the occasion も International Women’s Day の言い換え。</li><li>make light of 〜「〜を軽んじる・茶化す」は群動詞としてまとめて1つの V（他動詞）と考える（tactics 076）。</li><li>proposed は前から名詞にかかる過去分詞（played③型：tactics 013）→「提案された」。名詞の前に a proposed constitutional と形容詞が3つ並び、中心の名詞は amendment（tactics 015）。</li><li>amendment (to scrap 〜) の to do は直前の名詞にかかる形容詞のカタマリ：「〜を撤廃する（という）改正案」。the country’s president＝中国の国家主席。</li></ul>
+  <div class="ja"><span class="jt">訳</span>そして中国では、清華大学の学生たちがこの機会を利用して、国家主席の任期制限を撤廃するという憲法改正案を茶化した。</div>
+</div>
+</section>
+<section class="sec page">
+  <h2><span class="num">4</span>速読：骨格読み・スラッシュリーディング</h2>
+  <h3>① 骨格読み ― 黄色（S・V・O・C）だけを拾う</h3>
+  <p class="lead">第3章で緑（M）にした部分をいったん外すと、7文の「言いたいこと」はこれだけになる。右列は「その M が何を説明しに来るか」の予想。速読ではこの予想を持ちながら M を読む。</p>
+  <table class="skel"><tr><th>#</th><th>骨格（S V O C）</th><th>意味</th><th>M で答えが来る問い</th></tr><tr><td class="n">1</td><td class="e">Rallies were held</td><td>集会が開かれた</td><td>なぜ？ → to celebrate / to demand（目的）</td></tr><tr><td class="n">2</td><td class="e">Hundreds of women stopped traffic</td><td>何百人もの女性が交通を止めた</td><td>どこで・なぜ？ → in Madrid / in protest against</td></tr><tr><td class="n">3</td><td class="e">A study found [women were paid 13% less]</td><td>調査で女性の給料は13％少ないとわかった</td><td>→ Q1 の答え</td></tr><tr><td class="n">4</td><td class="e">women’s groups used the day to boost support</td><td>女性団体がこの日を利用して支持を高めた</td><td>何への？ → #MeToo movement</td></tr><tr><td class="n">5</td><td class="e">The movement has spread, leading to the downfall of men</td><td>運動が広がり、男性の失脚につながった</td><td>きっかけ → after 〜 revealed</td></tr><tr><td class="n">6</td><td class="e">Suu Kyi urged women to build democracies</td><td>スー・チー氏は女性に民主主義を築くよう促した</td><td>方法 → using their strength</td></tr><tr><td class="n">7</td><td class="e">students used the occasion to make light of an amendment</td><td>学生がこの機会に改正案を茶化した</td><td>何の改正？ → to scrap term limits</td></tr></table>
+  <h3>② スラッシュリーディング ― 英語の語順のまま意味をとる</h3>
+  <p class="lead">カタマリ（tactics 020）の切れ目でスラッシュを入れ、前から順に意味をつなぐ。後ろから訳し上げずに「（何を？）」「（どんな？）」と疑問を立てて次のカタマリで答えを受け取るのがコツ。</p>
+  <div class="chunk"><b>1</b>　<span class="c"><span class="ce">Rallies were held</span><span class="cj">集会が開かれた</span></span><span class="sl">/</span><span class="c"><span class="ce">around the world Thursday</span><span class="cj">木曜日に世界中で</span></span><span class="sl">/</span><span class="c"><span class="ce">to celebrate International Women’s Day</span><span class="cj">国際女性デーを祝うために</span></span><span class="sl">/</span><span class="c"><span class="ce">and to demand an end</span><span class="cj">そして終わりを求めるために</span></span><span class="sl">/</span><span class="c"><span class="ce">to the exploitation, discrimination and violence</span><span class="cj">搾取・差別・暴力の</span></span><span class="sl">/</span><span class="c"><span class="ce">that women face.</span><span class="cj">女性が直面している</span></span></div><div class="chunk"><b>2</b>　<span class="c"><span class="ce">Hundreds of women stopped traffic</span><span class="cj">何百もの女性が交通を止めた</span></span><span class="sl">/</span><span class="c"><span class="ce">outside city hall in Madrid</span><span class="cj">マドリードの市庁舎の外で</span></span><span class="sl">/</span><span class="c"><span class="ce">in Spain’s first national women’s strike,</span><span class="cj">スペイン初の全国女性ストで</span></span><span class="sl">/</span><span class="c"><span class="ce">in protest against wage gaps and gender violence.</span><span class="cj">賃金格差とジェンダー暴力に抗議して</span></span></div><div class="chunk"><b>3</b>　<span class="c"><span class="ce">A recent study found</span><span class="cj">最近の調査でわかった</span></span><span class="sl">/</span><span class="c"><span class="ce">△ Spanish women on average were paid</span><span class="cj">（何が？）スペインの女性は平均して支払われていた</span></span><span class="sl">/</span><span class="c"><span class="ce">nearly 13 percent less</span><span class="cj">13％近く少なく</span></span><span class="sl">/</span><span class="c"><span class="ce">than their male colleagues.</span><span class="cj">男性の同僚より</span></span></div><div class="chunk"><b>4</b>　<span class="c"><span class="ce">In Seoul,</span><span class="cj">ソウルでは</span></span><span class="sl">/</span><span class="c"><span class="ce">women’s groups used the day</span><span class="cj">女性団体がその日を使った</span></span><span class="sl">/</span><span class="c"><span class="ce">to boost support</span><span class="cj">支持を高めるために</span></span><span class="sl">/</span><span class="c"><span class="ce">for the American-born #MeToo movement</span><span class="cj">アメリカ発の #MeToo 運動への</span></span><span class="sl">/</span><span class="c"><span class="ce">against sexual assault in the workplace.</span><span class="cj">職場での性的暴行に反対する</span></span></div><div class="chunk"><b>5</b>　<span class="c"><span class="ce">The movement has spread</span><span class="cj">その運動は広がった</span></span><span class="sl">/</span><span class="c"><span class="ce">across the Asian economic giant</span><span class="cj">そのアジアの経済大国中に</span></span><span class="sl">/</span><span class="c"><span class="ce">after a female prosecutor revealed in January</span><span class="cj">1月に女性検察官が明かした後</span></span><span class="sl">/</span><span class="c"><span class="ce">that she had been assaulted by a colleague</span><span class="cj">（何を？）同僚に暴行されていたことを</span></span><span class="sl">/</span><span class="c"><span class="ce">several years ago,</span><span class="cj">数年前に</span></span><span class="sl">/</span><span class="c"><span class="ce">leading to the downfall</span><span class="cj">（その結果）失脚につながった</span></span><span class="sl">/</span><span class="c"><span class="ce">of numerous high-profile men,</span><span class="cj">多数の著名な男性の</span></span><span class="sl">/</span><span class="c"><span class="ce">including a provincial governor</span><span class="cj">道知事も含めて</span></span><span class="sl">/</span><span class="c"><span class="ce">who was a leading presidential contender</span><span class="cj">（その人は）有力な大統領候補だった</span></span><span class="sl">/</span><span class="c"><span class="ce">before he was accused</span><span class="cj">彼が告発される前は</span></span><span class="sl">/</span><span class="c"><span class="ce">of raping his secretary.</span><span class="cj">秘書に性的暴行をしたことで</span></span></div><div class="chunk"><b>6</b>　<span class="c"><span class="ce">In Myanmar,</span><span class="cj">ミャンマーでは</span></span><span class="sl">/</span><span class="c"><span class="ce">de facto leader Aung San Suu Kyi</span><span class="cj">事実上の指導者スー・チー氏が</span></span><span class="sl">/</span><span class="c"><span class="ce">urged women</span><span class="cj">女性たちに促した</span></span><span class="sl">/</span><span class="c"><span class="ce">to build peaceful democracies</span><span class="cj">（何を？）平和な民主主義を築くよう</span></span><span class="sl">/</span><span class="c"><span class="ce">using their strength</span><span class="cj">自分たちの力を使って</span></span><span class="sl">/</span><span class="c"><span class="ce">in politics, economics and social issues.</span><span class="cj">政治・経済・社会問題における</span></span></div><div class="chunk"><b>7</b>　<span class="c"><span class="ce">And in China,</span><span class="cj">そして中国では</span></span><span class="sl">/</span><span class="c"><span class="ce">students at Tsinghua University</span><span class="cj">清華大学の学生たちが</span></span><span class="sl">/</span><span class="c"><span class="ce">used the occasion</span><span class="cj">その機会を使った</span></span><span class="sl">/</span><span class="c"><span class="ce">to make light of</span><span class="cj">茶化すために</span></span><span class="sl">/</span><span class="c"><span class="ce">a proposed constitutional amendment</span><span class="cj">提案された憲法改正案を</span></span><span class="sl">/</span><span class="c"><span class="ce">to scrap term limits</span><span class="cj">（どんな？）任期制限を撤廃する</span></span><span class="sl">/</span><span class="c"><span class="ce">for the country’s president.</span><span class="cj">その国の国家主席の</span></span></div>
+  <h3>③ 速読で使う判断（精読で身につけたものの高速版）</h3>
+  <ul class="points">
+    <li><b>文頭の前＋名は M</b>（In Seoul, / In Myanmar, / And in China,）。ニュース記事ではここが「次の話題（場所）」の目印になる。</li>
+    <li><b>まず V を探す</b>（tactics 036）。第5文のような長文でも、主節の V は has spread の1個。V が見つかれば S の範囲と文型が決まり、残りは M として流せる。</li>
+    <li><b>V が2個で接続詞が見えなければ △ を補う</b>（tactics 010・005）。第3文 found △ women were paid。</li>
+    <li><b>完全文の後ろの to do・ing は M</b>（tactics 025）。to do なら「〜するために」、カンマ＋ing なら「そして〜」と前から訳し下ろす。</li>
+    <li><b>言い換えを追う</b>：International Women’s Day → the day → the occasion、Seoul（韓国）→ the Asian economic giant、#MeToo movement → The movement。同じものを別の語で言っていると気づけば、知らない表現でも推測できる。</li>
+  </ul>
+</section>
+<section class="sec page">
+  <h2><span class="num">5</span>記事の流れ（パラグラフ構成）</h2>
+  <div class="flow">
+    <div class="block"><b>第1段落（リード）</b>　世界各地で国際女性デーの集会 ― 目的：①祝う ②搾取・差別・暴力の終結を求める<br><span style="color:#555">ニュース記事は最初の1文に「いつ・どこで・何が・なぜ」をまとめる。ここを精読すれば全体の予想がつく。</span></div>
+    <div class="arrow">▼ 具体例（国別）</div>
+    <div class="block"><b>第2段落　スペイン（マドリード）</b>　初の全国女性スト／賃金格差への抗議 ― 根拠：女性の賃金は約13％低い</div>
+    <div class="arrow">▼</div>
+    <div class="block"><b>第3段落　韓国（ソウル）</b>　#MeToo 運動への支持 ― 経緯：女性検察官の告発 → 運動の拡大 → 有力者の失脚（大統領候補だった知事も）</div>
+    <div class="arrow">▼</div>
+    <div class="block"><b>第4段落　ミャンマー</b>　スー・チー氏が女性に平和な民主主義づくりを呼びかけ</div>
+    <div class="arrow">▼</div>
+    <div class="block"><b>第5段落　中国</b>　清華大学の学生が国家主席の任期制限撤廃案を茶化す</div>
+  </div>
+  <p class="lead" style="margin-top:4mm">第2段落以降は「In ＋場所, S V 〜」という同じカタチの繰り返し（一般論 → 具体例の列挙）。一度この型をつかめば、各段落は「場所」「誰が」「何をしたか」の3点を拾うだけで速く正確に読める。</p>
+</section><section class="sec page"><h2><span class="num">6</span>全訳</h2><div class="translation"><p>木曜日、国際女性デーを祝い、そして女性が直面している搾取・差別・暴力をなくすよう求めるために、世界各地で集会が開かれた。</p><p>マドリードでは、スペイン初の全国規模の女性ストライキで、何百人もの女性が市庁舎の外で交通を止め、賃金格差とジェンダーに基づく暴力に抗議した。最近の調査で、スペインの女性は平均して、男性の同僚よりも13％近く少ない給料しか支払われていないことがわかった。</p><p>ソウルでは、女性団体がこの日を利用して、職場での性的暴行に反対するアメリカ発の #MeToo 運動への支持を高めようとした。この運動は、1月に女性検察官が数年前に同僚から暴行を受けていたことを明かした後、このアジアの経済大国全体に広がり、多数の著名な男性の失脚につながった。その中には、秘書への性的暴行で告発されるまでは有力な大統領候補だった道知事も含まれている。</p><p>ミャンマーでは、事実上の指導者であるアウン・サン・スー・チー氏が、政治・経済・社会問題における自らの力を生かして平和な民主主義を築くよう、女性たちに呼びかけた。</p><p>そして中国では、清華大学の学生たちがこの機会を利用して、国家主席の任期制限を撤廃するという憲法改正案を茶化した。</p></div></section></body></html>
