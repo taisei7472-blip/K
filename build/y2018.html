@@ -1,0 +1,286 @@
+<!doctype html><html lang="ja"><head><meta charset="utf-8">
+<title>2018年 大問Ⅰ 書き込み</title><style>@page { size: A4; margin: 16mm 15mm 16mm 15mm; }
+* { box-sizing: border-box; }
+:root { --ink:#1a1a1a; --main:#b3261e; --sub:#1d4ed8; --br:#15803d; --rule:#cfcfcf; --soft:#f4f4f0; }
+body { margin:0; color:var(--ink); background:#fff; font-family:"IPAPGothic","IPAGothic",sans-serif; font-size:10.5pt; line-height:1.75; }
+.en, .fulltext p, .qt, .answers td:last-child, .footnote { font-family:"Liberation Serif","DejaVu Serif",serif; }
+
+.cover { border-bottom:2px solid var(--ink); padding:6mm 0 5mm; margin-bottom:6mm; }
+.kicker { font-size:10pt; letter-spacing:.2em; color:#555; }
+h1 { font-size:22pt; margin:2mm 0 3mm; line-height:1.3; }
+h1 small { font-size:12pt; font-weight:normal; color:#444; }
+.toc { margin:0; padding-left:1.4em; font-size:10pt; color:#333; columns:2; }
+
+.page { break-before:page; }
+h2 { font-size:15pt; border-bottom:1.5px solid var(--ink); padding-bottom:1.5mm; margin:0 0 4mm; }
+h2 .num { display:inline-block; background:var(--ink); color:#fff; width:1.5em; text-align:center; margin-right:.5em; border-radius:2px; }
+h3 { font-size:11.5pt; margin:5mm 0 2.5mm; padding-left:2mm; border-left:4px solid var(--ink); break-after:avoid; }
+
+/* 1. 解答 */
+table.answers { width:100%; border-collapse:collapse; font-size:10pt; }
+.answers th, .answers td { border:1px solid #999; padding:1mm 2mm; vertical-align:top; }
+.answers th { background:var(--soft); }
+.answers td.qn, .answers td.an { text-align:center; white-space:nowrap; width:13mm; }
+.answers td.an { font-weight:bold; font-size:11pt; }
+.qa { margin:0 0 3mm; break-inside:avoid; }
+.qh { font-weight:bold; }
+.qa p { margin:.5mm 0 0 4mm; font-size:10pt; }
+.qt { font-weight:normal; }
+
+/* 完成本文・和訳：色や下線なし */
+.para { display:flex; gap:3mm; margin:0 0 3.2mm; }
+.plabel { flex:none; width:9mm; font-weight:bold; font-family:"Liberation Serif",serif; }
+.para p { margin:0; text-align:justify; }
+.fulltext p { font-size:11.5pt; line-height:1.85; }
+.translation p { line-height:1.95; }
+.footnote { font-size:9pt; color:#333; margin-top:4mm; border-top:1px solid var(--rule); padding-top:1.5mm; }
+
+/* 3. 文構造 */
+.legend { border:1px solid var(--rule); background:var(--soft); padding:3mm 4mm; font-size:9.5pt; line-height:2.9; margin-bottom:3mm; }
+.ph { margin-top:6mm; }
+.sent { position:relative; padding:1mm 0 3mm 9mm; border-bottom:1px dashed var(--rule); margin-bottom:2mm; break-inside:avoid; }
+.sn { position:absolute; left:0; top:4mm; width:6mm; height:6mm; border-radius:50%; border:1px solid var(--ink); font-size:8pt; text-align:center; line-height:5.6mm; }
+.en { font-size:12pt; line-height:3.25; padding-top:1mm; }
+.main { border-bottom:1.6px solid var(--main); -webkit-box-decoration-break:clone; box-decoration-break:clone; padding-bottom:1px; }
+.main.l-V { border-bottom:3px double var(--main); }
+.emph { border-bottom:1.6px dotted var(--main); }
+.tag { display:inline-block; width:0; position:relative; vertical-align:baseline; }
+.tag > span { position:absolute; left:0; white-space:nowrap; font-family:"IPAPGothic",sans-serif; font-weight:bold; line-height:1; }
+.main .tag > span, .emph .tag > span { top:.55em; font-size:8.5pt; color:var(--main); }
+.sub .tag > span { top:-2.7em; font-size:7.5pt; color:var(--sub); }
+.br { color:var(--br); font-weight:bold; }
+.legend .main, .legend .sub { margin-right:.3em; }
+.notes { margin:.5mm 0 1.5mm; padding-left:1.3em; font-size:9.5pt; line-height:1.65; }
+.notes li { margin:.3mm 0; }
+.ja { font-size:10pt; background:var(--soft); padding:1.5mm 2.5mm; border-radius:2px; }
+.jt { display:inline-block; font-size:8.5pt; border:1px solid var(--ink); padding:0 1.2mm; margin-right:2mm; line-height:1.4; }
+
+/* 4. 論理展開 */
+.lg { display:flex; border:1px solid #999; margin-bottom:2.5mm; break-inside:avoid; }
+.lg-h { flex:none; width:30mm; background:var(--soft); border-right:1px solid #999; padding:2mm; }
+.lg-h .plabel { display:block; width:auto; font-size:12pt; }
+.lg-h .role { font-size:9.5pt; font-weight:bold; }
+.lg-b { padding:2mm 3mm; font-size:9.8pt; }
+.lg-b p { margin:0; }
+.lg-b .func { margin-top:1mm; color:#333; }
+.overview .block { border:1.5px solid var(--ink); padding:2.5mm 4mm; break-inside:avoid; }
+.overview .conclusion { border-width:2.5px; }
+.overview .bh { font-weight:bold; margin-bottom:1mm; }
+.overview p { margin:0; font-size:10pt; line-height:1.9; }
+.arrow { text-align:center; font-size:12pt; line-height:1.6; }
+.summary { border:1px solid var(--rule); padding:3mm 4mm; margin:0; line-height:1.95; }
+.points { padding-left:1.3em; font-size:10pt; }
+.points li { margin-bottom:1.5mm; }
+
+/* 3. 文構造（登木式） */
+.pattern { display:inline-block; font-size:8.5pt; border:1px solid var(--ink); padding:0 1.5mm; margin:1mm 0 0; line-height:1.5; }
+.togi .main { border-bottom:none; background:#fff1a6; padding:.1em 0; }
+.togi .main.mm { background:#d3f1cc; }
+.togi .main > .tag > span { top:.75em; font-size:8pt; color:#111; border:1.1px solid #111; border-radius:999px; min-width:1.45em; padding:0 .25em; text-align:center; background:#fff; line-height:1.35; }
+.togi .tag small { font-size:.72em; }
+.togi .sub > .tag > span { color:var(--sub); top:-2.7em; }
+.en.togi { padding-bottom:2.5mm; }
+.togi .lv3 > .tag > span { position:absolute; top:-2.7em; font-size:7.3pt; color:#7c3aed; }
+.togi .gap { color:#b3261e; font-size:.8em; padding:0 .1em; margin-right:1.6em; }
+.togi .gap .tag > span { top:-2.9em; font-size:7.3pt; color:#b3261e; }
+.togi .emph { border-bottom:1.6px dotted #111; }
+.togi .emph > .tag > span { top:.75em; font-size:7.5pt; color:#111; }
+.legend.togi { line-height:3.1; }
+
+table.cl { width:100%; border-collapse:collapse; font-size:9.6pt; margin-bottom:3mm; }
+.cl td, .cl th { border:1px solid #999; padding:1mm 2mm; vertical-align:top; }
+.cl th { background:var(--soft); }
+.cl td.n { width:9mm; text-align:center; font-weight:bold; }
+.cl td.a { width:30mm; font-family:"Liberation Serif",serif; font-weight:bold; background:#fff1a6; }
+.cl td.t { width:32mm; font-weight:bold; color:#b3261e; }
+.notes li b { color:#b3261e; }
+</style></head><body>
+<div class="cover">
+  <div class="kicker">2018年 英語 大問Ⅰ　本文書き込み（登木式）</div>
+  <h1>(A) マイアミの果物／(B) 科学と帝国</h1>
+</div>
+<div class="legend togi">
+  <div><span class="main"><span class="tag"><span>S</span></span>S</span> <span class="main"><span class="tag"><span>V<small>t</small></span></span>V</span> <span class="main"><span class="tag"><span>O</span></span>O</span> <span class="main mm"><span class="tag"><span>M</span></span>M</span>　黄色＝S・V・O・C、緑＝M。V の右下：i＝自動詞、t＝他動詞、受＝受身。従属節は S'・V'…、準動詞は (V)(O)(M)</div>
+  <div>△＝省略　<span class="gap">●</span>＝欠けている位置　【番号 答え】＝空所と正解　★＝空所を決める手がかり</div>
+  <div>【同形反復】【対比】【言い換え】【語法】【並列】＝本文に書き込む目印</div>
+</div>
+<h3>空所の手がかり一覧</h3>
+<table class="cl"><tr><th>問</th><th>答え</th><th>手がかりの種類</th><th>本文のどこを見るか</th></tr><tr><td class="n">1</td><td class="a">grew up</td><td class="t">時制＋言い換え</td><td class="e">had（過去）＋ childhood home</td></tr><tr><td class="n">2</td><td class="a">bombarded</td><td class="t">語法</td><td class="e">( ) the office with B → bombard A with B</td></tr><tr><td class="n">3</td><td class="a">impulsively</td><td class="t">理由の M</td><td class="e">only because（ただ〜だけの理由で）</td></tr><tr><td class="n">4</td><td class="a">season</td><td class="t">熟語</td><td class="e">主語が果物 → in season</td></tr><tr><td class="n">5</td><td class="a">native’s</td><td class="t">言い換え（同格）</td><td class="e">one of their perspectives</td></tr><tr><td class="n">6</td><td class="a">local</td><td class="t">同形反復</td><td class="e">命令文 ; 命令文 ; 命令文 の共通点＝住む場所</td></tr><tr><td class="n">7</td><td class="a">behind</td><td class="t">直後の文の言い換え</td><td class="e">It has always been there, but … didn’t even think about</td></tr><tr><td class="n">8</td><td class="a">practices</td><td class="t">並列</td><td class="e">Not just the motivation, but also the ( ) … those</td></tr><tr><td class="n">9</td><td class="a">imperial</td><td class="t">対比（たすき掛け）</td><td class="e">empire → scientific, while science → ( )</td></tr><tr><td class="n">10</td><td class="a">along</td><td class="t">語法</td><td class="e">bring along O</td></tr><tr><td class="n">11</td><td class="a">anthropologists</td><td class="t">同形反復</td><td class="e">学者 to study 〜 ×4</td></tr><tr><td class="n">12</td><td class="a">took</td><td class="t">語法</td><td class="e">take the trouble to do</td></tr><tr><td class="n">13</td><td class="a">extinct</td><td class="t">並列</td><td class="e">forgotten ruins と方向をそろえる</td></tr><tr><td class="n">14</td><td class="a">second</td><td class="t">対比</td><td class="e">None … a ( ) glance ⇔ But … took notice</td></tr></table>
+<section class="sec page"><h2><span class="num">A</span>マイアミの果物（Forager）</h2><h3 class="ph">第1段落</h3>
+<div class="sent">
+  <div class="sn">1</div>
+  <div class="pattern">If 節＋chances are (that) SV</div>
+  <div class="en togi"><span class="main mm"><span class="tag"><span>M</span></span><span class="br">&lt;</span>If <span class="sub"><span class="tag"><span>S'</span></span>someone</span> <span class="sub"><span class="tag"><span>V'<small>i</small></span></span>【1 grew up】</span> <span class="sub"><span class="tag"><span>M'</span></span><span class="br">&lt;</span>here in South Florida<span class="br">&gt;</span></span><span class="br">&gt;</span></span>, <span class="main mm"><span class="tag"><span>M</span></span><span class="br">&lt;</span>chances are △<span class="br">&gt;</span></span> <span class="main"><span class="tag"><span>S</span></span>they</span> <span class="main"><span class="tag"><span>V<small>t</small></span></span>had</span> <span class="main"><span class="tag"><span>O</span></span>fruit trees</span> <span class="main mm"><span class="tag"><span>M</span></span><span class="br">&lt;</span>in their yard or in their neighborhood<span class="br">&gt;</span></span>.</div>
+  <ul class="notes"><li>chances are (that) S V「たぶん〜だろう」→ 文頭の M 扱い（tactics 110 と同じ発想）。that の省略。</li><li><b>★</b>【1】主節が had（過去）＋後半の childhood home（言い換え）→「ここで育った人」grew up。grow up は完全自動詞なので後ろは M。</li></ul>
+  <div class="ja"><span class="jt">訳</span>南フロリダで育った人なら、たぶん自分の家の庭か近所に果樹があっただろう。</div>
+</div>
+<div class="sent">
+  <div class="sn">2</div>
+  <div class="pattern">Maybe SV ①（Maybe の同形反復スタート）</div>
+  <div class="en togi"><span class="main mm"><span class="tag"><span>M</span></span>Maybe</span> <span class="main mm"><span class="tag"><span>M</span></span><span class="br">&lt;</span>between games of basketball in a friend’s narrow alley driveway<span class="br">&gt;</span></span> <span class="main"><span class="tag"><span>S</span></span>they</span> <span class="main"><span class="tag"><span>V<small>i</small></span></span>walked</span> <span class="main mm"><span class="tag"><span>M</span></span><span class="br">&lt;</span>down the lane<span class="br">&gt;</span></span> <span class="main mm"><span class="tag"><span>M</span></span><span class="br">&lt;</span>to an abandoned lot <span class="br">(</span>with a mango tree<span class="br">)</span><span class="br">&gt;</span></span>.</div>
+  <ul class="notes"><li>【同形反復】Maybe S V が4回続く → 「育った人の思い出」の具体例の列挙。どれも同じ方向の内容。</li><li>長い前＋名は全部 M（tactics 001）。骨格は they walked。</li></ul>
+  <div class="ja"><span class="jt">訳</span>友人の家の狭い路地の車道でバスケットボールをする合間に、路地を歩いてマンゴーの木のある空き地まで行ったことがあるかもしれない。</div>
+</div>
+<div class="sent">
+  <div class="sn">3</div>
+  <div class="pattern">Maybe SVO with 〜 ②（語法）</div>
+  <div class="en togi"><span class="main mm"><span class="tag"><span>M</span></span>Maybe</span> <span class="main"><span class="tag"><span>S</span></span>their co-worker</span> <span class="main"><span class="tag"><span>V<small>t</small></span></span>【2 bombarded】</span> <span class="main"><span class="tag"><span>O</span></span>the office</span> <span class="main mm"><span class="tag"><span>M</span></span><span class="br">&lt;</span>every week<span class="br">&gt;</span></span> <span class="main mm"><span class="tag"><span>M</span></span><span class="br">&lt;</span>with bags of softball-sized green avocados or pomelos<span class="br">&gt;</span></span>.</div>
+  <ul class="notes"><li><b>★</b>【2】【語法】空所の後ろが O（the office）＋with B → bombard A with B「A に B を浴びせる」。envelop は A in B、pitch・ventilate は with B を取らない。</li><li>まず空所の後ろの「O＋前置詞」を見る → 動詞の語法で決まる。</li></ul>
+  <div class="ja"><span class="jt">訳</span>同僚が毎週、ソフトボール大の緑のアボカドやザボンを袋に入れて職場にどっさり持ってきたかもしれない。</div>
+</div>
+<div class="sent">
+  <div class="sn">4</div>
+  <div class="pattern">Maybe SV [how SV] ③</div>
+  <div class="en togi"><span class="main mm"><span class="tag"><span>M</span></span>Maybe</span> <span class="main"><span class="tag"><span>S</span></span>they</span> <span class="main"><span class="tag"><span>V<small>t</small></span></span>remember</span> <span class="main"><span class="tag"><span>O</span></span><span class="br">[</span>how <span class="br">&lt;</span>every night at sunset<span class="br">&gt;</span>, <span class="sub"><span class="tag"><span>S'</span></span>escaped cockatoos</span> <span class="sub"><span class="tag"><span>V'</span></span>would pick</span> <span class="sub"><span class="tag"><span>M'</span></span><span class="br">&lt;</span>at a neighbor’s papaya tree<span class="br">&gt;</span></span><span class="br">]</span></span>.</div>
+  <ul class="notes"><li>how のカタマリは remember の O（名詞のカタマリ：tactics 028）。how の直後に M（every night at sunset）が割り込んでいる。</li><li>would は過去の習慣「よく〜したものだ」。escaped は過去分詞で cockatoos にかかる（tactics 013）。</li></ul>
+  <div class="ja"><span class="jt">訳</span>毎晩日が沈むころ、逃げ出したオウムが近所のパパイヤの木をついばんでいたのを覚えているかもしれない。</div>
+</div>
+<div class="sent">
+  <div class="sn">5</div>
+  <div class="pattern">Maybe SV once 〜 and, 分詞, V O ( ) ④</div>
+  <div class="en togi"><span class="main mm"><span class="tag"><span>M</span></span>Maybe</span> <span class="main"><span class="tag"><span>S</span></span>they</span> <span class="main"><span class="tag"><span>V</span></span>only learned to love</span> <span class="main"><span class="tag"><span>O</span></span>lychees</span> <span class="main mm"><span class="tag"><span>M</span></span><span class="br">&lt;</span>once <span class="sub"><span class="tag"><span>S'</span></span>they</span> <span class="sub"><span class="tag"><span>V'<small>t</small></span></span>left</span> <span class="sub"><span class="tag"><span>O'</span></span>home</span> <span class="sub"><span class="tag"><span>M'</span></span><span class="br">&lt;</span>for another city<span class="br">&gt;</span></span> and, <span class="br">&lt;</span><span class="lv3"><span class="tag"><span>(V)</span></span>spotting</span> <span class="lv3"><span class="tag"><span>(O)</span></span>the fruit</span> <span class="lv3"><span class="tag"><span>(M)</span></span><span class="br">&lt;</span>in a grocery in Chinatown<span class="br">&gt;</span></span><span class="br">&gt;</span>, <span class="sub"><span class="tag"><span>V'<small>t</small></span></span>bought</span> <span class="sub"><span class="tag"><span>O'</span></span>them</span> <span class="sub"><span class="tag"><span>M'</span></span>【3 impulsively】</span>, <span class="sub"><span class="tag"><span>M'</span></span><span class="br">&lt;</span>only because they knew <span class="br">[</span>△ that same fruit was hanging in the yard opposite their childhood home<span class="br">]</span><span class="br">&gt;</span></span><span class="br">&gt;</span></span>.</div>
+  <ul class="notes"><li>once は従接「〜すると・〜してから」。once の中の V&#x27; は left と bought の2つを and が結ぶ（tactics 010・029）。間の spotting 〜 は分詞構文（tactics 052②）。</li><li><b>★</b>【3】only because「ただ〜という理由だけで」→ 深く考えず買った → impulsively（衝動的に）。</li><li>【言い換え】their childhood home → 問1の「ここで育った」の裏づけ。</li></ul>
+  <div class="ja"><span class="jt">訳</span>あるいは、別の町へ移るために家を出て初めてライチが好きになり、チャイナタウンの食料品店でその果物を見つけて、子どもの頃の家の向かいの庭に同じ果物がなっていたというだけの理由で、衝動的に買ったのかもしれない。</div>
+</div><h3 class="ph">第2段落</h3>
+<div class="sent">
+  <div class="sn">6</div>
+  <div class="pattern">分詞（否定）＋SVO</div>
+  <div class="en togi"><span class="main mm"><span class="tag"><span>M</span></span><span class="br">&lt;</span>Without taking a single class<span class="br">&gt;</span></span>, <span class="main"><span class="tag"><span>S</span></span>they</span> <span class="main"><span class="tag"><span>V<small>t</small></span></span>knew</span> <span class="main"><span class="tag"><span>O</span></span><span class="br">[</span>how to spot that fruit<span class="br">]</span></span>.</div>
+  <ul class="notes"><li>how to do は名詞のカタマリ（tactics 080）。Without taking a single class「授業を一度も受けずに」→ 問5 teacher’s を消す根拠。</li></ul>
+  <div class="ja"><span class="jt">訳</span>授業を一度も受けなくても、彼らはその果物の見つけ方を知っていた。</div>
+</div>
+<div class="sent">
+  <div class="sn">7</div>
+  <div class="pattern">SVO（O が4つ並ぶ）</div>
+  <div class="en togi"><span class="main"><span class="tag"><span>S</span></span>They</span> <span class="main"><span class="tag"><span>V<small>t</small></span></span>knew</span> <span class="main"><span class="tag"><span>O</span></span><span class="br">[</span>what it was<span class="br">]</span>, its other names, <span class="br">[</span>when it was in 【4 season】<span class="br">]</span>, and <span class="br">[</span>what it looked like <span class="br">&lt;</span>not only in a cardboard box in the grocery, but clustered heavy between the tree’s feathery leaves<span class="br">&gt;</span><span class="br">]</span></span>.</div>
+  <ul class="notes"><li>【同形反復】knew の O が4つ：what 節／its other names／when 節／what 節。</li><li><b>★</b>【4】it＝その果物 → in season「旬で」。in place／in time／in turn も熟語だが果物に合わない。</li><li>not only A but B：A＝in a cardboard box（店の箱の中）、B＝clustered heavy between leaves（木に実った姿）。</li></ul>
+  <div class="ja"><span class="jt">訳</span>それが何なのか、別の名前、いつが旬なのか、そして食料品店の段ボール箱の中だけでなく、木の羽のような葉の間に重たげに房になっている姿まで知っていた。</div>
+</div>
+<div class="sent">
+  <div class="sn">8</div>
+  <div class="pattern">SVC＋同格（言い換え）</div>
+  <div class="en togi"><span class="main"><span class="tag"><span>S</span></span>That</span> <span class="main"><span class="tag"><span>V</span></span>is</span> <span class="main"><span class="tag"><span>C</span></span>one of a 【5 native’s】 versions <span class="br">(</span>of Miami<span class="br">)</span></span>, <span class="main"><span class="tag"><span>C</span></span>one of their perspectives</span>.</div>
+  <ul class="notes"><li><b>★</b>【5】【言い換え】後ろの one of their perspectives が同格。their＝ここで育った人 → native’s（地元育ちの人の）。</li><li>teacher’s は without taking a single class と逆、traveler’s は native の反対。</li></ul>
+  <div class="ja"><span class="jt">訳</span>それが、地元育ちの人にとってのマイアミの一つの姿、彼らの視点の一つである。</div>
+</div><h3 class="ph">第3段落</h3>
+<div class="sent">
+  <div class="sn">9</div>
+  <div class="pattern">SVO, and SV（with 〜 の同形反復）</div>
+  <div class="en togi"><span class="main"><span class="tag"><span>S</span></span>We all</span> <span class="main"><span class="tag"><span>V<small>t</small></span></span>experience</span> <span class="main"><span class="tag"><span>O</span></span>the places <span class="br">(</span>where we live<span class="br">)</span></span> <span class="main mm"><span class="tag"><span>M</span></span><span class="br">&lt;</span>in so many ways<span class="br">&gt;</span></span>, and <span class="main"><span class="tag"><span>S</span></span>these ways</span> <span class="main"><span class="tag"><span>V<small>i</small></span></span>change</span> <span class="main mm"><span class="tag"><span>M</span></span><span class="br">&lt;</span>with the times of year, with our goals, our families, and our lives<span class="br">&gt;</span></span>.</div>
+  <ul class="notes"><li>where は関係副詞（中は完全文：tactics 031）。【同形反復】with 〜 , with 〜 で変化の要因を並べる。</li><li><b>★</b> the places where we live → 問6（local）の土台となるテーマ。</li></ul>
+  <div class="ja"><span class="jt">訳</span>私たちはみな、住んでいる場所をさまざまな形で経験しており、その形は季節や、目標、家族、人生とともに変わっていく。</div>
+</div>
+<div class="sent">
+  <div class="sn">10</div>
+  <div class="pattern">命令文 ; 命令文 ; 命令文, and SV（命令文＋and）</div>
+  <div class="en togi"><span class="main"><span class="tag"><span>V</span></span>Learn</span> <span class="main"><span class="tag"><span>O</span></span>a piece of 【6 local】 history</span>; <span class="main"><span class="tag"><span>V</span></span>know</span> <span class="main"><span class="tag"><span>O</span></span><span class="br">[</span>who designed a building<span class="br">]</span></span>; <span class="main"><span class="tag"><span>V</span></span>be able to identify</span> <span class="main"><span class="tag"><span>O</span></span>a bird or a graffiti tag</span>, and <span class="main mm"><span class="tag"><span>M</span></span>suddenly</span>, <span class="main"><span class="tag"><span>S</span></span>you</span> <span class="main"><span class="tag"><span>V<small>i</small></span></span>live</span> <span class="main mm"><span class="tag"><span>M</span></span><span class="br">&lt;</span>in a different place<span class="br">&gt;</span></span>, and <span class="main"><span class="tag"><span>S</span></span>that place</span> <span class="main"><span class="tag"><span>V<small>i</small></span></span>will travel</span> <span class="main mm"><span class="tag"><span>M</span></span><span class="br">&lt;</span>with you<span class="br">&gt;</span></span>.</div>
+  <ul class="notes"><li>【同形反復】セミコロンで命令文が3つ並ぶ（Learn ～ ; know ～ ; be able to ～）。命令文＋and S V「〜すれば S は V する」。</li><li><b>★</b>【6】3つの例（歴史・建物・鳥や落書き）に共通するのは「住んでいる場所の知識」→ local。colonial は狭すぎ、global は逆、natural は建物・落書きと合わない。</li></ul>
+  <div class="ja"><span class="jt">訳</span>地元の歴史を少し学び、誰が建物を設計したかを知り、鳥やグラフィティのタグを見分けられるようになれば、突然あなたは別の場所に住んでいることになり、その場所はあなたとともに旅をするのだ。</div>
+</div>
+<div class="sent">
+  <div class="sn">11</div>
+  <div class="pattern">命令文, and SV</div>
+  <div class="en togi"><span class="main"><span class="tag"><span>V</span></span>Spot</span> <span class="main"><span class="tag"><span>O</span></span>ripe Spanish limes</span> <span class="main mm"><span class="tag"><span>M</span></span><span class="br">&lt;</span>as a child<span class="br">&gt;</span></span>, and <span class="main"><span class="tag"><span>S</span></span>you</span><span class="main"><span class="tag"><span>V</span></span>’ll</span> <span class="main mm"><span class="tag"><span>M</span></span>still</span> <span class="main"><span class="tag"><span>V</span></span>spot</span> <span class="main"><span class="tag"><span>O</span></span>them</span> <span class="main mm"><span class="tag"><span>M</span></span>today</span>.</div>
+  <ul class="notes"><li>命令文＋and の同じ型の繰り返し（前の文と同形反復）。「子どもの頃に〜を見つければ、今でも見つけられる」。</li></ul>
+  <div class="ja"><span class="jt">訳</span>子どもの頃に熟したスパニッシュライムを見つけていれば、今でも見つけられるだろう。</div>
+</div>
+<div class="sent">
+  <div class="sn">12</div>
+  <div class="pattern">SV（現在完了の受身）</div>
+  <div class="en togi"><span class="main"><span class="tag"><span>S</span></span>A layer <span class="br">(</span>of the finite<span class="br">)</span></span> <span class="main"><span class="tag"><span>V<small>受</small></span></span>has been laid</span> <span class="main mm"><span class="tag"><span>M</span></span><span class="br">&lt;</span>【7 behind】 the infinite<span class="br">&gt;</span></span>.</div>
+  <ul class="notes"><li>lay の受身 → be laid ＋場所の M。the finite（有限のもの＝具体的な知識）／the infinite（無限のもの＝漠然とした風景）。</li><li><b>★</b>【7】【言い換え】直後の文 It has always been there, but … something you didn’t even think about（ずっとそこにあったのに気づかなかった）→ 見えない「後ろ」に敷かれていた → behind。</li></ul>
+  <div class="ja"><span class="jt">訳</span>無限なものの背後に、有限なものの層が敷かれているのだ。</div>
+</div>
+<div class="sent">
+  <div class="sn">13</div>
+  <div class="pattern">SVM, but SVC＋同格</div>
+  <div class="en togi"><span class="main"><span class="tag"><span>S</span></span>It</span> <span class="main"><span class="tag"><span>V</span></span>has</span> <span class="main mm"><span class="tag"><span>M</span></span>always</span> <span class="main"><span class="tag"><span>V</span></span>been</span> <span class="main mm"><span class="tag"><span>M</span></span>there</span>, but <span class="main"><span class="tag"><span>S</span></span>it</span> <span class="main"><span class="tag"><span>V</span></span>was</span> <span class="main mm"><span class="tag"><span>M</span></span>almost</span> <span class="main"><span class="tag"><span>C</span></span>a blank space</span>, <span class="main"><span class="tag"><span>C</span></span>something <span class="br">(</span>△ you didn’t even think about ●<span class="br">)</span></span>.</div>
+  <ul class="notes"><li>it＝a layer of the finite。be there「そこにある」（存在の be：tactics 075②）。</li><li>something △ you didn’t even think about ● は関係詞の省略（tactics 030）。a blank space の言い換え。→ 問7の根拠</li></ul>
+  <div class="ja"><span class="jt">訳</span>それはずっとそこにあったのだが、ほとんど空白で、考えもしなかったものなのだ。</div>
+</div></section>
+<section class="sec page"><h2><span class="num">B</span>科学と帝国（Sapiens）</h2><h3 class="ph">第1段落</h3>
+<div class="sent">
+  <div class="sn">1</div>
+  <div class="pattern">SV受＋同格 that（ダッシュで言い換え）</div>
+  <div class="en togi"><span class="main"><span class="tag"><span>S</span></span>Modern science and modern empires</span> <span class="main"><span class="tag"><span>V<small>受</small></span></span>were motivated</span> <span class="main mm"><span class="tag"><span>M</span></span><span class="br">&lt;</span>by the restless feeling <span class="br">[</span>that perhaps <span class="sub"><span class="tag"><span>S'</span></span>something important</span> <span class="sub"><span class="tag"><span>V'<small>i</small></span></span>awaited</span> <span class="sub"><span class="tag"><span>M'</span></span><span class="br">&lt;</span>beyond the horizon<span class="br">&gt;</span></span><span class="br">]</span> — something <span class="br">(</span>△ they had better explore and master ●<span class="br">)</span><span class="br">&gt;</span></span>.</div>
+  <ul class="notes"><li>the feeling that 〜 は同格の that（中は完全文：tactics 033②）。</li><li>ダッシュ以下は something important の言い換え。something △ they had better explore and master ● は関係詞の省略（tactics 030）。</li></ul>
+  <div class="ja"><span class="jt">訳</span>近代科学と近代帝国はどちらも、地平線の向こうに何か重要なものが待っているかもしれない、探検して支配したほうがよい何かが、という落ち着かない気持ちに突き動かされていた。</div>
+</div>
+<div class="sent">
+  <div class="sn">2</div>
+  <div class="pattern">SV（比較）</div>
+  <div class="en togi">Yet <span class="main"><span class="tag"><span>S</span></span>the connection <span class="br">(</span>between science and empire<span class="br">)</span></span> <span class="main"><span class="tag"><span>V<small>i</small></span></span>went</span> <span class="main mm"><span class="tag"><span>M</span></span>much deeper</span>.</div>
+  <ul class="notes"><li>Yet＝「だが」。much は比較級の強調（tactics 105）。→ 次の文で「より深い結びつき」を具体化する予告。</li></ul>
+  <div class="ja"><span class="jt">訳</span>だが、科学と帝国の結びつきはそれよりはるかに深かった。</div>
+</div>
+<div class="sent">
+  <div class="sn">3</div>
+  <div class="pattern">Not just A, but also B ＋ V受（those の言い換え）</div>
+  <div class="en togi"><span class="main"><span class="tag"><span>S</span></span>Not just the motivation, but also the 【8 practices】 <span class="br">(</span>of empire-builders<span class="br">)</span></span> <span class="main"><span class="tag"><span>V<small>受</small></span></span>were entangled</span> <span class="main mm"><span class="tag"><span>M</span></span><span class="br">&lt;</span>with those <span class="br">(</span>of scientists<span class="br">)</span><span class="br">&gt;</span></span>.</div>
+  <ul class="notes"><li>【並列】Not just A but also B：A＝motivation（動機）と並ぶ B → 動機 ⇔ 実際の行い＝practices。</li><li><b>★</b>【8】those＝the practices（複数）→ 空所も複数形。次の段落の具体的な行動（地図作り・測量・蝶の分類）とも一致。</li></ul>
+  <div class="ja"><span class="jt">訳</span>動機だけでなく、帝国建設者たちの実践もまた、科学者たちの実践と絡み合っていた。</div>
+</div>
+<div class="sent">
+  <div class="sn">4</div>
+  <div class="pattern">SVC, while SVC（たすき掛けの対比）</div>
+  <div class="en togi"><span class="main mm"><span class="tag"><span>M</span></span><span class="br">&lt;</span>For modern Europeans<span class="br">&gt;</span></span>, <span class="main"><span class="tag"><span>S</span></span><span class="br">[</span>building an empire<span class="br">]</span></span> <span class="main"><span class="tag"><span>V</span></span>was</span> <span class="main"><span class="tag"><span>C</span></span>a scientific project</span>, <span class="main mm"><span class="tag"><span>M</span></span><span class="br">&lt;</span>while <span class="sub"><span class="tag"><span>S'</span></span><span class="br">[</span>setting up a scientific discipline<span class="br">]</span></span> <span class="sub"><span class="tag"><span>V'</span></span>was</span> <span class="sub"><span class="tag"><span>C'</span></span>an 【9 imperial】 project</span><span class="br">&gt;</span></span>.</div>
+  <ul class="notes"><li>【対比・同形反復】while の前後が同じカタチ（動名詞 S＋was＋a 〜 project）。</li><li><b>★</b>【9】帝国 → 科学的、科学 → ？ のたすき掛け → imperial（帝国的な）。動名詞の S は tactics 041③。</li></ul>
+  <div class="ja"><span class="jt">訳</span>近代ヨーロッパ人にとって、帝国を築くことは科学的な事業であり、一方で科学の学問分野を確立することは帝国的な事業だった。</div>
+</div><h3 class="ph">第2段落</h3>
+<div class="sent">
+  <div class="sn">5</div>
+  <div class="pattern">When 節＋SVO to do ×4（同形反復）</div>
+  <div class="en togi"><span class="main mm"><span class="tag"><span>M</span></span><span class="br">&lt;</span>When <span class="sub"><span class="tag"><span>S'</span></span>the Muslims</span> <span class="sub"><span class="tag"><span>V'<small>t</small></span></span>conquered</span> <span class="sub"><span class="tag"><span>O'</span></span>India</span><span class="br">&gt;</span></span>, <span class="main"><span class="tag"><span>S</span></span>they</span> <span class="main"><span class="tag"><span>V</span></span>did not bring</span> <span class="main mm"><span class="tag"><span>M</span></span>【10 along】</span> <span class="main"><span class="tag"><span>O</span></span>archaeologists <span class="br">(</span>to systematically study Indian history<span class="br">)</span>, 【11 anthropologists】 <span class="br">(</span>to study Indian cultures<span class="br">)</span>, geologists <span class="br">(</span>to study Indian soils<span class="br">)</span>, or zoologists <span class="br">(</span>to study Indian fauna<span class="br">)</span></span>.</div>
+  <ul class="notes"><li><b>★</b>【10】bring along O「O を連れていく」（along は副詞なので O の前に置ける）。with は前置詞なので後ろに名詞が必要。</li><li><b>★</b>【11】【同形反復】「学者 to study 〜」が4つ：考古学者→歴史／（　）→文化／地質学者→土／動物学者→動物。文化を研究するのは anthropologists（anthropo＝人間）。</li><li>to systematically study は分離不定詞（tactics 097）。</li></ul>
+  <div class="ja"><span class="jt">訳</span>イスラム教徒がインドを征服したとき、彼らはインドの歴史を体系的に研究する考古学者も、インドの文化を研究する人類学者も、インドの土壌を研究する地質学者も、インドの動物相を研究する動物学者も連れていかなかった。</div>
+</div>
+<div class="sent">
+  <div class="sn">6</div>
+  <div class="pattern">When 節＋SVO（対比）</div>
+  <div class="en togi"><span class="main mm"><span class="tag"><span>M</span></span><span class="br">&lt;</span>When <span class="sub"><span class="tag"><span>S'</span></span>the British</span> <span class="sub"><span class="tag"><span>V'<small>t</small></span></span>conquered</span> <span class="sub"><span class="tag"><span>O'</span></span>India</span><span class="br">&gt;</span></span>, <span class="main"><span class="tag"><span>S</span></span>they</span> <span class="main"><span class="tag"><span>V<small>t</small></span></span>did</span> <span class="main"><span class="tag"><span>O</span></span>all of these things</span>.</div>
+  <ul class="notes"><li>【対比・同形反復】前の文と同じ When S’ conquered India, 〜 の形で、ムスリム ⇔ イギリスを対比。</li></ul>
+  <div class="ja"><span class="jt">訳</span>イギリス人がインドを征服したとき、彼らはそのすべてを行った。</div>
+</div>
+<div class="sent">
+  <div class="sn">7</div>
+  <div class="pattern">SV受 ／ SVO</div>
+  <div class="en togi"><span class="main mm"><span class="tag"><span>M</span></span><span class="br">&lt;</span>On 10 April 1802<span class="br">&gt;</span></span> <span class="main"><span class="tag"><span>S</span></span>the Great Survey of India</span> <span class="main"><span class="tag"><span>V<small>受</small></span></span>was launched</span>. <span class="main"><span class="tag"><span>S</span></span>It</span> <span class="main"><span class="tag"><span>V<small>t</small></span></span>lasted</span> <span class="main"><span class="tag"><span>O</span></span>sixty years</span>.</div>
+  <ul class="notes"><li>launch「始める」。last は「続く」（後ろの sixty years は期間を表す語）。</li></ul>
+  <div class="ja"><span class="jt">訳</span>1802年4月10日、インド大測量が開始された。それは60年続いた。</div>
+</div>
+<div class="sent">
+  <div class="sn">8</div>
+  <div class="pattern">SVO＋分詞構文 ×3（同形反復）</div>
+  <div class="en togi"><span class="main mm"><span class="tag"><span>M</span></span><span class="br">&lt;</span>With the help of tens of thousands of native labourers, scholars and guides<span class="br">&gt;</span></span>, <span class="main"><span class="tag"><span>S</span></span>the British</span> <span class="main mm"><span class="tag"><span>M</span></span>carefully</span> <span class="main"><span class="tag"><span>V<small>t</small></span></span>mapped</span> <span class="main"><span class="tag"><span>O</span></span>the whole of India</span>, <span class="main mm"><span class="tag"><span>M</span></span><span class="br">&lt;</span><span class="lv3"><span class="tag"><span>(V)</span></span>marking</span> <span class="lv3"><span class="tag"><span>(O)</span></span>borders</span>, <span class="lv3"><span class="tag"><span>(V)</span></span>measuring</span> <span class="lv3"><span class="tag"><span>(O)</span></span>distances</span>, and even <span class="lv3"><span class="tag"><span>(V)</span></span>calculating</span> <span class="lv3"><span class="tag"><span>(M)</span></span><span class="br">&lt;</span>for the first time<span class="br">&gt;</span></span> <span class="lv3"><span class="tag"><span>(O)</span></span>the exact height <span class="br">(</span>of Mount Everest and the other Himalayan peaks<span class="br">)</span></span><span class="br">&gt;</span></span>.</div>
+  <ul class="notes"><li>marking・measuring・calculating の3つの分詞を and でまとめる（同形反復：tactics 029）。分詞構文のミクロ S は the British（tactics 040）。</li><li>calculating の O が長いので、M（for the first time）が V と O の間に入っている。</li></ul>
+  <div class="ja"><span class="jt">訳</span>何万人もの現地の労働者、学者、案内人の助けを借りて、イギリス人はインド全土を丹念に地図にし、国境を記し、距離を測り、さらにはエベレストやほかのヒマラヤの峰々の正確な高さを初めて算出した。</div>
+</div>
+<div class="sent">
+  <div class="sn">9</div>
+  <div class="pattern">SVO, but SVO to do ×4（同形反復）</div>
+  <div class="en togi"><span class="main"><span class="tag"><span>S</span></span>The British</span> <span class="main"><span class="tag"><span>V<small>t</small></span></span>explored</span> <span class="main"><span class="tag"><span>O</span></span>the military resources <span class="br">(</span>of Indian provinces<span class="br">)</span> and the location <span class="br">(</span>of their gold mines<span class="br">)</span></span>, but <span class="main"><span class="tag"><span>S</span></span>they</span> <span class="main mm"><span class="tag"><span>M</span></span>also</span> <span class="main"><span class="tag"><span>V<small>t</small></span></span>【12 took】</span> <span class="main"><span class="tag"><span>O</span></span>the trouble</span> <span class="main mm"><span class="tag"><span>M</span></span><span class="br">&lt;</span>to collect information about rare Indian spiders, to catalogue colourful butterflies, to trace the ancient origins of 【13 extinct】 Indian languages, and to dig up forgotten ruins<span class="br">&gt;</span></span>.</div>
+  <ul class="notes"><li><b>★</b>【12】【語法】take the trouble to do「わざわざ〜する」。but also で「軍事・金鉱（役に立つもの）だけでなく、役に立たなそうなものまで」。</li><li>【同形反復】to collect / to catalogue / to trace / to dig up の4つの to do。</li><li><b>★</b>【13】並んでいる dig up <b>forgotten</b> ruins と方向をそろえる → 失われた言語＝extinct（消滅した）。ancient origins とも合う。</li></ul>
+  <div class="ja"><span class="jt">訳</span>イギリス人はインド各州の軍事資源や金鉱の場所を調べたが、それだけでなく、珍しいインドのクモの情報を集め、色とりどりの蝶を分類し、消滅したインドの言語の古い起源をたどり、忘れられた遺跡を掘り起こすことまでわざわざ行った。</div>
+</div><h3 class="ph">第3段落</h3>
+<div class="sent">
+  <div class="sn">10</div>
+  <div class="pattern">SVC＋非制限 which（V&#x27; ×2）</div>
+  <div class="en togi"><span class="main"><span class="tag"><span>S</span></span>Mohenjo-daro</span> <span class="main"><span class="tag"><span>V</span></span>was</span> <span class="main"><span class="tag"><span>C</span></span>one of the chief cities <span class="br">(</span>of the Indus Valley civilization<span class="br">)</span></span>, <span class="main mm"><span class="tag"><span>M</span></span><span class="br">(</span>which <span class="gap"><span class="tag"><span>S&#x27;欠</span></span>●</span> <span class="sub"><span class="tag"><span>V'<small>i</small></span></span>flourished</span> <span class="sub"><span class="tag"><span>M'</span></span><span class="br">&lt;</span>in the third millennium BC<span class="br">&gt;</span></span> and <span class="sub"><span class="tag"><span>V'<small>受</small></span></span>was destroyed</span> <span class="sub"><span class="tag"><span>M'</span></span><span class="br">&lt;</span>around 1900 BC<span class="br">&gt;</span></span><span class="br">)</span></span>.</div>
+  <ul class="notes"><li>which の中は S 欠（tactics 031）。flourished と was destroyed を and が結ぶ。先行詞は the Indus Valley civilization。</li></ul>
+  <div class="ja"><span class="jt">訳</span>モヘンジョダロはインダス文明の主要都市の一つで、この文明は紀元前3千年紀に栄え、紀元前1900年ごろに滅びた。</div>
+</div>
+<div class="sent">
+  <div class="sn">11</div>
+  <div class="pattern">SVOO（give O₁ a 〜 glance）＋ダッシュの挿入</div>
+  <div class="en togi"><span class="main"><span class="tag"><span>S</span></span>None <span class="br">(</span>of India’s pre-British rulers<span class="br">)</span></span> — neither the Mauryas, nor the Guptas, nor the Delhi sultans, nor the great Mughals — <span class="main"><span class="tag"><span>V</span></span>had given</span> <span class="main"><span class="tag"><span>O</span></span>the ruins</span> <span class="main"><span class="tag"><span>O</span></span>a 【14 second】 glance</span>.</div>
+  <ul class="notes"><li>ダッシュ内は None の具体例（neither A nor B nor C …）。挿入なので飛ばして V（had given）につなぐ（tactics 036）。</li><li>give O₁ O₂（tactics 022）。</li><li><b>★</b>【14】【対比】次の文の But … took notice（注目した）⇔ 誰も見向きもしなかった → not give 〜 a second glance「二度見もしない＝見向きもしない」。</li></ul>
+  <div class="ja"><span class="jt">訳</span>イギリス以前のインドの支配者は誰ひとり――マウリヤ朝もグプタ朝もデリーのスルタンも偉大なムガル帝国も――その遺跡に見向きもしなかった。</div>
+</div>
+<div class="sent">
+  <div class="sn">12</div>
+  <div class="pattern">SVO ; SV受 and SV受</div>
+  <div class="en togi">But <span class="main"><span class="tag"><span>S</span></span>a British archaeological survey</span> <span class="main"><span class="tag"><span>V<small>t</small></span></span>took</span> <span class="main"><span class="tag"><span>O</span></span>notice</span> <span class="main mm"><span class="tag"><span>M</span></span><span class="br">&lt;</span>of the site<span class="br">&gt;</span></span> <span class="main mm"><span class="tag"><span>M</span></span><span class="br">&lt;</span>in 1922<span class="br">&gt;</span></span>; <span class="main"><span class="tag"><span>S</span></span>the site</span> <span class="main"><span class="tag"><span>V<small>受</small></span></span>was excavated</span> and <span class="main"><span class="tag"><span>S</span></span>the first great civilization <span class="br">(</span>of India<span class="br">)</span></span> <span class="main"><span class="tag"><span>V<small>受</small></span></span>was uncovered</span>.</div>
+  <ul class="notes"><li>take notice of 〜「〜に注目する」。But で前の文と対比 → 問14の根拠。</li></ul>
+  <div class="ja"><span class="jt">訳</span>しかし、イギリスの考古学調査隊が1922年にその遺跡に注目し、遺跡は発掘され、インド最初の偉大な文明が掘り起こされたのである。</div>
+</div></section>
+</body></html>
