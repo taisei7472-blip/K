@@ -1,0 +1,347 @@
+<!doctype html><html lang="ja"><head><meta charset="utf-8">
+<title>第8講 演習問題 解説</title><style>@page { size: A4; margin: 16mm 15mm 16mm 15mm; }
+* { box-sizing: border-box; }
+:root { --ink:#1a1a1a; --main:#b3261e; --sub:#1d4ed8; --br:#15803d; --rule:#cfcfcf; --soft:#f4f4f0; }
+body { margin:0; color:var(--ink); background:#fff; font-family:"IPAPGothic","IPAGothic",sans-serif; font-size:10.5pt; line-height:1.75; }
+.en, .fulltext p, .qt, .answers td:last-child, .footnote { font-family:"Liberation Serif","DejaVu Serif",serif; }
+
+.cover { border-bottom:2px solid var(--ink); padding:6mm 0 5mm; margin-bottom:6mm; }
+.kicker { font-size:10pt; letter-spacing:.2em; color:#555; }
+h1 { font-size:22pt; margin:2mm 0 3mm; line-height:1.3; }
+h1 small { font-size:12pt; font-weight:normal; color:#444; }
+.toc { margin:0; padding-left:1.4em; font-size:10pt; color:#333; columns:2; }
+
+.page { break-before:page; }
+h2 { font-size:15pt; border-bottom:1.5px solid var(--ink); padding-bottom:1.5mm; margin:0 0 4mm; }
+h2 .num { display:inline-block; background:var(--ink); color:#fff; width:1.5em; text-align:center; margin-right:.5em; border-radius:2px; }
+h3 { font-size:11.5pt; margin:5mm 0 2.5mm; padding-left:2mm; border-left:4px solid var(--ink); break-after:avoid; }
+
+/* 1. 解答 */
+table.answers { width:100%; border-collapse:collapse; font-size:10pt; }
+.answers th, .answers td { border:1px solid #999; padding:1mm 2mm; vertical-align:top; }
+.answers th { background:var(--soft); }
+.answers td.qn, .answers td.an { text-align:center; white-space:nowrap; width:13mm; }
+.answers td.an { font-weight:bold; font-size:11pt; }
+.qa { margin:0 0 3mm; break-inside:avoid; }
+.qh { font-weight:bold; }
+.qa p { margin:.5mm 0 0 4mm; font-size:10pt; }
+.qt { font-weight:normal; }
+
+/* 完成本文・和訳：色や下線なし */
+.para { display:flex; gap:3mm; margin:0 0 3.2mm; }
+.plabel { flex:none; width:9mm; font-weight:bold; font-family:"Liberation Serif",serif; }
+.para p { margin:0; text-align:justify; }
+.fulltext p { font-size:11.5pt; line-height:1.85; }
+.translation p { line-height:1.95; }
+.footnote { font-size:9pt; color:#333; margin-top:4mm; border-top:1px solid var(--rule); padding-top:1.5mm; }
+
+/* 3. 文構造 */
+.legend { border:1px solid var(--rule); background:var(--soft); padding:3mm 4mm; font-size:9.5pt; line-height:2.9; margin-bottom:3mm; }
+.ph { margin-top:6mm; }
+.sent { position:relative; padding:1mm 0 3mm 9mm; border-bottom:1px dashed var(--rule); margin-bottom:2mm; break-inside:avoid; }
+.sn { position:absolute; left:0; top:4mm; width:6mm; height:6mm; border-radius:50%; border:1px solid var(--ink); font-size:8pt; text-align:center; line-height:5.6mm; }
+.en { font-size:12pt; line-height:3.25; padding-top:1mm; }
+.main { border-bottom:1.6px solid var(--main); -webkit-box-decoration-break:clone; box-decoration-break:clone; padding-bottom:1px; }
+.main.l-V { border-bottom:3px double var(--main); }
+.emph { border-bottom:1.6px dotted var(--main); }
+.tag { display:inline-block; width:0; position:relative; vertical-align:baseline; }
+.tag > span { position:absolute; left:0; white-space:nowrap; font-family:"IPAPGothic",sans-serif; font-weight:bold; line-height:1; }
+.main .tag > span, .emph .tag > span { top:.55em; font-size:8.5pt; color:var(--main); }
+.sub .tag > span { top:-2.7em; font-size:7.5pt; color:var(--sub); }
+.br { color:var(--br); font-weight:bold; }
+.legend .main, .legend .sub { margin-right:.3em; }
+.notes { margin:.5mm 0 1.5mm; padding-left:1.3em; font-size:9.5pt; line-height:1.65; }
+.notes li { margin:.3mm 0; }
+.ja { font-size:10pt; background:var(--soft); padding:1.5mm 2.5mm; border-radius:2px; }
+.jt { display:inline-block; font-size:8.5pt; border:1px solid var(--ink); padding:0 1.2mm; margin-right:2mm; line-height:1.4; }
+
+/* 4. 論理展開 */
+.lg { display:flex; border:1px solid #999; margin-bottom:2.5mm; break-inside:avoid; }
+.lg-h { flex:none; width:30mm; background:var(--soft); border-right:1px solid #999; padding:2mm; }
+.lg-h .plabel { display:block; width:auto; font-size:12pt; }
+.lg-h .role { font-size:9.5pt; font-weight:bold; }
+.lg-b { padding:2mm 3mm; font-size:9.8pt; }
+.lg-b p { margin:0; }
+.lg-b .func { margin-top:1mm; color:#333; }
+.overview .block { border:1.5px solid var(--ink); padding:2.5mm 4mm; break-inside:avoid; }
+.overview .conclusion { border-width:2.5px; }
+.overview .bh { font-weight:bold; margin-bottom:1mm; }
+.overview p { margin:0; font-size:10pt; line-height:1.9; }
+.arrow { text-align:center; font-size:12pt; line-height:1.6; }
+.summary { border:1px solid var(--rule); padding:3mm 4mm; margin:0; line-height:1.95; }
+.points { padding-left:1.3em; font-size:10pt; }
+.points li { margin-bottom:1.5mm; }
+
+/* 3. 文構造（登木式） */
+.pattern { display:inline-block; font-size:8.5pt; border:1px solid var(--ink); padding:0 1.5mm; margin:1mm 0 0; line-height:1.5; }
+.togi .main { border-bottom:none; background:#fff1a6; padding:.1em 0; }
+.togi .main.mm { background:#d3f1cc; }
+.togi .main > .tag > span { top:.75em; font-size:8pt; color:#111; border:1.1px solid #111; border-radius:999px; min-width:1.45em; padding:0 .25em; text-align:center; background:#fff; line-height:1.35; }
+.togi .tag small { font-size:.72em; }
+.togi .sub > .tag > span { color:var(--sub); top:-2.7em; }
+.en.togi { padding-bottom:2.5mm; }
+.togi .lv3 > .tag > span { position:absolute; top:-2.7em; font-size:7.3pt; color:#7c3aed; }
+.togi .gap { color:#b3261e; font-size:.8em; padding:0 .1em; margin-right:1.6em; }
+.togi .gap .tag > span { top:-2.9em; font-size:7.3pt; color:#b3261e; }
+.togi .emph { border-bottom:1.6px dotted #111; }
+.togi .emph > .tag > span { top:.75em; font-size:7.5pt; color:#111; }
+.legend.togi { line-height:3.1; }
+
+.flow-t { width:100%; border-collapse:collapse; font-size:9.8pt; margin-bottom:3mm; }
+.flow-t td { border:1px solid #999; padding:1.2mm 2mm; vertical-align:top; }
+.flow-t td.p { width:34mm; background:var(--soft); font-weight:bold; }
+.flow-t td.r { width:24mm; font-weight:bold; }
+.ul { border:1.5px solid var(--ink); padding:3mm 4mm; margin:0 0 4mm; }
+.ul .uh { font-weight:bold; font-size:11pt; margin-bottom:1.5mm; }
+.ul .uen { font-family:"Liberation Serif",serif; font-size:11pt; line-height:1.7; background:#fff8cc; padding:1.5mm 2.5mm; margin-bottom:2mm; }
+table.pt { width:100%; border-collapse:collapse; font-size:9.6pt; margin-bottom:2mm; }
+.pt td { border:1px solid #999; padding:1mm 2mm; vertical-align:top; }
+.pt td.k { width:52mm; font-family:"Liberation Serif",serif; font-weight:bold; background:var(--soft); }
+.model { border-left:4px solid #b3261e; background:#fdf1f0; padding:2mm 3mm; font-size:10.2pt; line-height:1.85; }
+.model b { color:#b3261e; }
+</style></head><body>
+<div class="cover">
+  <div class="kicker">英文読解戦略プリントで読む　全文精読 → 下線部和訳</div>
+  <h1>第8講 演習問題 <small>1 子どもと演劇体験／2 男もうわさ話をする</small></h1>
+</div>
+<div class="legend togi">
+  <div><span class="main"><span class="tag"><span>S</span></span>S</span> <span class="main"><span class="tag"><span>V<small>t</small></span></span>V</span> <span class="main"><span class="tag"><span>O</span></span>O</span> <span class="main mm"><span class="tag"><span>M</span></span>M</span>　<b>主節</b>：黄色＝S・V・O・C、緑色＝M（tactics 001・037）。V の右下：i＝自動詞、t＝他動詞、受＝受身</div>
+  <div><b>従属節</b>：S'・V'…　<span class="gap">●</span>＝欠けている位置　△＝省略　(V)(O)(C)(M)＝準動詞のミクロ文型（tactics 034）</div>
+  <div><span class="br">[ ]</span> 名詞のカタマリ　<span class="br">( )</span> 形容詞のカタマリ　<span class="br">&lt; &gt;</span> 副詞のカタマリ</div>
+</div>
+<section class="sec page">
+  <h2><span class="num">1</span>演習問題1　子どもと演劇体験</h2>
+  <h3>文章の流れ（速読用）</h3>
+  <table class="flow-t"><tr><td class="p">第1〜2文</td><td class="r">導入</td><td>幼い子を劇場に連れて行った親なら「演劇体験」の意味がわかるはず。劇場を理解しない幼児は舞台に怯える。</td></tr><tr><td class="p">第3文</td><td class="r">幼児の段階</td><td>幼児は舞台を本当の出来事だと感じ、怖くなければ退屈で、寝たり遊んだりする。</td></tr><tr><td class="p">第4〜8文（下線1・2）</td><td class="r">1年後の段階</td><td>「劇場にいて演技を見ている」とわかったうえで夢中になれる。舞台を味わいつつ、自分は安全な席にいると大人以上に意識している（二重の意識）。</td></tr><tr><td class="p">第9〜10文</td><td class="r">結論</td><td>私たちを演劇の魔法に反応させるのは「内なる子ども」。子ども心を殺した大人は演劇を嫌う。</td></tr></table>
+  <h3>精読：全文の構造</h3>
+  
+<div class="sent">
+  <div class="sn">1</div>
+  <div class="pattern">SVO（O が what のカタマリ）</div>
+  <div class="en togi"><span class="main"><span class="tag"><span>S</span></span>All parents <span class="br">(</span>who <span class="gap"><span class="tag"><span>S&#x27;欠</span></span>●</span> <span class="sub"><span class="tag"><span>V'</span></span>have taken</span> <span class="sub"><span class="tag"><span>O'</span></span>young children</span> <span class="sub"><span class="tag"><span>M'</span></span><span class="br">&lt;</span>to the theater<span class="br">&gt;</span></span><span class="br">)</span></span> <span class="main"><span class="tag"><span>V</span></span>must know</span> <span class="main mm"><span class="tag"><span>M</span></span>exactly</span> <span class="main"><span class="tag"><span>O</span></span><span class="br">[</span>what <span class="sub"><span class="tag"><span>S'</span></span>I</span> <span class="sub"><span class="tag"><span>V'<small>t</small></span></span>mean</span> <span class="gap"><span class="tag"><span>O&#x27;欠</span></span>●</span> <span class="sub"><span class="tag"><span>M'</span></span><span class="br">&lt;</span>by dramatic experience<span class="br">&gt;</span></span><span class="br">]</span></span>.</div>
+  <ul class="notes"><li>who の中は S 欠（tactics 031）。V は must know（V の数の法則：tactics 010）。</li><li>mean A by B「B で A を意味する」→ what I mean by 〜「〜という言葉で私が言おうとしていること」。what の中は mean の O が欠けている（tactics 044）。</li><li>must は「〜にちがいない」（確信）。</li></ul>
+  <div class="ja"><span class="jt">訳</span>幼い子どもを劇場に連れて行ったことのある親ならみな、私が「演劇体験」という言葉で何を言おうとしているのか、きっとよくわかるはずだ。</div>
+</div>
+<div class="sent">
+  <div class="sn">2</div>
+  <div class="pattern">SV（受身）</div>
+  <div class="en togi"><span class="main"><span class="tag"><span>S</span></span>Very small children <span class="br">(</span>who <span class="gap"><span class="tag"><span>S&#x27;欠</span></span>●</span> <span class="sub"><span class="tag"><span>V'</span></span>do not understand</span> <span class="sub"><span class="tag"><span>M'</span></span><span class="br">&lt;</span>about theaters<span class="br">&gt;</span></span><span class="br">)</span></span> <span class="main"><span class="tag"><span>V<small>受</small></span></span>are</span> <span class="main mm"><span class="tag"><span>M</span></span>soon</span> <span class="main"><span class="tag"><span>V<small>受</small></span></span>frightened</span> <span class="main mm"><span class="tag"><span>M</span></span><span class="br">&lt;</span>by <span class="br">[</span>what <span class="sub"><span class="tag"><span>S'</span></span>they</span> <span class="sub"><span class="tag"><span>V'<small>t</small></span></span>see</span> <span class="gap"><span class="tag"><span>O&#x27;欠</span></span>●</span> <span class="sub"><span class="tag"><span>M'</span></span><span class="br">&lt;</span>on the stage<span class="br">&gt;</span></span><span class="br">]</span><span class="br">&gt;</span></span>.</div>
+  <ul class="notes"><li>S が長いので V（are frightened）を見つけて区切る（tactics 036）。be frightened「怖がる」（tactics 086）。</li><li>by の後ろの what のカタマリは名詞（前置詞の O）。see の O が欠けている。</li></ul>
+  <div class="ja"><span class="jt">訳</span>劇場というものがわからないとても幼い子どもは、舞台で目にするものにすぐ怯えてしまう。</div>
+</div>
+<div class="sent">
+  <div class="sn">3</div>
+  <div class="pattern">SVO, and SVC＋so that（結果）</div>
+  <div class="en togi"><span class="main"><span class="tag"><span>S</span></span>They</span> <span class="main"><span class="tag"><span>V<small>t</small></span></span>feel</span> <span class="main"><span class="tag"><span>O</span></span><span class="br">[</span>△ <span class="sub"><span class="tag"><span>S'</span></span>it</span> <span class="sub"><span class="tag"><span>V'</span></span>is</span> <span class="sub"><span class="tag"><span>M'</span></span>really</span> <span class="sub"><span class="tag"><span>V'</span></span>happening</span><span class="br">]</span></span>, and <span class="main mm"><span class="tag"><span>M</span></span><span class="br">&lt;</span>when <span class="sub"><span class="tag"><span>S'</span></span>it</span> <span class="sub"><span class="tag"><span>V'</span></span>is not</span> <span class="sub"><span class="tag"><span>C'</span></span>alarming</span><span class="br">&gt;</span></span> <span class="main"><span class="tag"><span>S</span></span>it</span> <span class="main"><span class="tag"><span>V</span></span>is</span> <span class="main mm"><span class="tag"><span>M</span></span>merely</span> <span class="main"><span class="tag"><span>C</span></span>dull</span> <span class="main mm"><span class="tag"><span>M</span></span><span class="br">&lt;</span>to them<span class="br">&gt;</span></span>, <span class="main mm"><span class="tag"><span>M</span></span><span class="br">&lt;</span>so that <span class="sub"><span class="tag"><span>S'</span></span>they</span> <span class="sub"><span class="tag"><span>V'<small>i</small></span></span>go</span> <span class="sub"><span class="tag"><span>M'</span></span><span class="br">&lt;</span>to sleep<span class="br">&gt;</span></span> or <span class="sub"><span class="tag"><span>V'</span></span>want to ignore</span> <span class="sub"><span class="tag"><span>O'</span></span>it</span> and <span class="sub"><span class="tag"><span>V'<small>i</small></span></span>play</span> <span class="sub"><span class="tag"><span>M'</span></span><span class="br">&lt;</span>with something<span class="br">&gt;</span></span><span class="br">&gt;</span></span>.</div>
+  <ul class="notes"><li>feel の後ろは that の省略（tactics 005①・024）。V が feel・is happening・is・is と多いのに接続詞が見えない → △ を補う（tactics 010）。</li><li>when it is not alarming「怖くないときは」→ 怖い ⇔ 退屈 の二択。</li><li>カンマ＋so that は「その結果〜」（結果）。go to sleep と want to ignore … and play を or が並べる（tactics 029）。</li></ul>
+  <div class="ja"><span class="jt">訳</span>彼らはそれが本当に起きていると感じ、怖くないときには単に退屈なだけなので、眠ってしまったり、舞台を無視して何かで遊びたがったりする。</div>
+</div>
+<div class="sent">
+  <div class="sn">4</div>
+  <div class="pattern">SV＋to the idea [that …]（下線部(1)）</div>
+  <div class="en togi"><span class="main mm"><span class="tag"><span>M</span></span><span class="br">&lt;</span>A year later<span class="br">&gt;</span></span> <span class="main"><span class="tag"><span>S</span></span>these same children</span> <span class="main"><span class="tag"><span>V</span></span>may be able to cling</span> <span class="main mm"><span class="tag"><span>M</span></span>safely</span> <span class="main mm"><span class="tag"><span>M</span></span><span class="br">&lt;</span>to the idea <span class="br">[</span>that <span class="sub"><span class="tag"><span>S'</span></span>they</span> <span class="sub"><span class="tag"><span>V'</span></span>are</span> <span class="sub"><span class="tag"><span>M'</span></span><span class="br">&lt;</span>in a theater<span class="br">&gt;</span></span>, <span class="sub"><span class="tag"><span>M'</span></span><span class="br">&lt;</span><span class="lv3"><span class="tag"><span>(V)</span></span>watching</span> <span class="lv3"><span class="tag"><span>(O)</span></span>people</span> <span class="lv3"><span class="tag"><span>(C)</span></span>pretend</span><span class="br">&gt;</span></span><span class="br">]</span><span class="br">&gt;</span></span>, <span class="main mm"><span class="tag"><span>M</span></span><span class="br">&lt;</span>while <span class="lv3"><span class="tag"><span>(M)</span></span>excitedly</span> <span class="lv3"><span class="tag"><span>(V)</span></span>following</span> <span class="lv3"><span class="tag"><span>(O)</span></span>the action <span class="br">(</span>on the stage<span class="br">)</span></span><span class="br">&gt;</span></span>.</div>
+  <ul class="notes"><li>cling to 〜「〜にしがみつく」。the idea that 〜 は同格の that（中は完全文：tactics 033②）。</li><li>watching people pretend は分詞構文。watch O 原形「O が〜するのを見る」（知覚動詞：tactics 062）。pretend「ふりをする」→ 演技をする。</li><li>while ＋いきなり ing（tactics 113）＝ while they are excitedly following …。</li></ul>
+  <div class="ja"><span class="jt">訳</span>1年後には、この同じ子どもたちが、自分は劇場にいて人々が演技をしているのを見ているのだという考えを安心して保ちながら、舞台の展開にわくわくしてついていけるようになるかもしれない。</div>
+</div>
+<div class="sent">
+  <div class="sn">5</div>
+  <div class="pattern">SVC＋同格</div>
+  <div class="en togi"><span class="main mm"><span class="tag"><span>M</span></span>Then</span> <span class="main"><span class="tag"><span>S</span></span>they</span> <span class="main"><span class="tag"><span>V</span></span>are</span> <span class="main"><span class="tag"><span>C</span></span>enchanted and delighted</span>, <span class="main"><span class="tag"><span>C</span></span>a wonderful audience</span>.</div>
+  <ul class="notes"><li>be＋感情の p.p.（enchanted・delighted）は SVC で読める（tactics 086①）。</li><li>a wonderful audience は they を言い換えた同格的な補足。</li></ul>
+  <div class="ja"><span class="jt">訳</span>そうなると子どもたちは魅了され、大喜びする。すばらしい観客なのだ。</div>
+</div>
+<div class="sent">
+  <div class="sn">6</div>
+  <div class="pattern">仮S真S（why の後ろの省略）</div>
+  <div class="en togi">And <span class="main"><span class="tag"><span>S</span></span>it</span> <span class="main"><span class="tag"><span>V</span></span>is</span> <span class="main"><span class="tag"><span>C</span></span>easy</span> <span class="main"><span class="tag"><span>S</span></span><span class="br">[</span>to see why △<span class="br">]</span></span>.</div>
+  <ul class="notes"><li>it は仮主語、to see why が真主語。why の後ろは they are enchanted and delighted の省略。</li></ul>
+  <div class="ja"><span class="jt">訳</span>そして、その理由は容易にわかる。</div>
+</div>
+<div class="sent">
+  <div class="sn">7</div>
+  <div class="pattern">SVC</div>
+  <div class="en togi"><span class="main"><span class="tag"><span>S</span></span>Children</span> <span class="main"><span class="tag"><span>V</span></span>are</span> <span class="main"><span class="tag"><span>C</span></span>fully responsive</span> <span class="main mm"><span class="tag"><span>M</span></span><span class="br">&lt;</span>on each level<span class="br">&gt;</span></span>.</div>
+  <ul class="notes"><li>responsive「反応がよい」。on each level「どの次元でも」→ 次の文の Not only A but B で「2つの次元」を説明する予告。</li></ul>
+  <div class="ja"><span class="jt">訳</span>子どもたちは、どの次元においても十分に反応するのだ。</div>
+</div>
+<div class="sent">
+  <div class="sn">8</div>
+  <div class="pattern">Not only 倒置＋but SVC（下線部(2)）</div>
+  <div class="en togi"><span class="main mm"><span class="tag"><span>M</span></span>Not only</span> <span class="main"><span class="tag"><span>V</span></span>do</span> <span class="main"><span class="tag"><span>S</span></span>they</span> <span class="main"><span class="tag"><span>V<small>t</small></span></span>appreciate</span> <span class="main mm"><span class="tag"><span>M</span></span><span class="br">&lt;</span>to the full<span class="br">&gt;</span></span> <span class="main"><span class="tag"><span>O</span></span><span class="br">[</span>what <span class="gap"><span class="tag"><span>S&#x27;欠</span></span>●</span> <span class="sub"><span class="tag"><span>V'</span></span>is happening</span> <span class="sub"><span class="tag"><span>M'</span></span><span class="br">&lt;</span>on the stage<span class="br">&gt;</span></span><span class="br">]</span></span>, but <span class="main mm"><span class="tag"><span>M</span></span><span class="br">&lt;</span>at the same time<span class="br">&gt;</span></span> <span class="main"><span class="tag"><span>S</span></span>they</span> <span class="main"><span class="tag"><span>V</span></span>are</span> <span class="main mm"><span class="tag"><span>M</span></span>even more intensely</span> <span class="main"><span class="tag"><span>C</span></span>conscious</span> <span class="main mm"><span class="tag"><span>M</span></span><span class="br">&lt;</span>than adults are △<span class="br">&gt;</span></span> <span class="main mm"><span class="tag"><span>M</span></span><span class="br">&lt;</span>of <span class="br">[</span>not <span class="lv3"><span class="tag"><span>(V)</span></span>being</span> <span class="lv3"><span class="tag"><span>(M)</span></span>physically</span> <span class="lv3"><span class="tag"><span>(C)</span></span>involved</span> <span class="lv3"><span class="tag"><span>(M)</span></span><span class="br">&lt;</span>in the scene<span class="br">&gt;</span></span><span class="br">]</span><span class="br">&gt;</span></span>, <span class="main mm"><span class="tag"><span>M</span></span><span class="br">&lt;</span>of <span class="br">[</span><span class="lv3"><span class="tag"><span>(V)</span></span>sitting</span> <span class="lv3"><span class="tag"><span>(M)</span></span>safely and comfortably</span> <span class="lv3"><span class="tag"><span>(M)</span></span><span class="br">&lt;</span>in the seat <span class="br">(</span>by the side of Mommy<span class="br">)</span><span class="br">&gt;</span></span><span class="br">]</span><span class="br">&gt;</span></span>.</div>
+  <ul class="notes"><li>否定の副詞（Not only）が文頭 → 疑問文の語順（倒置）：do they appreciate（tactics 087）。</li><li>appreciate O の O（what 節）が長いので、M（to the full）が V と O の間に入っている。</li><li>be conscious of A「A を意識している」。2つの of 〜 は同じカタチの並列で、2つめは1つめの言い換え。</li><li>even more ＋原級＝比較級の強調（tactics 105）。than adults are △ は conscious の省略。</li></ul>
+  <div class="ja"><span class="jt">訳</span>子どもたちは舞台で起きていることを存分に味わうだけでなく、同時に、自分がその場面に実際に身を置いているわけではないこと、つまりママのそばの座席に安全に心地よく座っていることを、大人以上にずっと強く意識しているのだ。</div>
+</div>
+<div class="sent">
+  <div class="sn">9</div>
+  <div class="pattern">It may be that 〜（中が強調構文）</div>
+  <div class="en togi">So <span class="main mm"><span class="tag"><span>M</span></span><span class="br">&lt;</span>it may well be that<span class="br">&gt;</span></span> <span class="emph"><span class="tag"><span>強調</span></span>it is</span> <span class="sub"><span class="tag"><span>S'</span></span>the child <span class="br">(</span>in us<span class="br">)</span></span> <span class="emph"><span class="tag"><span>強調</span></span>who</span> <span class="gap"><span class="tag"><span>S&#x27;欠</span></span>●</span> <span class="sub"><span class="tag"><span>V'<small>t</small></span></span>makes</span> <span class="sub"><span class="tag"><span>O'</span></span>us</span> <span class="sub"><span class="tag"><span>C'</span></span>responsive</span> <span class="sub"><span class="tag"><span>M'</span></span><span class="br">&lt;</span>to this magic<span class="br">&gt;</span></span>.</div>
+  <ul class="notes"><li>It may (well) be that 〜「たぶん〜だろう」は文頭の M とみなす（tactics 110）。</li><li>it is 〜 who … は強調構文（tactics 095）。make O C「O を C にする」（SVOC：tactics 062）。</li></ul>
+  <div class="ja"><span class="jt">訳</span>だから、私たちをこの魔法に反応させるのは、おそらく私たちの中にいる子どもなのだろう。</div>
+</div>
+<div class="sent">
+  <div class="sn">10</div>
+  <div class="pattern">長い S（関係詞 who ×2）＋V and V</div>
+  <div class="en togi"><span class="main"><span class="tag"><span>S</span></span>Men and women <span class="br">(</span>who <span class="gap"><span class="tag"><span>S&#x27;欠</span></span>●</span> <span class="sub"><span class="tag"><span>V'</span></span>are</span> <span class="sub"><span class="tag"><span>M'</span></span>completely</span> <span class="sub"><span class="tag"><span>C'</span></span>removed</span> <span class="sub"><span class="tag"><span>M'</span></span><span class="br">&lt;</span>from their childhood<span class="br">&gt;</span></span><span class="br">)</span>, <span class="br">(</span>who <span class="gap"><span class="tag"><span>S&#x27;欠</span></span>●</span> <span class="sub"><span class="tag"><span>M'</span></span><span class="br">&lt;</span>for one reason or another<span class="br">&gt;</span></span> <span class="sub"><span class="tag"><span>V'</span></span>have had to take</span> <span class="sub"><span class="tag"><span>O'</span></span>the child <span class="br">(</span>in them<span class="br">)</span></span> and <span class="sub"><span class="tag"><span>V'<small>t</small></span></span>wring</span> <span class="sub"><span class="tag"><span>O'</span></span>its neck</span><span class="br">)</span></span> <span class="main mm"><span class="tag"><span>M</span></span>generally</span> <span class="main"><span class="tag"><span>V<small>t</small></span></span>dislike</span> <span class="main"><span class="tag"><span>O</span></span>the Theater</span> and <span class="main"><span class="tag"><span>V</span></span>are</span> <span class="main"><span class="tag"><span>C</span></span>reluctant and unresponsive playgoers</span>.</div>
+  <ul class="notes"><li>S に who 節が2つ（2つめはカンマつきの補足）。主節の V は dislike と are（tactics 010・029）。</li><li>wring its neck「その首を絞める」→ 内なる子どもを殺してしまう、という比喩。</li></ul>
+  <div class="ja"><span class="jt">訳</span>子ども時代から完全に切り離され、何らかの理由で自分の中の子どもをつかまえてその首を絞めなければならなかった大人の男女は、たいてい演劇が嫌いで、気が進まず反応の鈍い観客なのである。</div>
+</div>
+</section>
+<section class="sec page">
+  <h3>下線部の訳のポイント</h3>
+  
+<div class="ul">
+  <div class="uh">問1　下線部(1)</div>
+  <div class="uen">A year later these same children may be able to cling safely to the idea that they are in a theater, watching people pretend, while excitedly following the action on the stage.</div>
+  <table class="pt"><tr><td class="k">these same children</td><td>「この同じ子どもたち」。前の文の「劇場を理解せず怖がる幼児」と同じ子が1年後に変わる、という対比。same を落とさない。</td></tr><tr><td class="k">may be able to do</td><td>「〜できるようになるかもしれない」。may（可能性）と be able to（能力）を両方訳す。</td></tr><tr><td class="k">cling safely to the idea that 〜</td><td>直訳「〜という考えに安全にしがみつく」→「〜という考えを安心して（しっかり）持ち続ける」。that 節は idea の中身（同格）。</td></tr><tr><td class="k">watching people pretend</td><td>watch O 原形「O が〜するのを見る」。pretend は「ふりをする」→ 劇の文脈なので「演技をする」。「人々が演技しているのを見ている」。</td></tr><tr><td class="k">while excitedly following 〜</td><td>while ＋ ing＝ while they are following。「〜しながら」。excitedly「わくわくして」。the action on the stage「舞台上の出来事・展開」（action は「行動」より「劇の筋の展開」）。</td></tr><tr><td class="k">訳の要</td><td>①「これは劇だ」とわかっている意識と、②夢中になってついていく意識が同時にある、という二重性が伝わるように訳す。</td></tr></table>
+  <div class="model"><b>模範訳</b>　1年後には、この同じ子どもたちが、自分は劇場にいて人々が演技をしているのを見ているのだという考えを安心して持ち続けながら、わくわくして舞台の展開を追うことができるようになるかもしれない。</div>
+</div>
+<div class="ul">
+  <div class="uh">問2　下線部(2)</div>
+  <div class="uen">Not only do they appreciate to the full what is happening on the stage, but at the same time they are even more intensely conscious than adults are of not being physically involved in the scene, of sitting safely and comfortably in the seat by the side of Mommy.</div>
+  <table class="pt"><tr><td class="k">Not only do they appreciate</td><td>否定の副詞が文頭 → 倒置（tactics 087）。Not only A but (also) B「A だけでなく B も」。do は訳さない。</td></tr><tr><td class="k">appreciate to the full what 〜</td><td>appreciate O to the full の O（what 節）が後ろに回った形。「〜を存分に味わう・十分に理解する」。appreciate は「感謝する」ではない。</td></tr><tr><td class="k">even more intensely conscious than adults are of 〜</td><td>be conscious of A「A を意識している」が骨格。比較の than adults are が間に挟まっている → of 〜 を conscious につなぐのが最大のポイント。even more「（大人より）さらにいっそう」。</td></tr><tr><td class="k">of not being physically involved in the scene</td><td>動名詞の否定は not を ing の前に置く。「その場面に身体的に巻き込まれていないこと」→「実際にはその場面に身を置いていないこと」。</td></tr><tr><td class="k">, of sitting safely …</td><td>2つめの of は1つめの言い換え（同じカタチの並列）。「つまり〜していること」とつなぐと自然。</td></tr><tr><td class="k">by the side of Mommy</td><td>「ママのそばで」。Mommy は幼児語なので「ママ」と訳すと雰囲気が出る。</td></tr></table>
+  <div class="model"><b>模範訳</b>　子どもたちは舞台で起きていることを存分に味わうだけでなく、同時に、自分がその場面に実際に身を置いているわけではないこと、つまりママのそばの座席に安全に心地よく座っていることを、大人以上にずっと強く意識しているのだ。</div>
+</div>
+  <h3>全訳</h3>
+  <div class="translation"><p>幼い子どもを劇場に連れて行ったことのある親ならみな、私が「演劇体験」という言葉で何を言おうとしているのか、きっとよくわかるはずだ。劇場というものがわからないとても幼い子どもは、舞台で目にするものにすぐ怯えてしまう。彼らはそれが本当に起きていると感じ、怖くないときには単に退屈なだけなので、眠ってしまったり、舞台を無視して何かで遊びたがったりする。1年後には、この同じ子どもたちが、自分は劇場にいて人々が演技をしているのを見ているのだという考えを安心して保ちながら、舞台の展開にわくわくしてついていけるようになるかもしれない。そうなると子どもたちは魅了され、大喜びする。すばらしい観客なのだ。そして、その理由は容易にわかる。子どもたちは、どの次元においても十分に反応するのだ。子どもたちは舞台で起きていることを存分に味わうだけでなく、同時に、自分がその場面に実際に身を置いているわけではないこと、つまりママのそばの座席に安全に心地よく座っていることを、大人以上にずっと強く意識しているのだ。だから、私たちをこの魔法に反応させるのは、おそらく私たちの中にいる子どもなのだろう。子ども時代から完全に切り離され、何らかの理由で自分の中の子どもをつかまえてその首を絞めなければならなかった大人の男女は、たいてい演劇が嫌いで、気が進まず反応の鈍い観客なのである。</p></div>
+</section>
+<section class="sec page">
+  <h2><span class="num">2</span>演習問題2　男もうわさ話をする（Watching the English）</h2>
+  <h3>文章の流れ（速読用）</h3>
+  <table class="flow-t"><tr><td class="p">第1〜3文</td><td class="r">一般論の否定</td><td>通念に反し、男性も女性と同じくらいうわさ話をする（会話の55〜67％）。差はサッカーの話で説明できる程度。</td></tr><tr><td class="p">第4〜6文（下線1・2）</td><td class="r">例外</td><td>男性が「高尚な」話題を話すのは、女性がいて良く見せたいときだけ。男性だけだと高尚な話題は5％以下。</td></tr><tr><td class="p">第7〜8文</td><td class="r">唯一の違い</td><td>男性は自分自身のことを話す時間が長い。</td></tr><tr><td class="p">第9文（下線3）</td><td class="r">それでも残る俗説</td><td>「男は世界の問題を論じ、女は台所でうわさ話」という神話が、特に男性の間で信じられている。</td></tr><tr><td class="p">第10〜12文（下線4・5）</td><td class="r">違いの正体</td><td>男性は「うわさ話はしない」と言うが、実は呼び方の違い。男性はうわさ話を「情報交換」と呼ぶ。うわさ話は不名誉だから別の名前で呼ぶという不文律。</td></tr><tr><td class="p">第13〜14文</td><td class="r">結論</td><td>さらに大事なのは「うわさ話に聞こえない」こと。男女の違いは、女性のうわさ話が実際にうわさ話らしく聞こえる点にある。</td></tr></table>
+  <h3>精読：全文の構造</h3>
+  
+<div class="sent">
+  <div class="sn">1</div>
+  <div class="pattern">SVO（O が that 節）</div>
+  <div class="en togi"><span class="main mm"><span class="tag"><span>M</span></span><span class="br">&lt;</span>Contrary to popular belief<span class="br">&gt;</span></span>, <span class="main"><span class="tag"><span>S</span></span>researchers</span> <span class="main"><span class="tag"><span>V</span></span>have found</span> <span class="main"><span class="tag"><span>O</span></span><span class="br">[</span>that <span class="sub"><span class="tag"><span>S'</span></span>men</span> <span class="sub"><span class="tag"><span>V'<small>i</small></span></span>gossip</span> <span class="sub"><span class="tag"><span>M'</span></span><span class="br">&lt;</span>just as much as women<span class="br">&gt;</span></span><span class="br">]</span></span>.</div>
+  <ul class="notes"><li>Contrary to popular belief「一般に信じられているのとは反対に」→ 一般論を否定して筆者の主張を出す合図。</li><li>find that 〜「〜とわかる」（tactics 024）。just as much as 〜「〜とまったく同じくらい」。</li></ul>
+  <div class="ja"><span class="jt">訳</span>一般に信じられているのとは反対に、男性も女性とまったく同じくらいうわさ話をすることを研究者たちは発見した。</div>
+</div>
+<div class="sent">
+  <div class="sn">2</div>
+  <div class="pattern">SVO＋to 〜 ; SV受C＋with O ing</div>
+  <div class="en togi"><span class="main mm"><span class="tag"><span>M</span></span><span class="br">&lt;</span>In one English study<span class="br">&gt;</span></span>, <span class="main"><span class="tag"><span>S</span></span>both sexes</span> <span class="main"><span class="tag"><span>V<small>t</small></span></span>devoted</span> <span class="main"><span class="tag"><span>O</span></span>the same amount of conversation time <span class="br">(</span>about 65 per cent<span class="br">)</span></span> <span class="main mm"><span class="tag"><span>M</span></span><span class="br">&lt;</span>to social topics <span class="br">(</span>such as personal relationships<span class="br">)</span><span class="br">&gt;</span></span>; <span class="main mm"><span class="tag"><span>M</span></span><span class="br">&lt;</span>in another △<span class="br">&gt;</span></span>, <span class="main"><span class="tag"><span>S</span></span>the difference</span> <span class="main"><span class="tag"><span>V<small>受</small></span></span>was found</span> <span class="main"><span class="tag"><span>C</span></span>to be quite small</span>, <span class="main mm"><span class="tag"><span>M</span></span><span class="br">&lt;</span>with <span class="lv3"><span class="tag"><span>(S)</span></span>gossip</span> <span class="lv3"><span class="tag"><span>(V)</span></span>accounting for</span> <span class="lv3"><span class="tag"><span>(O)</span></span>55 per cent of male conversation time and 67 per cent of female △ time</span><span class="br">&gt;</span></span>.</div>
+  <ul class="notes"><li>devote A to B「A を B に費やす」。one 〜 ; another 〜「ある研究では…、別の研究では…」（another の後ろに study の省略）。</li><li>find O to be C の受身 → C が残る（tactics 018）。</li><li>with O ing は付帯状況「O が〜していて」。account for は「（割合を）占める」。</li></ul>
+  <div class="ja"><span class="jt">訳</span>ある英国の研究では、男女とも会話時間の同じ量（約65％）を個人的な人間関係などの社会的な話題に費やしていた。別の研究では差はごく小さく、うわさ話は男性の会話時間の55％、女性の67％を占めていた。</div>
+</div>
+<div class="sent">
+  <div class="sn">3</div>
+  <div class="pattern">As 節（理由）＋SVO</div>
+  <div class="en togi"><span class="main mm"><span class="tag"><span>M</span></span><span class="br">&lt;</span>As <span class="sub"><span class="tag"><span>S'</span></span>sport and leisure</span> <span class="sub"><span class="tag"><span>V'<small>受</small></span></span>have been shown</span> <span class="sub"><span class="tag"><span>C'</span></span>to occupy about 10 per cent of conversation time</span><span class="br">&gt;</span></span>, <span class="main"><span class="tag"><span>S</span></span>discussion <span class="br">(</span>of football<span class="br">)</span></span> <span class="main"><span class="tag"><span>V</span></span>could well account for</span> <span class="main"><span class="tag"><span>O</span></span>the difference</span>.</div>
+  <ul class="notes"><li>as は理由「〜なので」（tactics 111②）。show O to do の受身 → to do が残る。</li><li>could well do「十分〜しうる」。account for は今度は「〜の原因となる・説明する」。直前の文の account for（占める）と意味が違う点に注意。</li></ul>
+  <div class="ja"><span class="jt">訳</span>スポーツと余暇が会話時間の約10％を占めることが示されているので、サッカーの話題でその差は十分に説明がつくだろう。</div>
+</div>
+<div class="sent">
+  <div class="sn">4</div>
+  <div class="pattern">SVOC の受身＋no more 〜 than（下線部(1)）</div>
+  <div class="en togi"><span class="main"><span class="tag"><span>S</span></span>Men</span> <span class="main"><span class="tag"><span>V<small>受</small></span></span>were certainly found</span> <span class="main"><span class="tag"><span>C</span></span>to be no more likely <span class="br">(</span>than women<span class="br">)</span> to discuss “important” or “sophisticated” subjects <span class="br">(</span>such as politics, work, art and cultural matters<span class="br">)</span></span> — <span class="main mm"><span class="tag"><span>M</span></span><span class="br">&lt;</span>except <span class="br">(</span>and this was a striking difference<span class="br">)</span> when <span class="sub"><span class="tag"><span>S'</span></span>women</span> <span class="sub"><span class="tag"><span>V'</span></span>were</span> <span class="sub"><span class="tag"><span>C'</span></span>present</span><span class="br">&gt;</span></span>.</div>
+  <ul class="notes"><li>find O to be C の受身 → S was found to be C「S は C だとわかった」（tactics 018）。</li><li>no more 〜 than …「…と同じく〜ない」。比較の両方を否定する（no＋比較級）。be likely to do「〜しがちだ」。</li><li>except when 〜「〜のときを除いて」。( ) は挿入。</li></ul>
+  <div class="ja"><span class="jt">訳</span>確かに、男性が政治、仕事、芸術、文化的な事柄といった「重要な」あるいは「高尚な」話題を論じる傾向は、女性と比べて少しも高くないことがわかった。ただし――これは際立った違いだったが――女性がその場にいるときは別である。</div>
+</div>
+<div class="sent">
+  <div class="sn">5</div>
+  <div class="pattern">SV＋with O p.p.（no more than＝only）</div>
+  <div class="en togi"><span class="main mm"><span class="tag"><span>M</span></span><span class="br">&lt;</span>On their own<span class="br">&gt;</span></span>, <span class="main"><span class="tag"><span>S</span></span>men</span> <span class="main"><span class="tag"><span>V<small>i</small></span></span>gossip</span>, <span class="main mm"><span class="tag"><span>M</span></span><span class="br">&lt;</span>with <span class="lv3"><span class="tag"><span>(S)</span></span>no more than five per cent of conversation time</span> <span class="lv3"><span class="tag"><span>(V受)</span></span>devoted</span> <span class="lv3"><span class="tag"><span>(M)</span></span><span class="br">&lt;</span>to non-social subjects <span class="br">(</span>such as work or politics<span class="br">)</span><span class="br">&gt;</span></span><span class="br">&gt;</span></span>.</div>
+  <ul class="notes"><li>on their own「男性だけでいるとき」。</li><li>with O p.p.「O が〜されて」（付帯状況）。no more than ＝ only「たった〜」。下線(1)の no more likely than と区別する。</li></ul>
+  <div class="ja"><span class="jt">訳</span>男性だけでいるときは、男性はうわさ話をし、仕事や政治といった社会的でない話題に費やされる会話時間はわずか5％にすぎない。</div>
+</div>
+<div class="sent">
+  <div class="sn">6</div>
+  <div class="pattern">強調構文 It is only 〜 that …（下線部(2)）</div>
+  <div class="en togi"><span class="emph"><span class="tag"><span>強調</span></span>It is</span> only <span class="main mm"><span class="tag"><span>M</span></span><span class="br">&lt;</span>in mixed-sex groups, <span class="br">(</span>where there are women <span class="br">(</span>to impress<span class="br">)</span><span class="br">)</span><span class="br">&gt;</span></span>, <span class="emph"><span class="tag"><span>強調</span></span>that</span> <span class="sub"><span class="tag"><span>S'</span></span>the proportion <span class="br">(</span>of male conversation time<span class="br">)</span> <span class="br">(</span>devoted to these more “sophisticated” subjects<span class="br">)</span></span> <span class="sub"><span class="tag"><span>V'<small>i</small></span></span>increases</span> <span class="sub"><span class="tag"><span>M'</span></span>dramatically</span>, <span class="sub"><span class="tag"><span>M'</span></span><span class="br">&lt;</span>to between 15 and 20 per cent<span class="br">&gt;</span></span>.</div>
+  <ul class="notes"><li>It is 〜 that … の強調構文（tactics 095）。that の後ろは完全文（S&#x27;＋V&#x27;i）で、前に出た M を強調している。</li><li>, where は非制限の関係副詞（中は完全文）。women to impress「（男性が）印象づけたい女性」：to do が前の名詞にかかり、impress の O が women。</li><li>devoted は過去分詞で time にかかる（tactics 013）。V&#x27; は increases（三単現 → S&#x27; は proportion）。</li></ul>
+  <div class="ja"><span class="jt">訳</span>男性の会話時間のうち、こうしたより「高尚な」話題に費やされる割合が劇的に増えて15〜20％にまでなるのは、良く見せたい女性がいる男女混合の集団においてだけである。</div>
+</div>
+<div class="sent">
+  <div class="sn">7</div>
+  <div class="pattern">SVO＋コロンで具体化</div>
+  <div class="en togi"><span class="main mm"><span class="tag"><span>M</span></span><span class="br">&lt;</span>In fact<span class="br">&gt;</span></span>, <span class="main"><span class="tag"><span>S</span></span>recent research</span> <span class="main"><span class="tag"><span>V</span></span>has revealed</span> <span class="main"><span class="tag"><span>O</span></span>only one significant difference, <span class="br">&lt;</span>in terms of content<span class="br">&gt;</span>, <span class="br">(</span>between male and female gossip<span class="br">)</span></span>: <span class="main"><span class="tag"><span>S</span></span>men</span> <span class="main"><span class="tag"><span>V<small>t</small></span></span>spend</span> <span class="main"><span class="tag"><span>O</span></span>much more time</span> <span class="main mm"><span class="tag"><span>M</span></span><span class="br">&lt;</span>talking about themselves<span class="br">&gt;</span></span>.</div>
+  <ul class="notes"><li>in terms of 〜「〜の点で」が O の中に挿入されている。between 〜 は difference にかかる。</li><li>コロンの後ろが one significant difference の中身。spend time doing「〜して時間を過ごす」。much は比較級の強調。</li></ul>
+  <div class="ja"><span class="jt">訳</span>実のところ、最近の研究で明らかになった男女のうわさ話の内容面での大きな違いは一つだけだ。男性のほうが自分自身について話す時間がずっと長いのである。</div>
+</div>
+<div class="sent">
+  <div class="sn">8</div>
+  <div class="pattern">Of 〜（〜のうち）＋SVO, while SV</div>
+  <div class="en togi"><span class="main mm"><span class="tag"><span>M</span></span><span class="br">&lt;</span>Of the total time <span class="br">(</span>devoted to conversation about social relationships<span class="br">)</span><span class="br">&gt;</span></span>, <span class="main"><span class="tag"><span>S</span></span>men</span> <span class="main"><span class="tag"><span>V<small>t</small></span></span>spend</span> <span class="main"><span class="tag"><span>O</span></span>two thirds</span> <span class="main mm"><span class="tag"><span>M</span></span><span class="br">&lt;</span>talking about their own relationships<span class="br">&gt;</span></span>, <span class="main mm"><span class="tag"><span>M</span></span><span class="br">&lt;</span>while <span class="sub"><span class="tag"><span>S'</span></span>women</span> <span class="sub"><span class="tag"><span>M'</span></span>only</span> <span class="sub"><span class="tag"><span>V'<small>i</small></span></span>talk</span> <span class="sub"><span class="tag"><span>M'</span></span><span class="br">&lt;</span>about themselves<span class="br">&gt;</span></span> <span class="sub"><span class="tag"><span>M'</span></span>one third of the time</span><span class="br">&gt;</span></span>.</div>
+  <ul class="notes"><li>文頭の Of 〜「〜のうち」。while は対比「一方」。</li></ul>
+  <div class="ja"><span class="jt">訳</span>人間関係についての会話に費やされる時間全体のうち、男性は3分の2を自分自身の人間関係について話すのに使うが、女性が自分のことを話すのは3分の1にすぎない。</div>
+</div>
+<div class="sent">
+  <div class="sn">9</div>
+  <div class="pattern">SV受＋離れた同格 that（下線部(3) the myth）</div>
+  <div class="en togi"><span class="main mm"><span class="tag"><span>M</span></span><span class="br">&lt;</span>Despite these findings<span class="br">&gt;</span></span>, <span class="main"><span class="tag"><span>S</span></span>the myth</span> <span class="main"><span class="tag"><span>V<small>受</small></span></span>is</span> <span class="main mm"><span class="tag"><span>M</span></span>still</span> <span class="main mm"><span class="tag"><span>M</span></span>widely</span> <span class="main"><span class="tag"><span>V<small>受</small></span></span>believed</span>, <span class="main mm"><span class="tag"><span>M</span></span><span class="br">&lt;</span>particularly among males<span class="br">&gt;</span></span>, <span class="main mm"><span class="tag"><span>M</span></span><span class="br">[</span>that <span class="sub"><span class="tag"><span>S'</span></span>men</span> <span class="sub"><span class="tag"><span>V'<small>t</small></span></span>spend</span> <span class="sub"><span class="tag"><span>O'</span></span>their conversations</span> <span class="sub"><span class="tag"><span>M'</span></span>“solving the world’s problems,”</span> <span class="sub"><span class="tag"><span>M'</span></span><span class="br">&lt;</span>while the womenfolk gossip in the kitchen<span class="br">&gt;</span></span><span class="br">]</span></span>.</div>
+  <ul class="notes"><li>the myth と同格の that 節が、V（is believed）の後ろに離れて置かれている。S が長くなりすぎるのを避けた形。the myth の中身＝that 以下。</li><li>Despite these findings「これらの研究結果にもかかわらず」→ myth は事実に反する「俗説」。</li><li>spend O doing「O を〜して過ごす」。“ ” つきの solving the world’s problems は皮肉（大げさな表現）。</li></ul>
+  <div class="ja"><span class="jt">訳</span>これらの研究結果にもかかわらず、男性は会話を「世界の問題の解決」に費やし、その間女たちは台所でうわさ話をしている、という神話は、特に男性の間でいまだに広く信じられている。</div>
+</div>
+<div class="sent">
+  <div class="sn">10</div>
+  <div class="pattern">SVO, while SVO（代動詞 did）</div>
+  <div class="en togi"><span class="main mm"><span class="tag"><span>M</span></span><span class="br">&lt;</span>In my focus groups and interviews<span class="br">&gt;</span></span>, <span class="main"><span class="tag"><span>S</span></span>most English males</span> <span class="main mm"><span class="tag"><span>M</span></span>initially</span> <span class="main"><span class="tag"><span>V<small>t</small></span></span>claimed</span> <span class="main"><span class="tag"><span>O</span></span><span class="br">[</span>that they did not gossip<span class="br">]</span></span>, <span class="main mm"><span class="tag"><span>M</span></span><span class="br">&lt;</span>while <span class="sub"><span class="tag"><span>S'</span></span>most of the females</span> <span class="sub"><span class="tag"><span>M'</span></span>readily</span> <span class="sub"><span class="tag"><span>V'<small>t</small></span></span>admitted</span> <span class="sub"><span class="tag"><span>O'</span></span><span class="br">[</span>that they did △<span class="br">]</span></span><span class="br">&gt;</span></span>.</div>
+  <ul class="notes"><li>did＝gossiped（代動詞）。initially「当初は」→ 次の文の however（さらに聞くと）を予告。</li></ul>
+  <div class="ja"><span class="jt">訳</span>私のフォーカス・グループや面接では、イングランドの男性のほとんどが当初はうわさ話などしないと主張したが、女性のほとんどはすぐにしていると認めた。</div>
+</div>
+<div class="sent">
+  <div class="sn">11</div>
+  <div class="pattern">SV（turn out to be）: OSV（下線部(4)）</div>
+  <div class="en togi"><span class="main mm"><span class="tag"><span>M</span></span><span class="br">&lt;</span>On further questioning<span class="br">&gt;</span></span>, however, <span class="main"><span class="tag"><span>S</span></span>the difference</span> <span class="main"><span class="tag"><span>V</span></span>turned out to be</span> <span class="main"><span class="tag"><span>C</span></span>more a matter of language than of practice</span>: <span class="main"><span class="tag"><span>O</span></span><span class="br">[</span>what <span class="sub"><span class="tag"><span>S'</span></span>the women</span> <span class="sub"><span class="tag"><span>V'</span></span>were happy to call</span> <span class="gap"><span class="tag"><span>O&#x27;欠</span></span>●</span> <span class="sub"><span class="tag"><span>C'</span></span>“gossip,”</span><span class="br">]</span></span> <span class="main"><span class="tag"><span>S</span></span>the men</span> <span class="main"><span class="tag"><span>V<small>t</small></span></span>defined</span> <span class="main mm"><span class="tag"><span>M</span></span>as “exchanging information.”</span></div>
+  <ul class="notes"><li>on doing「〜すると」。turn out to be C「C だとわかる」（まとめて V：tactics 017）。</li><li>more A than B「B というよりむしろ A」。language（呼び方）⇔ practice（実際の行い）の対比。</li><li>コロン以下は O が文頭に出た OSV（tactics 030 の例外パターン）。define A as B の A（what 節）が前に出ている。what の中は call O C の O が欠けている（tactics 044）。</li></ul>
+  <div class="ja"><span class="jt">訳</span>しかし、さらに質問していくと、その違いは実際の行動というよりむしろ言葉の問題であることがわかった。女性たちが平気で「うわさ話」と呼ぶものを、男性たちは「情報交換」と定義していたのである。</div>
+</div>
+<div class="sent">
+  <div class="sn">12</div>
+  <div class="pattern">There＋V＋S＋同格（下線部(5)）</div>
+  <div class="en togi"><span class="main mm"><span class="tag"><span>M</span></span>Clearly</span>, there <span class="main"><span class="tag"><span>V<small>i</small></span></span>is</span> <span class="main"><span class="tag"><span>S</span></span>a sense of dishonor <span class="br">(</span>attached to gossip among English males<span class="br">)</span>, an unwritten rule <span class="br">(</span>to the effect <span class="br">[</span>that, <span class="br">&lt;</span>even if <span class="br">[</span>what <span class="sub"><span class="tag"><span>S''</span></span>one</span> <span class="sub"><span class="tag"><span>V''</span></span>is doing</span> <span class="gap"><span class="tag"><span>O&#x27;&#x27;欠</span></span>●</span><span class="br">]</span> is gossiping<span class="br">&gt;</span>, <span class="sub"><span class="tag"><span>S'</span></span>it</span> <span class="sub"><span class="tag"><span>V'<small>受</small></span></span>should be called</span> <span class="sub"><span class="tag"><span>C'</span></span>something else</span><span class="br">]</span><span class="br">)</span></span>.</div>
+  <ul class="notes"><li>attached to 〜 は過去分詞で前の名詞にかかる（tactics 013）。a sense of dishonor attached to 〜「〜に結びついた不名誉の感覚」。</li><li>an unwritten rule は a sense of dishonor の言い換え（同格：tactics 003）。</li><li>to the effect that 〜「〜という趣旨の」（that は同格）。what one is doing「自分のしていること」は what 節が S。</li></ul>
+  <div class="ja"><span class="jt">訳</span>明らかに、イングランドの男性の間ではうわさ話に不名誉の感覚がつきまとっている。それは、たとえ自分のしていることがうわさ話であっても、何か別の名前で呼ばれるべきだという不文律である。</div>
+</div>
+<div class="sent">
+  <div class="sn">13</div>
+  <div class="pattern">省略文（C ＋コロン）</div>
+  <div class="en togi">Perhaps <span class="main"><span class="tag"><span>C</span></span>even more important</span>: <span class="main"><span class="tag"><span>S</span></span>it</span> <span class="main"><span class="tag"><span>V</span></span>should sound</span> <span class="main"><span class="tag"><span>C</span></span>like something else</span>.</div>
+  <ul class="notes"><li>(What is) even more important (is this): の省略。sound like 〜「〜のように聞こえる」。</li></ul>
+  <div class="ja"><span class="jt">訳</span>おそらくさらに重要なのは、それが何か別のものに聞こえなければならない、ということだ。</div>
+</div>
+<div class="sent">
+  <div class="sn">14</div>
+  <div class="pattern">SVO（O の中が SVC＋that 節）</div>
+  <div class="en togi"><span class="main mm"><span class="tag"><span>M</span></span><span class="br">&lt;</span>In my gossip research<span class="br">&gt;</span></span>, <span class="main"><span class="tag"><span>S</span></span>I</span> <span class="main"><span class="tag"><span>V<small>t</small></span></span>found</span> <span class="main"><span class="tag"><span>O</span></span><span class="br">[</span>that <span class="sub"><span class="tag"><span>S'</span></span>the main difference <span class="br">(</span>between male and female gossip<span class="br">)</span></span> <span class="sub"><span class="tag"><span>V'</span></span>is</span> <span class="sub"><span class="tag"><span>C'</span></span><span class="br">[</span>that female gossip actually sounds like gossip<span class="br">]</span></span><span class="br">]</span></span>.</div>
+  <ul class="notes"><li>is の後ろの that 節は C（tactics 028）。actually「実際に」→ 男性のうわさ話はうわさ話に聞こえないように話されている、という含み。</li></ul>
+  <div class="ja"><span class="jt">訳</span>うわさ話の研究で私がわかったのは、男女のうわさ話の主な違いは、女性のうわさ話は実際にうわさ話のように聞こえる、という点だということだ。</div>
+</div>
+</section>
+<section class="sec page">
+  <h3>下線部の訳のポイント</h3>
+  
+<div class="ul">
+  <div class="uh">問1　下線部(1)</div>
+  <div class="uen">Men were certainly found to be no more likely than women to discuss “important” or “sophisticated” subjects such as politics, work, art and cultural matters — except (and this was a striking difference) when women were present.</div>
+  <table class="pt"><tr><td class="k">were found to be 〜</td><td>find O to be C の受身。「〜だとわかった」。「見つけられた」は×。</td></tr><tr><td class="k">no more likely than women to discuss 〜</td><td>no＋比較級＝「…と同様に〜でない」。直訳「女性より少しも〜しがちではない」→「男性が〜を論じる傾向は女性と比べて少しも高くない」。「女性ほど〜しない」と訳すと逆の意味になるので×。</td></tr><tr><td class="k">“important” or “sophisticated”</td><td>“ ” 付きは「いわゆる」のニュアンス。「『重要な』あるいは『高尚な』」とかぎかっこを残す。</td></tr><tr><td class="k">except … when women were present</td><td>except when 〜「〜のときを除いて」。「ただし、女性がその場にいるときは別だ」と文を分けると自然。</td></tr><tr><td class="k">(and this was a striking difference)</td><td>挿入。「そしてこれは際立った違いだったのだが」。訳から落とさない。</td></tr></table>
+  <div class="model"><b>模範訳</b>　確かに、男性が政治、仕事、芸術、文化的な事柄といった「重要な」あるいは「高尚な」話題を論じる傾向は、女性と比べて少しも高くないことがわかった。ただし――そしてこれは際立った違いだったのだが――女性がその場にいるときは別である。</div>
+</div>
+<div class="ul">
+  <div class="uh">問2　下線部(2)</div>
+  <div class="uen">It is only in mixed-sex groups, where there are women to impress, that the proportion of male conversation time devoted to these more “sophisticated” subjects increases dramatically, to between 15 and 20 per cent.</div>
+  <table class="pt"><tr><td class="k">It is only 〜 that …</td><td>強調構文（tactics 095）。「…するのは〜においてだけだ」と、強調部分（only in mixed-sex groups）を文末に置いて訳すのが定石。「〜で初めて…」も可。</td></tr><tr><td class="k">where there are women to impress</td><td>非制限の関係副詞。women to impress は「（男性が）良いところを見せたい女性」。impress の O が women。「印象づける女性」だと女性が主語に見えるので注意。</td></tr><tr><td class="k">the proportion of male conversation time devoted to 〜</td><td>S の中心は proportion。devoted to 〜 は time にかかる。「〜に費やされる男性の会話時間の割合」。</td></tr><tr><td class="k">increases dramatically, to between 15 and 20 per cent</td><td>increase to 〜「〜にまで増える」。between A and B が to の O になった形。「劇的に増えて15〜20％にもなる」。</td></tr></table>
+  <div class="model"><b>模範訳</b>　男性の会話時間のうち、こうしたより「高尚な」話題に費やされる割合が劇的に増えて15〜20パーセントにまでなるのは、良いところを見せたい女性がいる男女混合の集団においてだけである。</div>
+</div>
+<div class="ul">
+  <div class="uh">問3　下線部(3) the myth の内容説明</div>
+  <div class="uen">Despite these findings, the myth is still widely believed, particularly among males, that men spend their conversations “solving the world’s problems,” while the womenfolk gossip in the kitchen.</div>
+  <table class="pt"><tr><td class="k">中身はどこか</td><td>the myth と同格の that 節が、V（is believed）の後ろに離れて置かれている。the myth の内容＝that 以下。S が長くなりすぎるので that 節を後ろに回した形。</td></tr><tr><td class="k">“solving the world’s problems”</td><td>かぎかっこ付きの大げさな表現。具体的には、第4文の政治・仕事・芸術・文化といった「重要な・高尚な話題」を論じること。説明問題では本文の言い換えまで具体化する。</td></tr><tr><td class="k">while the womenfolk gossip in the kitchen</td><td>while は対比「一方で」。womenfolk は「女たち」（やや古い言い方）。</td></tr><tr><td class="k">myth のニュアンス</td><td>Despite these findings があるので、「研究結果に反する、根拠のない俗説」であることも答えに含めるとよい。</td></tr></table>
+  <div class="model"><b>模範訳</b>　【解答例】男性は会話の時間を政治や仕事などの「世界の問題」を解決するような高尚な話題に費やしているのに対し、女性たちは台所でうわさ話ばかりしている、という（研究結果に反するのに、特に男性の間で広く信じられている）俗説。</div>
+</div>
+<div class="ul">
+  <div class="uh">問4　下線部(4)</div>
+  <div class="uen">On further questioning, however, the difference turned out to be more a matter of language than of practice: what the women were happy to call “gossip,” the men defined as “exchanging information.”</div>
+  <table class="pt"><tr><td class="k">On further questioning</td><td>on doing「〜すると」。「さらに質問すると・さらに問いただしてみると」。</td></tr><tr><td class="k">turned out to be 〜</td><td>「〜だとわかった・判明した」。</td></tr><tr><td class="k">more a matter of language than of practice</td><td>more A than B「B というよりむしろ A」。language は「言語」より「言葉（呼び方）」、practice は「練習」ではなく「実際の行い・実践」。</td></tr><tr><td class="k">what the women … , the men defined as …</td><td>O が文頭に出た OSV（define A as B の A が前）。「女性が〜と呼ぶものを、男性は…と定義していた」と、O から訳すと語順のまま自然に訳せる。</td></tr><tr><td class="k">were happy to call</td><td>be happy to do「喜んで（平気で）〜する」。「幸せ」は×。</td></tr></table>
+  <div class="model"><b>模範訳</b>　しかし、さらに質問していくと、その違いは実際の行動というよりむしろ言葉の問題であることがわかった。女性たちが平気で「うわさ話」と呼ぶものを、男性たちは「情報交換」と定義していたのである。</div>
+</div>
+<div class="ul">
+  <div class="uh">問5　下線部(5)</div>
+  <div class="uen">Clearly, there is a sense of dishonor attached to gossip among English males, an unwritten rule to the effect that, even if what one is doing is gossiping, it should be called something else.</div>
+  <table class="pt"><tr><td class="k">a sense of dishonor attached to gossip</td><td>attached to 〜 は過去分詞の後置修飾。「うわさ話につきまとう不名誉の感覚」→「うわさ話は不名誉なものだという感覚」。</td></tr><tr><td class="k">among English males</td><td>「イングランドの男性の間で」。</td></tr><tr><td class="k">an unwritten rule</td><td>a sense of dishonor の言い換え（同格）。「すなわち〜という不文律」とつなぐ。</td></tr><tr><td class="k">to the effect that 〜</td><td>「〜という趣旨の」。that 以下が rule の中身。</td></tr><tr><td class="k">even if what one is doing is gossiping</td><td>what 節が S。one は一般の人「自分」。「たとえ自分のしていることがうわさ話であっても」。</td></tr><tr><td class="k">it should be called something else</td><td>「それは何か別の名前で呼ばれるべきだ」。something else「何か別のもの」。</td></tr></table>
+  <div class="model"><b>模範訳</b>　明らかに、イングランドの男性の間では、うわさ話には不名誉な感覚がつきまとっている。すなわち、たとえ自分のしていることがうわさ話であっても、それは何か別の名前で呼ばれなければならない、という不文律があるのだ。</div>
+</div>
+  <h3>全訳</h3>
+  <div class="translation"><p>一般に信じられているのとは反対に、男性も女性とまったく同じくらいうわさ話をすることを研究者たちは発見した。ある英国の研究では、男女とも会話時間の同じ量（約65％）を個人的な人間関係などの社会的な話題に費やしていた。別の研究では差はごく小さく、うわさ話は男性の会話時間の55％、女性の67％を占めていた。スポーツと余暇が会話時間の約10％を占めることが示されているので、サッカーの話題でその差は十分に説明がつくだろう。確かに、男性が政治、仕事、芸術、文化的な事柄といった「重要な」あるいは「高尚な」話題を論じる傾向は、女性と比べて少しも高くないことがわかった。ただし――これは際立った違いだったが――女性がその場にいるときは別である。男性だけでいるときは、男性はうわさ話をし、仕事や政治といった社会的でない話題に費やされる会話時間はわずか5％にすぎない。男性の会話時間のうち、こうしたより「高尚な」話題に費やされる割合が劇的に増えて15〜20％にまでなるのは、良く見せたい女性がいる男女混合の集団においてだけである。実のところ、最近の研究で明らかになった男女のうわさ話の内容面での大きな違いは一つだけだ。男性のほうが自分自身について話す時間がずっと長いのである。人間関係についての会話に費やされる時間全体のうち、男性は3分の2を自分自身の人間関係について話すのに使うが、女性が自分のことを話すのは3分の1にすぎない。これらの研究結果にもかかわらず、男性は会話を「世界の問題の解決」に費やし、その間女たちは台所でうわさ話をしている、という神話は、特に男性の間でいまだに広く信じられている。私のフォーカス・グループや面接では、イングランドの男性のほとんどが当初はうわさ話などしないと主張したが、女性のほとんどはすぐにしていると認めた。しかし、さらに質問していくと、その違いは実際の行動というよりむしろ言葉の問題であることがわかった。女性たちが平気で「うわさ話」と呼ぶものを、男性たちは「情報交換」と定義していたのである。明らかに、イングランドの男性の間ではうわさ話に不名誉の感覚がつきまとっている。それは、たとえ自分のしていることがうわさ話であっても、何か別の名前で呼ばれるべきだという不文律である。おそらくさらに重要なのは、それが何か別のものに聞こえなければならない、ということだ。うわさ話の研究で私がわかったのは、男女のうわさ話の主な違いは、女性のうわさ話は実際にうわさ話のように聞こえる、という点だということだ。</p></div>
+</section></body></html>
