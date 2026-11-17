@@ -85,3 +85,10 @@ table.answers { width:100%; border-collapse:collapse; font-size:10pt; }
 .togi .emph { border-bottom:1.6px dotted #111; }
 .togi .emph > .tag > span { top:.75em; font-size:7.5pt; color:#111; }
 .legend.togi { line-height:3.1; }
+
+/* 文補充問題（長文 III など） */
+.fill { background:#fff1a6; padding:.05em .1em; -webkit-box-decoration-break:clone; box-decoration-break:clone; }
+.fill .bn { display:inline-block; font-family:"IPAPGothic",sans-serif; font-size:8pt; font-weight:bold; border:1px solid var(--ink); padding:0 1mm; margin-right:1mm; line-height:1.3; background:#fff; }
+.options td { font-family:"Liberation Serif","DejaVu Serif",serif; }
+.opt-ja { font-family:"IPAPGothic",sans-serif; font-size:9pt; color:#444; }
+.pattern.blank { background:#fff1a6; font-weight:bold; margin-right:1mm; }
